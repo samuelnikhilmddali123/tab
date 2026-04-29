@@ -32,9 +32,11 @@ export default function AdminDashboard({ onBack, btStatus }) {
         try {
             const token = await storage.getToken();
             const config = { headers: { Authorization: `Bearer ${token}` } };
+            const user = await storage.getUser();
+            const posId = (user.role === 'admin' || user.role === 'superadmin') ? 'all' : 'pos1';
             const [statsRes, ticketsRes] = await Promise.all([
-                axios.get(`${API_URL}/api/tickets/stats?posId=pos1`, config),
-                axios.get(`${API_URL}/api/tickets?posId=pos1`, config)
+                axios.get(`${API_URL}/api/tickets/stats?posId=${posId}`, config),
+                axios.get(`${API_URL}/api/tickets?posId=${posId}`, config)
             ]);
             setStats(statsRes.data);
             setTickets(ticketsRes.data.filter(t => !t.parentId));
