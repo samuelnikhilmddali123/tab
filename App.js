@@ -9,6 +9,7 @@ import { API_URL, storage } from './src/api/config';
 import Login from './src/pages/Login';
 import AdminDashboard from './src/pages/AdminDashboard';
 import PaymentWebView from './src/components/PaymentWebView';
+import PaymentStatus from './src/components/PaymentStatus';
 import { generateTicketsForCart } from './src/utils/TicketFormatter';
 import PrinterService, { isNativePrinter } from './src/utils/PrinterService';
 
@@ -36,6 +37,8 @@ function MainApp({ user, onLogout }) {
   
   const [paymentUrl, setPaymentUrl] = useState(null);
   const [paymentVisible, setPaymentVisible] = useState(false);
+  const [statusVisible, setStatusVisible] = useState(false);
+  const [statusMode, setStatusMode] = useState('awaiting'); // awaiting, success, error
 
   // Connection Loop
   const autoConnect = async () => {
@@ -108,32 +111,83 @@ function MainApp({ user, onLogout }) {
         surl: `${API_URL}/api/payments/response?status=success`, furl: `${API_URL}/api/payments/response?status=failure`
       }, { headers: { Authorization: `Bearer ${token}` } });
       
-      if (res.data?.url) { setPaymentUrl(res.data.url); setPaymentVisible(true); }
-    } catch (err) { Alert.alert('Error', 'Gateway unreachable.'); }
+      if (res.data?.url) { 
+        setPaymentUrl(res.data.url); 
+        setPaymentVisible(true); 
+      }
+    } catch (err) { 
+        setStatusMode('error');
+        setStatusVisible(true);
+    }
   };
 
   const handlePaymentSuccess = async () => {
+    console.log('Payment success triggered. Starting print process...');
     setPaymentVisible(false);
+    setStatusMode('success');
+    setStatusVisible(true);
+    
     const ticketId = `TXN-${Date.now().toString().slice(-8)}`;
     const ticketsToPrint = generateTicketsForCart(cart, ticketId, mobile, user, 'UPI');
     
-    // Save to server
-    try {
-      const token = await storage.getToken();
-      await axios.post(`${API_URL}/api/tickets`, ticketsToPrint.map(t => ({ ...t, createdBy: user.name })), { headers: { Authorization: `Bearer ${token}` } });
-    } catch (e) {}
-
-    // Print
-    for (const t of ticketsToPrint) {
-        try {
-            await PrinterService.printText(t.text);
-            if (PrinterService.printQRCode) await PrinterService.printQRCode(t.id);
-            await PrinterService.printText("\n\n\n\n");
-            await PrinterService.cutPaper();
-        } catch (e) {}
+    // 1. Quick Printer Check/Reconnect
+    if (btStatus !== 'connected') {
+        console.log('Printer not connected, attempting quick reconnect...');
+        await autoConnect();
     }
-    setCart([]); setMobile(''); setCartModalVisible(false);
-    Alert.alert('Success', 'Tickets printed and recorded.');
+
+    // 2. Start Printing Loop (Non-blocking)
+    const runPrint = async () => {
+        for (const t of ticketsToPrint) {
+            try {
+                console.log(`Printing ticket: ${t.id}`);
+                await PrinterService.printText(t.text);
+                if (PrinterService.printQRCode) await PrinterService.printQRCode(t.id);
+                await PrinterService.printText("\n\n\n\n");
+                await PrinterService.cutPaper();
+                // Small delay between tickets for stability
+                await new Promise(r => setTimeout(r, 500));
+            } catch (e) {
+                console.error('Print Error:', e);
+            }
+        }
+        console.log('Printing loop finished.');
+    };
+    runPrint();
+
+    // 3. Sync with server in background
+    const syncServer = async () => {
+        try {
+            const token = await storage.getToken();
+            await axios.post(`${API_URL}/api/tickets`, ticketsToPrint.map(t => ({ ...t, createdBy: user.name })), { 
+                headers: { Authorization: `Bearer ${token}` } 
+            });
+            console.log('Server sync successful.');
+        } catch (e) {
+            console.error('Server sync failed:', e);
+        }
+    };
+    syncServer();
+
+    setCart([]); 
+    setMobile(''); 
+    setCartModalVisible(false);
+  };
+
+  const handlePaymentFailure = () => {
+    setPaymentVisible(false);
+    setStatusMode('error');
+    setStatusVisible(true);
+  };
+
+  const handleTestPrint = async () => {
+    try {
+      await PrinterService.printText("ETHREE POS TEST PRINT\n" + new Date().toLocaleString() + "\n\n\n\n");
+      await PrinterService.cutPaper();
+      Alert.alert('Success', 'Test print sent.');
+    } catch (e) {
+      Alert.alert('Error', 'Test print failed: ' + e.message);
+    }
   };
 
   // UI Components
@@ -219,6 +273,9 @@ function MainApp({ user, onLogout }) {
                 <View style={[styles.btIndicator, {backgroundColor: btStatus === 'connected' ? '#10b981' : '#ef4444'}]}>
                     <Text style={styles.btText}>{btStatus.toUpperCase()}</Text>
                 </View>
+                <TouchableOpacity onPress={handleTestPrint} style={styles.testBtn}>
+                    <Text style={styles.testBtnText}>TEST</Text>
+                </TouchableOpacity>
                 {user.role === 'admin' && <TouchableOpacity onPress={() => setIsAdminView(true)} style={styles.adminBadge}><Text style={styles.adminLabel}>ADMIN</Text></TouchableOpacity>}
                 <TouchableOpacity onPress={onLogout} style={styles.logoutBtn}><Ionicons name="log-out-outline" size={20} color="#fff" /></TouchableOpacity>
             </View>
@@ -246,7 +303,8 @@ function MainApp({ user, onLogout }) {
         </SafeAreaProvider>
       </Modal>
 
-      <PaymentWebView visible={paymentVisible} url={paymentUrl} onCancel={() => setPaymentVisible(false)} onSuccess={handlePaymentSuccess} onFailure={() => setPaymentVisible(false)} />
+      <PaymentWebView visible={paymentVisible} url={paymentUrl} onCancel={() => setPaymentVisible(false)} onSuccess={handlePaymentSuccess} onFailure={handlePaymentFailure} />
+      <PaymentStatus visible={statusVisible} status={statusMode} onRetry={() => { setStatusVisible(false); initiatePayment(); }} onCancel={() => setStatusVisible(false)} onDone={() => setStatusVisible(false)} />
       <StatusBar style="light" />
     </View>
   );
@@ -276,6 +334,8 @@ const styles = StyleSheet.create({
   btText: { color: '#fff', fontSize: 7, fontWeight: 'bold' },
   adminBadge: { backgroundColor: '#3b82f6', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 4, marginRight: 15 },
   adminLabel: { color: '#fff', fontSize: 10, fontWeight: 'bold' },
+  testBtn: { backgroundColor: '#334155', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 6, marginRight: 15 },
+  testBtnText: { color: '#fff', fontSize: 10, fontWeight: 'bold' },
   logoutBtn: { padding: 5 },
   body: { flex: 1 },
   leftSide: { flex: 1, padding: 10 },

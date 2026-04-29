@@ -6,9 +6,13 @@ import { Ionicons } from '@expo/vector-icons';
 export default function PaymentWebView({ visible, url, onCancel, onSuccess, onFailure }) {
   const handleNavigationStateChange = (navState) => {
     const { url: currentUrl } = navState;
-    if (currentUrl.includes('status=success')) {
+    
+    // Check for success markers
+    if (currentUrl.includes('status=success') || currentUrl.includes('payment=success') || currentUrl.includes('success')) {
       onSuccess();
-    } else if (currentUrl.includes('status=failure')) {
+    } 
+    // Check for failure markers
+    else if (currentUrl.includes('status=failure') || currentUrl.includes('payment=failure') || currentUrl.includes('failure')) {
       onFailure();
     }
   };
@@ -27,6 +31,12 @@ export default function PaymentWebView({ visible, url, onCancel, onSuccess, onFa
           <WebView
             source={{ uri: url }}
             onNavigationStateChange={handleNavigationStateChange}
+            onError={(syntheticEvent) => {
+              const { nativeEvent } = syntheticEvent;
+              // Even if the page fails to load (like localhost refused), 
+              // check the URL to see if it was a success or failure redirect
+              handleNavigationStateChange(nativeEvent);
+            }}
             startInLoadingState={true}
             renderLoading={() => (
               <View style={styles.loading}>
