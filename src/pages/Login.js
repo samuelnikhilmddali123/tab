@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
@@ -69,8 +70,11 @@ export default function Login({ onLoginSuccess }) {
                 placeholder="••••••••"
                 value={password}
                 onChangeText={setPassword}
-                secureTextEntry
+                secureTextEntry={!showPassword}
               />
+              <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.eyeIcon}>
+                <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={20} color="#64748b" />
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -98,6 +102,7 @@ const styles = StyleSheet.create({
   inputContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#f1f5f9', borderRadius: 12, paddingHorizontal: 15 },
   inputIcon: { marginRight: 10 },
   input: { flex: 1, paddingVertical: 12, fontSize: 16, color: '#0f172a' },
+  eyeIcon: { padding: 8, marginRight: -8 },
   button: { backgroundColor: '#a855f7', borderRadius: 12, paddingVertical: 15, alignItems: 'center', marginTop: 10, shadowColor: '#a855f7', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 8 },
   buttonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
   footer: { textAlign: 'center', fontSize: 10, color: '#94a3b8', marginTop: 30, textTransform: 'uppercase', letterSpacing: 1 },

@@ -11,11 +11,11 @@ import AdminDashboard from './src/pages/AdminDashboard';
 import PaymentWebView from './src/components/PaymentWebView';
 import PaymentStatus from './src/components/PaymentStatus';
 import { generateTicketsForCart } from './src/utils/TicketFormatter';
-import PrinterService, { isNativePrinter } from './src/utils/PrinterService';
+import PrinterService, { isNativePrinter, safePrint } from './src/utils/PrinterService';
 
 const FEATURED_NAMES = ['ETHREE BUS', 'SUN @ MOON', 'TL TRAIN', 'BALLOON SHOOTING'];
-const TARGET_PRINTER_NAME = 'Printer001-6D49';
-const FALLBACK_IMAGE = require('./assets/public/train_files/stackvil_logo.png');
+const TARGET_PRINTER_NAME = 'Printer001-08D0';
+const FALLBACK_IMAGE = require('./assets/public/train_files/stackvil_logo.jpeg');
 
 function MainApp({ user, onLogout }) {
   const insets = useSafeAreaInsets();
@@ -23,6 +23,10 @@ function MainApp({ user, onLogout }) {
   const { width, height } = useWindowDimensions();
   const isLandscape = width > height;
   
+  const isPrinting = useRef(false);
+  const lastPrintTime = useRef(0);
+  const hasAutoTested = useRef(false);
+
   const [isAdminView, setIsAdminView] = useState(false);
   const [cartModalVisible, setCartModalVisible] = useState(false);
   const [showAllRides, setShowAllRides] = useState(false);
@@ -37,24 +41,66 @@ function MainApp({ user, onLogout }) {
   
   const [paymentUrl, setPaymentUrl] = useState(null);
   const [paymentVisible, setPaymentVisible] = useState(false);
+  const [paymentModalVisible, setPaymentModalVisible] = useState(false);
   const [statusVisible, setStatusVisible] = useState(false);
   const [statusMode, setStatusMode] = useState('awaiting'); // awaiting, success, error
+  const [isPrintingState, setIsPrintingState] = useState(false);
+  const [currentTxnId, setCurrentTxnId] = useState(null);
+  const [pendingSyncCount, setPendingSyncCount] = useState(0);
+
+
 
   // Connection Loop
-  const autoConnect = async () => {
-    if (btStatus === 'connected') return;
+  const autoConnect = async (force = false) => {
+    if (btStatus === 'connected' && !force) return;
     try {
+      console.log('PrinterService: Searching for devices...');
       setBtStatus('connecting');
-      await PrinterService.init();
+      
+      // Clear any stale native connection before re-scanning
+      if (PrinterService.closeConn) await PrinterService.closeConn();
+      
       const devices = await PrinterService.getDeviceList();
-      const target = devices.find(d => (d.device_name || d.name || '').toLowerCase().includes(TARGET_PRINTER_NAME.toLowerCase()));
+      console.log('PrinterService: Found devices:', JSON.stringify(devices));
+      
+      const target = devices.find(d => {
+        const name = (d.device_name || d.name || '').toLowerCase();
+        return name.includes(TARGET_PRINTER_NAME.toLowerCase()) || name.includes('printer');
+      });
+
       if (target) {
-        await PrinterService.connectPrinter(target.inner_mac_address || target.address);
+        console.log('PrinterService: Target found, connecting to:', target.device_name || target.name);
+        
+        // Use a timeout to avoid hanging on offline devices
+        const connection = PrinterService.connectPrinter(target.inner_mac_address || target.address);
+        const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Connection timed out')), 8000));
+        
+        await Promise.race([connection, timeout]);
+        
+        // Wait for native stabilization without triggering a print
+        await new Promise(r => setTimeout(r, 3000)); 
+        
         setBtStatus('connected');
+        if (force) Alert.alert('Printer Linked', `App is now linked to ${target.device_name || target.name}. Note: If the printer is physically off, it may still show as linked if it was previously paired.`);
+        
+        // Auto-test print on first connection of the session
+        if (!hasAutoTested.current) {
+          hasAutoTested.current = true;
+          console.log('PrinterService: Triggering automatic initial test print');
+          setTimeout(() => {
+            handleTestPrint();
+          }, 1000);
+        }
       } else {
+        console.log('PrinterService: Target not found in list.');
         setBtStatus('disconnected');
+        if (force) Alert.alert('Printer Not Found', 'Could not find any printer device nearby. Please ensure printer is ON and Bluetooth is enabled.');
       }
-    } catch (e) { setBtStatus('disconnected'); }
+    } catch (e) { 
+        console.error('PrinterService: Connection failed:', e);
+        setBtStatus('disconnected'); 
+        if (force) Alert.alert('Connection Failed', e.message || 'Unknown error');
+    }
   };
 
   useEffect(() => {
@@ -68,23 +114,85 @@ function MainApp({ user, onLogout }) {
               ]);
             } catch (e) {}
         }
+        if (!isNativePrinter) {
+          console.warn('PrinterService: Using Mock Printer (Native module not loaded)');
+        }
+        await PrinterService.init();
         fetchRides();
         autoConnect();
     };
     init();
-    const timer = setInterval(() => { if (btStatus !== 'connected') autoConnect(); }, 15000);
-    return () => clearInterval(timer);
+    checkPendingSyncs();
+    const timer = setInterval(() => { if (btStatus !== 'connected') autoConnect(); }, 30000);
+    const syncTimer = setInterval(() => { checkPendingSyncs(); }, 30000);
+    return () => { clearInterval(timer); clearInterval(syncTimer); };
   }, []);
+
+  const checkPendingSyncs = async () => {
+    try {
+        const pendingStr = await storage.getItem('pending_syncs');
+        const pending = pendingStr ? JSON.parse(pendingStr) : [];
+        setPendingSyncCount(pending.length);
+        if (pending.length > 0 && netInfo.isConnected) {
+            console.log('Attempting to sync pending transactions:', pending.length);
+            const token = await storage.getToken();
+            const stillPending = [];
+            for (const records of pending) {
+                try {
+                    await axios.post(`${API_URL}/api/tickets`, records, { headers: { Authorization: `Bearer ${token}` } });
+                    
+                    try {
+                        const ticketId = records[0].isMaster ? records[0].id : records[0].parentId;
+                        const archiveStr = await storage.getItem('local_archive');
+                        const archive = archiveStr ? JSON.parse(archiveStr) : [];
+                        const idx = archive.findIndex(a => a.id === ticketId);
+                        if (idx !== -1) {
+                            archive[idx].synced = true;
+                            await storage.setItem('local_archive', JSON.stringify(archive));
+                        }
+                    } catch (err) {}
+
+                } catch (e) {
+                    stillPending.push(records);
+                }
+            }
+            await storage.setItem('pending_syncs', JSON.stringify(stillPending));
+            setPendingSyncCount(stillPending.length);
+        }
+    } catch (e) {}
+  };
+
 
   const fetchRides = async () => {
     try {
+      setLoadingRides(true);
       const token = await storage.getToken();
+      console.log('Fetching rides from:', `${API_URL}/api/products`);
       const response = await axios.get(`${API_URL}/api/products?t=${Date.now()}`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
+        timeout: 5000
       });
-      setRides(response.data.filter(r => r.name !== 'Free Ride' && r.name !== 'Ticket Summary' && r.status !== 'off'));
-    } catch (err) { console.error(err); } finally { setLoadingRides(false); setRefreshing(false); }
+      
+      if (response.data && response.data.length > 0) {
+        setRides(response.data.filter(r => r.name !== 'Free Ride' && r.name !== 'Ticket Summary' && r.status !== 'off'));
+      } else {
+        throw new Error('Empty response from server');
+      }
+    } catch (err) { 
+      console.warn('API Fetch Failed, loading local fallback:', err.message);
+      // Fallback to local JSON
+      try {
+        const localRides = require('./assets/data/rides.json');
+        setRides(localRides);
+      } catch (localErr) {
+        console.error('Local fallback failed:', localErr);
+      }
+    } finally { 
+      setLoadingRides(false); 
+      setRefreshing(false); 
+    }
   };
+
 
   const addToCart = (ride) => {
     const existing = cart.find(i => (i.id || i._id) === (ride.id || ride._id));
@@ -104,7 +212,8 @@ function MainApp({ user, onLogout }) {
     try {
       const token = await storage.getToken();
       const txnId = `ETH-${Date.now().toString().slice(-8)}`;
-      // FIX: Ensure redirect URLs point to the server API, NOT localhost
+      setCurrentTxnId(txnId);
+      
       const res = await axios.post(`${API_URL}/api/payments/initiate`, {
         amount: cart.reduce((s,i)=>s+(i.price*i.quantity),0).toFixed(2), txnid: txnId, phone: mobile || '0000000000',
         productinfo: 'Tickets', firstname: user.name, email: user.email,
@@ -114,76 +223,167 @@ function MainApp({ user, onLogout }) {
       if (res.data?.url) { 
         setPaymentUrl(res.data.url); 
         setPaymentVisible(true); 
+
+        // 1. Log Attempt to Local Archive
+        try {
+            const archiveStr = await storage.getItem('local_archive');
+            const archive = archiveStr ? JSON.parse(archiveStr) : [];
+            const newRecord = {
+                id: txnId,
+                amount: cart.reduce((s,i)=>s+(i.price*i.quantity),0),
+                items: [...cart],
+                mobile: mobile,
+                paymentMode: 'UPI',
+                posId: 'pos1',
+                createdAt: new Date().toISOString(),
+                status: 'initiated', // initiated, success, failed
+                synced: false,
+                createdBy: user.name
+            };
+            archive.unshift(newRecord);
+            await storage.setItem('local_archive', JSON.stringify(archive));
+        } catch (e) { console.error('Archive Init Error:', e); }
       }
+
     } catch (err) { 
         setStatusMode('error');
         setStatusVisible(true);
     }
   };
 
-  const handlePaymentSuccess = async () => {
-    console.log('Payment success triggered. Starting print process...');
+  const executePrintAndSync = async (ticketId, paymentModeToUse) => {
+    // 1. Triple-Lock and Instant Wipe
+    const now = Date.now();
+    if (isPrinting.current || isPrintingState || (now - lastPrintTime.current < 5000)) return;
+    
+    const cartToPrint = [...cart];
+    if (cartToPrint.length === 0) return;
+
+    isPrinting.current = true;
+    setIsPrintingState(true);
+    lastPrintTime.current = now;
+    
+    setCart([]); // WIPE CART IMMEDIATELY
+    setMobile('');
+    setCartModalVisible(false);
     setPaymentVisible(false);
     setStatusMode('success');
     setStatusVisible(true);
     
-    const ticketId = `TXN-${Date.now().toString().slice(-8)}`;
-    const ticketsToPrint = generateTicketsForCart(cart, ticketId, mobile, user, 'UPI');
+    const allRecords = generateTicketsForCart(cartToPrint, ticketId, mobile, user, paymentModeToUse);
+    const ticketsToPrint = allRecords.filter(r => !r.isMaster);
     
-    // 1. Quick Printer Check/Reconnect
-    if (btStatus !== 'connected') {
-        console.log('Printer not connected, attempting quick reconnect...');
-        await autoConnect();
-    }
-
-    // 2. Start Printing Loop (Non-blocking)
-    const runPrint = async () => {
-        for (const t of ticketsToPrint) {
-            try {
-                console.log(`Printing ticket: ${t.id}`);
-                await PrinterService.printText(t.text);
-                if (PrinterService.printQRCode) await PrinterService.printQRCode(t.id);
-                await PrinterService.printText("\n\n\n\n");
-                await PrinterService.cutPaper();
-                // Small delay between tickets for stability
-                await new Promise(r => setTimeout(r, 500));
-            } catch (e) {
-                console.error('Print Error:', e);
-            }
+    // 2. INSTANTLY save to Local Archive before anything else
+    try {
+        const archiveStr = await storage.getItem('local_archive');
+        const archive = archiveStr ? JSON.parse(archiveStr) : [];
+        const idx = archive.findIndex(a => a.id === ticketId);
+        if (idx !== -1) {
+            archive[idx].status = 'success';
+            archive[idx].paymentMode = paymentModeToUse;
+            archive[idx].synced = false;
+        } else {
+            // Fallback: If not found, add it
+            archive.unshift({ ...allRecords[0], status: 'success', synced: false });
         }
-        console.log('Printing loop finished.');
+        await storage.setItem('local_archive', JSON.stringify(archive));
+    } catch (e) { console.error('Archive Instant Save Error:', e); }
+
+    const runPrint = async () => {
+        try {
+            await autoConnect(); // Connect
+            for (const t of ticketsToPrint) {
+                try {
+                    if (t.text) {
+                        await safePrint(t.text); // Print
+                        await safePrint("\x0a\x1d\x56\x00"); // Cut
+                    }
+                    await new Promise(r => setTimeout(r, 1200)); // Delay
+                } catch (e) { 
+                    console.error('Print Step Error:', e); 
+                    setBtStatus('disconnected');
+                }
+            }
+        } finally {
+            isPrinting.current = false;
+            setIsPrintingState(false);
+        }
     };
     runPrint();
 
-    // 3. Sync with server in background
-    const syncServer = async () => {
+    // Sync all records (Master + Sub-tickets) to server
+    const syncToServer = async () => {
+        // Attempt Server Sync
         try {
             const token = await storage.getToken();
-            await axios.post(`${API_URL}/api/tickets`, ticketsToPrint.map(t => ({ ...t, createdBy: user.name })), { 
+            await axios.post(`${API_URL}/api/tickets`, allRecords, { 
                 headers: { Authorization: `Bearer ${token}` } 
             });
-            console.log('Server sync successful.');
+            console.log('Sync Successful:', ticketId);
+            
+            // Mark as synced in archive
+            try {
+                const archiveStr = await storage.getItem('local_archive');
+                const archive = archiveStr ? JSON.parse(archiveStr) : [];
+                const idx = archive.findIndex(a => a.id === ticketId);
+                if (idx !== -1) {
+                    archive[idx].synced = true;
+                    await storage.setItem('local_archive', JSON.stringify(archive));
+                }
+            } catch (e) {}
         } catch (e) {
-            console.error('Server sync failed:', e);
+            console.error('Sync Failed, saving to pending queue:', e);
+            try {
+                const pendingStr = await storage.getItem('pending_syncs');
+                const pending = pendingStr ? JSON.parse(pendingStr) : [];
+                pending.push(allRecords);
+                await storage.setItem('pending_syncs', JSON.stringify(pending));
+                setPendingSyncCount(pending.length);
+            } catch (storageErr) { console.error('Local Storage Error:', storageErr); }
         }
     };
-    syncServer();
+    syncToServer();
+  };
 
-    setCart([]); 
-    setMobile(''); 
-    setCartModalVisible(false);
+  const handlePaymentSuccess = () => {
+      const ticketId = currentTxnId || `TXN-${Date.now().toString().slice(-8)}`;
+      executePrintAndSync(ticketId, 'UPI');
+  };
+
+  const processCashPayment = () => {
+      const txnId = `ETH-${Date.now().toString().slice(-8)}`;
+      setCurrentTxnId(txnId);
+      executePrintAndSync(txnId, 'CASH');
+  };
+
+  const handleCheckout = () => {
+    if (cart.length === 0) return;
+    setPaymentModalVisible(true);
+  };
+
+  const updateArchiveStatus = async (txnId, status) => {
+    if (!txnId) return;
+    try {
+        const archiveStr = await storage.getItem('local_archive');
+        const archive = archiveStr ? JSON.parse(archiveStr) : [];
+        const idx = archive.findIndex(a => a.id === txnId);
+        if (idx !== -1) {
+            archive[idx].status = status;
+            await storage.setItem('local_archive', JSON.stringify(archive));
+        }
+    } catch (e) {}
   };
 
   const handlePaymentFailure = () => {
     setPaymentVisible(false);
+    updateArchiveStatus(currentTxnId, 'failed');
     setStatusMode('error');
     setStatusVisible(true);
   };
 
   const handleTestPrint = async () => {
     try {
-      await PrinterService.printText("ETHREE POS TEST PRINT\n" + new Date().toLocaleString() + "\n\n\n\n");
-      await PrinterService.cutPaper();
+      await safePrint("ETHREE TEST PRINT\n" + new Date().toLocaleString() + "\n\x0a\x1d\x56\x00");
       Alert.alert('Success', 'Test print sent.');
     } catch (e) {
       Alert.alert('Error', 'Test print failed: ' + e.message);
@@ -253,9 +453,15 @@ function MainApp({ user, onLogout }) {
             <View><Text style={styles.totalLabel}>Total Payable</Text><Text style={styles.totalValLarge}>₹{cart.reduce((s,i)=>s+(i.price*i.quantity),0)}</Text></View>
             <View style={styles.instantBox}><Text style={styles.instantText}>Instant Print</Text><Text style={styles.readyText}>READY</Text></View>
         </View>
-        <TouchableOpacity style={styles.payBtnFull} onPress={initiatePayment}>
-            <View style={styles.printerCircle}><Ionicons name="print" size={14} color="#0f172a" /></View>
-            <Text style={styles.payBtnTextFull}>PRINT FINAL TICKET</Text>
+        <TouchableOpacity 
+            style={[styles.payBtnFull, (isPrintingState || cart.length === 0) && {opacity: 0.5}]} 
+            onPress={handleCheckout}
+            disabled={isPrintingState || cart.length === 0}
+        >
+            <View style={styles.printerCircle}>
+                {isPrintingState ? <ActivityIndicator size="small" color="#0f172a" /> : <Ionicons name="print" size={14} color="#0f172a" />}
+            </View>
+            <Text style={styles.payBtnTextFull}>{isPrintingState ? 'PRINTING...' : 'PRINT FINAL TICKET'}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -270,13 +476,22 @@ function MainApp({ user, onLogout }) {
             <Image source={require('./assets/public/logo.jpeg')} style={styles.headerLogo} />
             <Text style={styles.headerTitle}>ETHREE <Text style={{color:'#f0c05a'}}>POS</Text></Text>
             <View style={styles.headerActions}>
-                <View style={[styles.btIndicator, {backgroundColor: btStatus === 'connected' ? '#10b981' : '#ef4444'}]}>
+                <TouchableOpacity 
+                    onPress={() => autoConnect(true)} 
+                    style={[styles.btIndicator, {backgroundColor: btStatus === 'connected' ? '#10b981' : btStatus === 'connecting' ? '#f59e0b' : '#ef4444'}]}
+                >
                     <Text style={styles.btText}>{btStatus.toUpperCase()}</Text>
-                </View>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={handleTestPrint} style={styles.testBtn}>
                     <Text style={styles.testBtnText}>TEST</Text>
                 </TouchableOpacity>
+                {pendingSyncCount > 0 && (
+                    <TouchableOpacity onPress={checkPendingSyncs} style={[styles.testBtn, {backgroundColor: '#ef4444'}]}>
+                        <Text style={styles.testBtnText}>{pendingSyncCount} PENDING SYNC</Text>
+                    </TouchableOpacity>
+                )}
                 {user.role === 'admin' && <TouchableOpacity onPress={() => setIsAdminView(true)} style={styles.adminBadge}><Text style={styles.adminLabel}>ADMIN</Text></TouchableOpacity>}
+
                 <TouchableOpacity onPress={onLogout} style={styles.logoutBtn}><Ionicons name="log-out-outline" size={20} color="#fff" /></TouchableOpacity>
             </View>
          </View>
@@ -303,7 +518,35 @@ function MainApp({ user, onLogout }) {
         </SafeAreaProvider>
       </Modal>
 
-      <PaymentWebView visible={paymentVisible} url={paymentUrl} onCancel={() => setPaymentVisible(false)} onSuccess={handlePaymentSuccess} onFailure={handlePaymentFailure} />
+      {/* Custom Payment Method Selection Modal */}
+      <Modal visible={paymentModalVisible} transparent={true} animationType="fade" onRequestClose={() => setPaymentModalVisible(false)}>
+        <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={() => setPaymentModalVisible(false)}>
+            <View style={styles.paymentModalBox}>
+                <View style={styles.paymentMethodRow}>
+                    <TouchableOpacity style={[styles.paymentMethodBtn, { backgroundColor: '#ef4444' }]} onPress={() => { setPaymentModalVisible(false); initiatePayment(); }}>
+                        <Text style={styles.paymentMethodBtnText}>U{"\n"}P{"\n"}I</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.paymentMethodBtn, { backgroundColor: '#10b981' }]} onPress={() => { setPaymentModalVisible(false); processCashPayment(); }}>
+                        <Text style={styles.paymentMethodBtnText}>C{"\n"}A{"\n"}S{"\n"}H</Text>
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.paymentCancelBtn} onPress={() => setPaymentModalVisible(false)}>
+                    <Text style={styles.paymentCancelText}>CANCEL</Text>
+                </TouchableOpacity>
+            </View>
+        </TouchableOpacity>
+      </Modal>
+
+      <PaymentWebView 
+        visible={paymentVisible} 
+        url={paymentUrl} 
+        onCancel={() => { 
+            setPaymentVisible(false); 
+            updateArchiveStatus(currentTxnId, 'cancelled');
+        }} 
+        onSuccess={handlePaymentSuccess} 
+        onFailure={handlePaymentFailure} 
+      />
       <PaymentStatus visible={statusVisible} status={statusMode} onRetry={() => { setStatusVisible(false); initiatePayment(); }} onCancel={() => setStatusVisible(false)} onDone={() => setStatusVisible(false)} />
       <StatusBar style="light" />
     </View>
@@ -384,6 +627,13 @@ const styles = StyleSheet.create({
   payBtnTextFull: { color: '#fff', fontWeight: '900', fontSize: 12 },
   fab: { position: 'absolute', right: 20, left: 20, backgroundColor: '#0f172a', padding: 15, borderRadius: 30, alignItems: 'center' },
   fabText: { color: '#fff', fontWeight: 'bold' },
-  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 20, borderBottomWidth: 1, borderBottomColor: '#f1f5f9' },
-  modalTitle: { fontSize: 18, fontWeight: 'bold' }
+  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 20, backgroundColor: '#f1f5f9' },
+  modalTitle: { fontSize: 22, fontWeight: '900', color: '#0f172a' },
+  modalOverlay: { flex: 1, backgroundColor: 'rgba(15,23,42,0.8)', justifyContent: 'center', alignItems: 'center' },
+  paymentModalBox: { backgroundColor: '#fff', borderRadius: 16, padding: 40, width: '95%', maxWidth: 900, alignItems: 'center' },
+  paymentMethodRow: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', gap: 40 },
+  paymentMethodBtn: { flex: 1, backgroundColor: '#1e293b', height: 600, justifyContent: 'center', alignItems: 'center', borderRadius: 12 },
+  paymentMethodBtnText: { color: '#000', fontSize: 85, fontWeight: '900', textAlign: 'center' },
+  paymentCancelBtn: { marginTop: 25, padding: 15, width: '100%', alignItems: 'center' },
+  paymentCancelText: { color: '#64748b', fontSize: 16, fontWeight: 'bold' },
 });

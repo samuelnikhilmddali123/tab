@@ -18,5 +18,8 @@ export const storage = {
       return user ? JSON.parse(user) : null;
     } catch(e) { return null; }
   },
-  clear: () => safeStorage.multiRemove(['token', 'user']),
+  setItem: (key, val) => safeStorage.setItem(key, val),
+  getItem: (key) => safeStorage.getItem(key),
+  clear: () => safeStorage.multiRemove(['token', 'user', 'pending_syncs']),
 };
+
