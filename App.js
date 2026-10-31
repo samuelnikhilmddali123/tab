@@ -66,13 +66,74 @@ function MainApp({ user, onLogout }) {
   // Active payment state reference for deep links and app resume tracking
   const activePaymentRef = useRef({
     inProgress: false,
+    isProcessed: false,
     txnid: null,
     cart: [],
     amount: 0,
     mobile: '',
     startTime: 0,
   });
+  const livePollingTimer = useRef(null);
   const appStateRef = useRef(AppState.currentState);
+
+  const stopLivePolling = () => {
+    if (livePollingTimer.current) {
+      console.log('[Live Polling] Stopping poller.');
+      clearInterval(livePollingTimer.current);
+      livePollingTimer.current = null;
+    }
+  };
+
+  const startLivePolling = (txnIdToPoll) => {
+    stopLivePolling();
+    console.log('[Live Polling] Starting continuous poller (1.5s interval) for txnid:', txnIdToPoll);
+    let attempts = 0;
+    const maxAttempts = 120; // 3 minutes total
+
+    livePollingTimer.current = setInterval(async () => {
+      attempts++;
+      if (attempts > maxAttempts || !activePaymentRef.current.inProgress) {
+        console.log('[Live Polling] Stopping poller (timeout or cancelled).');
+        stopLivePolling();
+        return;
+      }
+
+      try {
+        const verifyRes = await verifyPaymentStatus(txnIdToPoll);
+        if (verifyRes.verified || verifyRes.status === 'success' || verifyRes.data?.isPaid === true) {
+          console.log('[Live Polling] >>> SUCCESS CONFIRMED BY EASEBUZZ! <<< Dismissing browser and printing ticket.');
+          stopLivePolling();
+
+          // 1. Dismiss In-App Browser (Chrome Custom Tab) to return to POS app
+          await dismissEasebuzzPortal();
+
+          // 2. Dismiss In-App Webview if open
+          setPaymentVisible(false);
+
+          // 3. Try to bring POS MainActivity to front if external browser was active
+          try {
+            await Linking.openURL(`yourrideapp://payment/callback?status=success&txnid=${txnIdToPoll}`);
+          } catch (e) {
+            console.log('[Live Polling] Deep link intent trigger:', e.message);
+          }
+
+          // 4. Dismiss status modal
+          setStatusVisible(false);
+
+          // 5. Process successful payment, wipe cart, sync & print ticket
+          await processSuccessfulPayment(txnIdToPoll, verifyRes);
+        } else if (verifyRes.failed) {
+          console.log('[Live Polling] Gateway reported payment failure.');
+          stopLivePolling();
+          await dismissEasebuzzPortal();
+          setPaymentVisible(false);
+          await processFailedPayment(txnIdToPoll, 'Payment was marked as failed.');
+        }
+      } catch (pollErr) {
+        console.warn('[Live Polling] Poller iteration error:', pollErr.message);
+      }
+    }, 1500);
+  };
 
 
 
@@ -288,9 +349,10 @@ function MainApp({ user, onLogout }) {
       console.error('Archive Init Error:', e);
     }
 
-    // Set tracking ref for deep link & app resume fallback
+    // Set tracking ref for deep link, polling & app resume fallback
     activePaymentRef.current = {
       inProgress: true,
+      isProcessed: false,
       txnid: txnId,
       cart: cartSnapshot,
       amount: totalAmount,
@@ -318,11 +380,34 @@ function MainApp({ user, onLogout }) {
       const returnedTxnId = initiateRes.txnid || txnId;
       setCurrentTxnId(returnedTxnId);
       activePaymentRef.current.txnid = returnedTxnId;
+      activePaymentRef.current.isProcessed = false;
 
       console.log('[Easebuzz Live] Opening portal URL:', paymentUrlToLaunch);
 
-      // Launch Live Gateway in In-App Browser / Chrome Custom Tab / Safari View
-      await launchEasebuzzPortal(paymentUrlToLaunch);
+      // 1. Start continuous 1.5s active polling immediately so payment is detected while browser is open
+      startLivePolling(returnedTxnId);
+
+      // 2. Launch Live Gateway non-blockingly (DO NOT await so poller runs simultaneously)
+      launchEasebuzzPortal(paymentUrlToLaunch)
+        .then((res) => {
+          console.log('[Easebuzz Portal] Browser dismissed or closed:', res);
+          // Safety check: if user manually closed browser, verify immediately
+          if (activePaymentRef.current.inProgress && !activePaymentRef.current.isProcessed) {
+            verifyPaymentStatus(returnedTxnId).then((chk) => {
+              if (chk.verified || chk.data?.isPaid === true) {
+                stopLivePolling();
+                processSuccessfulPayment(returnedTxnId, chk);
+              }
+            });
+          }
+        })
+        .catch((portalErr) => {
+          console.warn('[Easebuzz Portal] Launch failed, opening built-in webview:', portalErr.message);
+          setPaymentUrl(paymentUrlToLaunch);
+          setPaymentHtml(null);
+          setPaymentVisible(true);
+        });
+
       livePortalLaunched = true;
     } catch (apiErr) {
       console.warn('[Easebuzz Live] Initiation endpoint failed, falling back to built-in webview:', apiErr.message);
@@ -378,6 +463,11 @@ function MainApp({ user, onLogout }) {
 
     // Print ticket and sync to backend database
     await executePrintAndSync(ticketId, paymentModeToUse, itemsToConfirm, mobileToConfirm);
+
+    // Fully automatic hands-free: auto-dismiss receipt after 4s without tapping any button
+    setTimeout(() => {
+      setReceiptModalVisible(false);
+    }, 4000);
   };
 
   /**
@@ -387,24 +477,32 @@ function MainApp({ user, onLogout }) {
    * Update local ride state to paid.
    * Navigate to Ride Receipt / Confirmed screen.
    */
-  const processSuccessfulPayment = async (txnid) => {
+  const processSuccessfulPayment = async (txnid, preVerifiedResult = null) => {
+    if (activePaymentRef.current.isProcessed) {
+      console.log('[Verification] Payment already processed for txnid:', txnid);
+      return;
+    }
+    activePaymentRef.current.isProcessed = true;
+    activePaymentRef.current.inProgress = false;
+    stopLivePolling();
+
     try {
       setIsVerifyingPayment(true);
       setStatusMode('awaiting');
-      setStatusVisible(true);
 
-      console.log('[Verification] Confirming txnid with backend:', txnid);
-      const verifyResult = await verifyPaymentStatus(txnid);
-      console.log('[Verification] Backend response:', verifyResult);
+      let verifyResult = preVerifiedResult;
+      if (!verifyResult || !verifyResult.verified) {
+        console.log('[Verification] Confirming txnid with backend:', txnid);
+        verifyResult = await verifyPaymentStatus(txnid);
+        console.log('[Verification] Backend response:', verifyResult);
+      }
 
-      if (verifyResult.verified || verifyResult.status === 'success' || verifyResult.status === 'paid') {
+      if (verifyResult.verified || verifyResult.status === 'success' || verifyResult.status === 'paid' || verifyResult.data?.isPaid === true) {
         const savedCart = [...(activePaymentRef.current.cart || [])];
         const savedMobile = activePaymentRef.current.mobile;
-        activePaymentRef.current.inProgress = false;
 
         await handlePaymentConfirmed(txnid, 'Easebuzz Live (UPI)', savedCart, savedMobile);
       } else {
-        activePaymentRef.current.inProgress = false;
         await updateArchiveStatus(txnid, 'failed');
         setStatusMode('error');
         setStatusVisible(true);
@@ -430,6 +528,7 @@ function MainApp({ user, onLogout }) {
    * Display payment failure alert / toast and allow passenger to retry.
    */
   const processFailedPayment = async (txnid, message = 'Payment could not be completed.') => {
+    stopLivePolling();
     activePaymentRef.current.inProgress = false;
     await updateArchiveStatus(txnid, 'failed');
     setStatusMode('error');
@@ -459,7 +558,14 @@ function MainApp({ user, onLogout }) {
     const txnid = parsed.txnid || activePaymentRef.current.txnid || currentTxnId;
 
     // Dismiss the in-app browser / custom tab immediately
+    stopLivePolling();
     await dismissEasebuzzPortal();
+    setPaymentVisible(false);
+
+    if (activePaymentRef.current.isProcessed) {
+      console.log('[DeepLink] Payment already processed for txnid:', txnid);
+      return;
+    }
 
     if (parsed.status === 'success') {
       await processSuccessfulPayment(txnid);
@@ -523,6 +629,7 @@ function MainApp({ user, onLogout }) {
     });
 
     return () => {
+      stopLivePolling();
       appStateSub.remove();
       linkSub.remove();
     };
@@ -830,11 +937,37 @@ function MainApp({ user, onLogout }) {
         visible={statusVisible} 
         status={statusMode} 
         onRetry={() => {
+          stopLivePolling();
           setStatusVisible(false);
           initiatePayment();
         }} 
-        onCancel={() => setStatusVisible(false)} 
-        onDone={() => setStatusVisible(false)} 
+        onCancel={() => {
+          stopLivePolling();
+          setStatusVisible(false);
+        }} 
+        onDone={() => {
+          stopLivePolling();
+          setStatusVisible(false);
+        }} 
+      />
+
+      {/* Ride Receipt / Confirmation Modal Screen */}
+      <RideReceiptModal
+        visible={receiptModalVisible}
+        receipt={confirmedReceipt}
+        onDone={() => setReceiptModalVisible(false)}
+        onReprint={async (rec) => {
+          if (rec) {
+            await executePrintAndSync(
+              rec.id,
+              rec.paymentMode,
+              rec.items,
+              rec.mobile
+            );
+          }
+        }}
+        isPrinting={isPrintingState}
+        btStatus={btStatus}
       />
       <StatusBar style="light" />
     </View>

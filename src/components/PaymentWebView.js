@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, View, TouchableOpacity, StyleSheet, Text, ActivityIndicator, SafeAreaView } from 'react-native';
+import { Modal, View, TouchableOpacity, StyleSheet, Text, ActivityIndicator, SafeAreaView, Linking } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -12,7 +12,8 @@ export default function PaymentWebView({ visible, url, html, onCancel, onSuccess
     if (
       currentUrl.includes('status=success') || 
       currentUrl.includes('payment=success') || 
-      currentUrl.includes('payment-success')
+      currentUrl.includes('payment-success') ||
+      currentUrl.startsWith('yourrideapp://payment/callback?status=success')
     ) {
       onSuccess();
     } 
@@ -20,10 +21,46 @@ export default function PaymentWebView({ visible, url, html, onCancel, onSuccess
     else if (
       currentUrl.includes('status=failure') || 
       currentUrl.includes('payment=failure') || 
-      currentUrl.includes('payment-failure')
+      currentUrl.includes('payment-failure') ||
+      currentUrl.startsWith('yourrideapp://payment/callback?status=failure')
     ) {
       onFailure();
     }
+  };
+
+  const handleShouldStartLoadWithRequest = (request) => {
+    const { url: reqUrl } = request;
+    if (!reqUrl) return true;
+
+    // Intercept custom scheme deep link callback from Easebuzz redirect
+    if (reqUrl.startsWith('yourrideapp://') || reqUrl.includes('payment/callback')) {
+      if (reqUrl.includes('status=success') || reqUrl.includes('success')) {
+        onSuccess();
+      } else {
+        onFailure();
+      }
+      return false;
+    }
+
+    if (
+      reqUrl.includes('status=success') || 
+      reqUrl.includes('payment=success') || 
+      reqUrl.includes('payment-success')
+    ) {
+      onSuccess();
+      return false;
+    }
+
+    if (
+      reqUrl.includes('status=failure') || 
+      reqUrl.includes('payment=failure') || 
+      reqUrl.includes('payment-failure')
+    ) {
+      onFailure();
+      return false;
+    }
+
+    return true;
   };
 
   const handleMessage = (event) => {
@@ -47,17 +84,30 @@ export default function PaymentWebView({ visible, url, html, onCancel, onSuccess
         <View style={styles.header}>
           <View style={styles.headerLeft}>
             <Ionicons name="shield-checkmark" size={20} color="#10b981" style={{ marginRight: 8 }} />
-            <Text style={styles.title}>Secure Payment Gateway</Text>
+            <Text style={styles.title}>Easebuzz Live Gateway</Text>
           </View>
-          <TouchableOpacity onPress={onCancel} style={styles.closeButton}>
-            <Ionicons name="close" size={26} color="#94a3b8" />
-          </TouchableOpacity>
+          <View style={styles.headerRight}>
+            {url ? (
+              <TouchableOpacity
+                onPress={() => Linking.openURL(url)}
+                style={styles.actionButton}
+                activeOpacity={0.7}
+              >
+                <Ionicons name="open-outline" size={16} color="#38bdf8" style={{ marginRight: 4 }} />
+                <Text style={styles.actionButtonText}>Open in Chrome</Text>
+              </TouchableOpacity>
+            ) : null}
+            <TouchableOpacity onPress={onCancel} style={styles.closeButton}>
+              <Ionicons name="close" size={26} color="#94a3b8" />
+            </TouchableOpacity>
+          </View>
         </View>
         
         {source ? (
           <WebView
             source={source}
             onNavigationStateChange={handleNavigationStateChange}
+            onShouldStartLoadWithRequest={handleShouldStartLoadWithRequest}
             onMessage={handleMessage}
             onError={(syntheticEvent) => {
               const { nativeEvent } = syntheticEvent;
@@ -69,7 +119,7 @@ export default function PaymentWebView({ visible, url, html, onCancel, onSuccess
             renderLoading={() => (
               <View style={styles.loading}>
                 <ActivityIndicator size="large" color="#f59e0b" />
-                <Text style={styles.loadingText}>Loading Payment Gateway...</Text>
+                <Text style={styles.loadingText}>Loading Easebuzz Portal...</Text>
               </View>
             )}
           />
@@ -96,7 +146,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#0b1120'
   },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
+  headerRight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   title: { fontSize: 16, fontWeight: '900', color: '#fff', letterSpacing: 0.5 },
+  actionButton: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    backgroundColor: 'rgba(56, 189, 248, 0.15)', 
+    borderWidth: 1, 
+    borderColor: 'rgba(56, 189, 248, 0.3)', 
+    paddingHorizontal: 10, 
+    paddingVertical: 5, 
+    borderRadius: 8 
+  },
+  actionButtonText: { color: '#38bdf8', fontSize: 11, fontWeight: 'bold' },
   closeButton: { padding: 4 },
   loading: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0f172a' },
   loadingText: { color: '#94a3b8', fontSize: 12, marginTop: 10, fontWeight: 'bold' },
