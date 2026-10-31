@@ -1,0 +1,1557 @@
+{"_e":"root:init","_t":1792347914295,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792347914296,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792347914299,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792347915036,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792347915820,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792347917969,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792347921919,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792348124064,"id":"5","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792348124065,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792348124071,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792348126421,"id":"5","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1792348126530,"id":"5","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792348126572,"id":"5","progress":0.04000000000000001,"total":3,"current":2}
+{"_e":"metro:bundling:progress","_t":1792348126672,"id":"5","progress":0.0625,"total":16,"current":4}
+{"_e":"metro:bundling:progress","_t":1792348126800,"id":"5","progress":0.0625,"total":40,"current":6}
+{"_e":"metro:bundling:progress","_t":1792348126905,"id":"5","progress":0.0625,"total":43,"current":9}
+{"_e":"metro:bundling:progress","_t":1792348127072,"id":"5","progress":0.0625,"total":43,"current":10}
+{"_e":"metro:bundling:progress","_t":1792348127206,"id":"5","progress":0.0625,"total":46,"current":11}
+{"_e":"metro:bundling:progress","_t":1792348127535,"id":"5","progress":0.06805293005671077,"total":46,"current":12}
+{"_e":"metro:bundling:progress","_t":1792348127637,"id":"5","progress":0.06805293005671077,"total":146,"current":13}
+{"_e":"metro:bundling:progress","_t":1792348127749,"id":"5","progress":0.06805293005671077,"total":148,"current":17}
+{"_e":"metro:bundling:progress","_t":1792348127850,"id":"5","progress":0.06805293005671077,"total":153,"current":21}
+{"_e":"metro:bundling:progress","_t":1792348127960,"id":"5","progress":0.06805293005671077,"total":156,"current":27}
+{"_e":"metro:bundling:progress","_t":1792348128062,"id":"5","progress":0.06805293005671077,"total":156,"current":31}
+{"_e":"metro:bundling:progress","_t":1792348128163,"id":"5","progress":0.06805293005671077,"total":156,"current":35}
+{"_e":"metro:bundling:progress","_t":1792348128273,"id":"5","progress":0.06805293005671077,"total":159,"current":41}
+{"_e":"metro:bundling:progress","_t":1792348128375,"id":"5","progress":0.06805293005671077,"total":179,"current":42}
+{"_e":"metro:bundling:progress","_t":1792348128485,"id":"5","progress":0.06805293005671077,"total":180,"current":46}
+{"_e":"metro:bundling:progress","_t":1792348128588,"id":"5","progress":0.0703275235798663,"total":181,"current":48}
+{"_e":"metro:bundling:progress","_t":1792348128703,"id":"5","progress":0.07169518349308729,"total":183,"current":49}
+{"_e":"metro:bundling:progress","_t":1792348128733,"id":"5","progress":0.07465137806443908,"total":183,"current":50}
+{"_e":"metro:bundling:progress","_t":1792348128836,"id":"5","progress":0.07465137806443908,"total":188,"current":51}
+{"_e":"metro:bundling:progress","_t":1792348128900,"id":"5","progress":0.07650520597555456,"total":188,"current":52}
+{"_e":"metro:bundling:progress","_t":1792348129020,"id":"5","progress":0.07650520597555456,"total":196,"current":53}
+{"_e":"metro:bundling:progress","_t":1792348129073,"id":"5","progress":0.07650520597555456,"total":196,"current":54}
+{"_e":"metro:bundling:progress","_t":1792348129181,"id":"5","progress":0.08080599860857018,"total":197,"current":56}
+{"_e":"metro:bundling:progress","_t":1792348129286,"id":"5","progress":0.08447183867601736,"total":203,"current":59}
+{"_e":"metro:bundling:progress","_t":1792348129411,"id":"5","progress":0.09173909023668637,"total":208,"current":63}
+{"_e":"metro:bundling:progress","_t":1792348129519,"id":"5","progress":0.09287981859410432,"total":210,"current":64}
+{"_e":"metro:bundling:progress","_t":1792348129643,"id":"5","progress":0.09400587397650409,"total":212,"current":65}
+{"_e":"metro:bundling:progress","_t":1792348129776,"id":"5","progress":0.09400587397650409,"total":229,"current":67}
+{"_e":"metro:bundling:progress","_t":1792348129886,"id":"5","progress":0.09400587397650409,"total":239,"current":69}
+{"_e":"metro:bundling:progress","_t":1792348130030,"id":"5","progress":0.09400587397650409,"total":239,"current":70}
+{"_e":"metro:bundling:progress","_t":1792348130132,"id":"5","progress":0.09400587397650409,"total":246,"current":73}
+{"_e":"metro:bundling:progress","_t":1792348130236,"id":"5","progress":0.09797408949699252,"total":246,"current":77}
+{"_e":"metro:bundling:progress","_t":1792348130336,"id":"5","progress":0.1111111111111111,"total":252,"current":84}
+{"_e":"metro:bundling:progress","_t":1792348130439,"id":"5","progress":0.12181468665897731,"total":255,"current":89}
+{"_e":"metro:bundling:progress","_t":1792348130541,"id":"5","progress":0.1371742112482853,"total":270,"current":100}
+{"_e":"metro:bundling:progress","_t":1792348130642,"id":"5","progress":0.15311909262759926,"total":276,"current":108}
+{"_e":"metro:bundling:progress","_t":1792348130743,"id":"5","progress":0.16226947520883014,"total":283,"current":114}
+{"_e":"metro:bundling:progress","_t":1792348130848,"id":"5","progress":0.17384659580580292,"total":295,"current":123}
+{"_e":"metro:bundling:progress","_t":1792348130950,"id":"5","progress":0.1998267619841235,"total":302,"current":135}
+{"_e":"metro:bundling:progress","_t":1792348131048,"id":"5","progress":0.22616685588176,"total":307,"current":146}
+{"_e":"metro:bundling:progress","_t":1792348131149,"id":"5","progress":0.25983513240006745,"total":308,"current":157}
+{"_e":"metro:bundling:progress","_t":1792348131249,"id":"5","progress":0.2662824621959238,"total":312,"current":161}
+{"_e":"metro:bundling:progress","_t":1792348131363,"id":"5","progress":0.2762984878369494,"total":312,"current":164}
+{"_e":"metro:bundling:progress","_t":1792348131464,"id":"5","progress":0.28967706600673454,"total":314,"current":169}
+{"_e":"metro:bundling:progress","_t":1792348131566,"id":"5","progress":0.30095026581892864,"total":319,"current":175}
+{"_e":"metro:bundling:progress","_t":1792348131672,"id":"5","progress":0.32653061224489793,"total":322,"current":184}
+{"_e":"metro:bundling:progress","_t":1792348131777,"id":"5","progress":0.34413022791733267,"total":329,"current":193}
+{"_e":"metro:bundling:progress","_t":1792348131877,"id":"5","progress":0.34964083175803407,"total":345,"current":204}
+{"_e":"metro:bundling:progress","_t":1792348131980,"id":"5","progress":0.3640908762609442,"total":353,"current":213}
+{"_e":"metro:bundling:progress","_t":1792348132082,"id":"5","progress":0.3640908762609442,"total":362,"current":217}
+{"_e":"metro:bundling:progress","_t":1792348132185,"id":"5","progress":0.3640908762609442,"total":382,"current":221}
+{"_e":"metro:bundling:progress","_t":1792348132410,"id":"5","progress":0.3640908762609442,"total":382,"current":222}
+{"_e":"metro:bundling:progress","_t":1792348132518,"id":"5","progress":0.3640908762609442,"total":383,"current":222}
+{"_e":"metro:bundling:progress","_t":1792348132947,"id":"5","progress":0.3640908762609442,"total":383,"current":223}
+{"_e":"metro:bundling:progress","_t":1792348133137,"id":"5","progress":0.3640908762609442,"total":383,"current":224}
+{"_e":"metro:bundling:progress","_t":1792348133157,"id":"5","progress":0.3640908762609442,"total":383,"current":225}
+{"_e":"metro:bundling:progress","_t":1792348133274,"id":"5","progress":0.3640908762609442,"total":384,"current":226}
+{"_e":"metro:bundling:progress","_t":1792348133378,"id":"5","progress":0.3640908762609442,"total":385,"current":227}
+{"_e":"metro:bundling:progress","_t":1792348133494,"id":"5","progress":0.3640908762609442,"total":385,"current":228}
+{"_e":"metro:bundling:progress","_t":1792348133596,"id":"5","progress":0.3640908762609442,"total":389,"current":229}
+{"_e":"metro:bundling:progress","_t":1792348133714,"id":"5","progress":0.3640908762609442,"total":389,"current":230}
+{"_e":"metro:bundling:progress","_t":1792348133827,"id":"5","progress":0.3640908762609442,"total":389,"current":231}
+{"_e":"metro:bundling:progress","_t":1792348133930,"id":"5","progress":0.3640908762609442,"total":389,"current":232}
+{"_e":"metro:bundling:progress","_t":1792348134041,"id":"5","progress":0.3640908762609442,"total":390,"current":232}
+{"_e":"metro:bundling:progress","_t":1792348134137,"id":"5","progress":0.3640908762609442,"total":390,"current":233}
+{"_e":"metro:bundling:progress","_t":1792348134260,"id":"5","progress":0.3640908762609442,"total":390,"current":234}
+{"_e":"metro:bundling:progress","_t":1792348134385,"id":"5","progress":0.3640908762609442,"total":391,"current":235}
+{"_e":"metro:bundling:progress","_t":1792348134488,"id":"5","progress":0.3640908762609442,"total":407,"current":237}
+{"_e":"metro:bundling:progress","_t":1792348134915,"id":"5","progress":0.3640908762609442,"total":407,"current":238}
+{"_e":"metro:bundling:progress","_t":1792348135157,"id":"5","progress":0.3640908762609442,"total":407,"current":239}
+{"_e":"metro:bundling:progress","_t":1792348135276,"id":"5","progress":0.3640908762609442,"total":408,"current":239}
+{"_e":"metro:bundling:progress","_t":1792348135510,"id":"5","progress":0.3640908762609442,"total":409,"current":242}
+{"_e":"metro:bundling:progress","_t":1792348135619,"id":"5","progress":0.3640908762609442,"total":411,"current":244}
+{"_e":"metro:bundling:progress","_t":1792348135756,"id":"5","progress":0.3640908762609442,"total":411,"current":245}
+{"_e":"metro:bundling:progress","_t":1792348136101,"id":"5","progress":0.3640908762609442,"total":411,"current":246}
+{"_e":"metro:bundling:progress","_t":1792348136203,"id":"5","progress":0.3640908762609442,"total":411,"current":247}
+{"_e":"metro:bundling:progress","_t":1792348136322,"id":"5","progress":0.3640991942979263,"total":411,"current":248}
+{"_e":"metro:bundling:progress","_t":1792348136451,"id":"5","progress":0.3640991942979263,"total":413,"current":249}
+{"_e":"metro:bundling:progress","_t":1792348136561,"id":"5","progress":0.37051039697542537,"total":414,"current":252}
+{"_e":"metro:bundling:progress","_t":1792348136692,"id":"5","progress":0.37051039697542537,"total":420,"current":255}
+{"_e":"metro:bundling:progress","_t":1792348136796,"id":"5","progress":0.37051039697542537,"total":421,"current":256}
+{"_e":"metro:bundling:progress","_t":1792348136896,"id":"5","progress":0.37051039697542537,"total":438,"current":263}
+{"_e":"metro:bundling:progress","_t":1792348136997,"id":"5","progress":0.37051039697542537,"total":445,"current":269}
+{"_e":"metro:bundling:progress","_t":1792348137097,"id":"5","progress":0.37932546818122015,"total":453,"current":279}
+{"_e":"metro:bundling:progress","_t":1792348137212,"id":"5","progress":0.3799234542211653,"total":464,"current":286}
+{"_e":"metro:bundling:progress","_t":1792348137312,"id":"5","progress":0.38383305742973106,"total":481,"current":298}
+{"_e":"metro:bundling:progress","_t":1792348137412,"id":"5","progress":0.3948070784967681,"total":487,"current":306}
+{"_e":"metro:bundling:progress","_t":1792348137522,"id":"5","progress":0.3948070784967681,"total":506,"current":313}
+{"_e":"metro:bundling:progress","_t":1792348137622,"id":"5","progress":0.3948070784967681,"total":514,"current":317}
+{"_e":"metro:bundling:progress","_t":1792348137729,"id":"5","progress":0.3948070784967681,"total":516,"current":319}
+{"_e":"metro:bundling:progress","_t":1792348137844,"id":"5","progress":0.3948070784967681,"total":516,"current":321}
+{"_e":"metro:bundling:progress","_t":1792348137969,"id":"5","progress":0.3948070784967681,"total":516,"current":323}
+{"_e":"metro:bundling:progress","_t":1792348138073,"id":"5","progress":0.40742417383431423,"total":517,"current":330}
+{"_e":"metro:bundling:progress","_t":1792348138176,"id":"5","progress":0.40742417383431423,"total":522,"current":333}
+{"_e":"metro:bundling:progress","_t":1792348138276,"id":"5","progress":0.4101754828935741,"total":534,"current":342}
+{"_e":"metro:bundling:progress","_t":1792348138377,"id":"5","progress":0.4109138724523341,"total":546,"current":350}
+{"_e":"metro:bundling:progress","_t":1792348138478,"id":"5","progress":0.4260528925619835,"total":550,"current":359}
+{"_e":"metro:bundling:progress","_t":1792348138582,"id":"5","progress":0.4260528925619835,"total":572,"current":369}
+{"_e":"metro:bundling:progress","_t":1792348138684,"id":"5","progress":0.4260528925619835,"total":590,"current":376}
+{"_e":"metro:bundling:progress","_t":1792348138792,"id":"5","progress":0.4260528925619835,"total":597,"current":382}
+{"_e":"metro:bundling:progress","_t":1792348138899,"id":"5","progress":0.4260528925619835,"total":597,"current":388}
+{"_e":"metro:bundling:progress","_t":1792348139021,"id":"5","progress":0.4260528925619835,"total":603,"current":391}
+{"_e":"metro:bundling:progress","_t":1792348139122,"id":"5","progress":0.4260528925619835,"total":607,"current":396}
+{"_e":"metro:bundling:progress","_t":1792348139224,"id":"5","progress":0.43860615716150675,"total":607,"current":402}
+{"_e":"metro:bundling:progress","_t":1792348139328,"id":"5","progress":0.4554587590089543,"total":609,"current":411}
+{"_e":"metro:bundling:progress","_t":1792348139428,"id":"5","progress":0.4686125983211052,"total":615,"current":421}
+{"_e":"metro:bundling:progress","_t":1792348139528,"id":"5","progress":0.4918198684432451,"total":616,"current":432}
+{"_e":"metro:bundling:progress","_t":1792348139634,"id":"5","progress":0.5056282833800103,"total":623,"current":443}
+{"_e":"metro:bundling:progress","_t":1792348139738,"id":"5","progress":0.5276569600000001,"total":625,"current":454}
+{"_e":"metro:bundling:progress","_t":1792348139839,"id":"5","progress":0.53699584,"total":625,"current":458}
+{"_e":"metro:bundling:progress","_t":1792348139950,"id":"5","progress":0.5547517481539138,"total":627,"current":467}
+{"_e":"metro:bundling:progress","_t":1792348140050,"id":"5","progress":0.5648759213267105,"total":632,"current":475}
+{"_e":"metro:bundling:progress","_t":1792348140161,"id":"5","progress":0.5822196266930213,"total":633,"current":483}
+{"_e":"metro:bundling:progress","_t":1792348140297,"id":"5","progress":0.5911578853684585,"total":636,"current":489}
+{"_e":"metro:bundling:progress","_t":1792348140397,"id":"5","progress":0.5911578853684585,"total":655,"current":497}
+{"_e":"metro:bundling:progress","_t":1792348140562,"id":"5","progress":0.5911578853684585,"total":655,"current":498}
+{"_e":"metro:bundling:progress","_t":1792348140661,"id":"5","progress":0.5911578853684585,"total":673,"current":506}
+{"_e":"metro:bundling:progress","_t":1792348140768,"id":"5","progress":0.5911578853684585,"total":680,"current":512}
+{"_e":"metro:bundling:progress","_t":1792348140874,"id":"5","progress":0.5911578853684585,"total":681,"current":516}
+{"_e":"metro:bundling:progress","_t":1792348140980,"id":"5","progress":0.5911578853684585,"total":689,"current":520}
+{"_e":"metro:bundling:progress","_t":1792348141084,"id":"5","progress":0.5911578853684585,"total":689,"current":524}
+{"_e":"metro:bundling:progress","_t":1792348141186,"id":"5","progress":0.5984336062655751,"total":689,"current":533}
+{"_e":"metro:bundling:progress","_t":1792348141289,"id":"5","progress":0.6046903206815847,"total":697,"current":542}
+{"_e":"metro:bundling:progress","_t":1792348141398,"id":"5","progress":0.6200719982254818,"total":701,"current":552}
+{"_e":"metro:bundling:progress","_t":1792348141535,"id":"5","progress":0.6390899396813898,"total":703,"current":562}
+{"_e":"metro:bundling:progress","_t":1792348141638,"id":"5","progress":0.6459311748673131,"total":703,"current":565}
+{"_e":"metro:bundling:progress","_t":1792348141738,"id":"5","progress":0.675997401908909,"total":703,"current":578}
+{"_e":"metro:bundling:progress","_t":1792348141839,"id":"5","progress":0.6948396326250635,"total":703,"current":586}
+{"_e":"metro:bundling:progress","_t":1792348141943,"id":"5","progress":0.7102717299713502,"total":706,"current":595}
+{"_e":"metro:bundling:progress","_t":1792348142039,"id":"5","progress":0.7102717299713502,"total":714,"current":600}
+{"_e":"metro:bundling:progress","_t":1792348142154,"id":"5","progress":0.7102717299713502,"total":718,"current":604}
+{"_e":"metro:bundling:progress","_t":1792348142256,"id":"5","progress":0.7235584786763313,"total":723,"current":615}
+{"_e":"metro:bundling:progress","_t":1792348142362,"id":"5","progress":0.733354417706382,"total":731,"current":626}
+{"_e":"metro:bundling:progress","_t":1792348142463,"id":"5","progress":0.7387085907211948,"total":733,"current":630}
+{"_e":"metro:bundling:progress","_t":1792348142582,"id":"5","progress":0.7393218590390944,"total":742,"current":638}
+{"_e":"metro:bundling:progress","_t":1792348142689,"id":"5","progress":0.7532929868280528,"total":742,"current":644}
+{"_e":"metro:bundling:progress","_t":1792348142790,"id":"5","progress":0.7556342223610697,"total":742,"current":645}
+{"_e":"metro:bundling:progress","_t":1792348142894,"id":"5","progress":0.7556342223610697,"total":745,"current":646}
+{"_e":"metro:bundling:progress","_t":1792348143038,"id":"5","progress":0.7556342223610697,"total":745,"current":647}
+{"_e":"metro:bundling:progress","_t":1792348143142,"id":"5","progress":0.7588865366424935,"total":745,"current":649}
+{"_e":"metro:bundling:progress","_t":1792348143290,"id":"5","progress":0.7635710103148508,"total":745,"current":651}
+{"_e":"metro:bundling:progress","_t":1792348143393,"id":"5","progress":0.765918652312959,"total":745,"current":652}
+{"_e":"metro:bundling:progress","_t":1792348143519,"id":"5","progress":0.7682698977523535,"total":745,"current":653}
+{"_e":"metro:bundling:progress","_t":1792348143620,"id":"5","progress":0.7685601132761682,"total":746,"current":654}
+{"_e":"metro:bundling:progress","_t":1792348143661,"id":"5","progress":0.7709122469075463,"total":746,"current":655}
+{"_e":"metro:bundling:progress","_t":1792348143781,"id":"5","progress":0.773552039483234,"total":747,"current":657}
+{"_e":"metro:bundling:progress","_t":1792348143900,"id":"5","progress":0.7759086322980453,"total":747,"current":658}
+{"_e":"metro:bundling:progress","_t":1792348144035,"id":"5","progress":0.7761892676370499,"total":748,"current":659}
+{"_e":"metro:bundling:progress","_t":1792348144062,"id":"5","progress":0.7785467128027681,"total":748,"current":660}
+{"_e":"metro:bundling:progress","_t":1792348144166,"id":"5","progress":0.7785467128027681,"total":753,"current":661}
+{"_e":"metro:bundling:progress","_t":1792348144529,"id":"5","progress":0.7785467128027681,"total":753,"current":662}
+{"_e":"metro:bundling:progress","_t":1792348144696,"id":"5","progress":0.7785467128027681,"total":754,"current":663}
+{"_e":"metro:bundling:progress","_t":1792348144747,"id":"5","progress":0.7785467128027681,"total":754,"current":664}
+{"_e":"metro:bundling:progress","_t":1792348144863,"id":"5","progress":0.7785467128027681,"total":755,"current":665}
+{"_e":"metro:bundling:progress","_t":1792348145012,"id":"5","progress":0.7785467128027681,"total":757,"current":667}
+{"_e":"metro:bundling:progress","_t":1792348145077,"id":"5","progress":0.7786838472800756,"total":757,"current":668}
+{"_e":"metro:bundling:progress","_t":1792348145179,"id":"5","progress":0.7789576095961459,"total":758,"current":669}
+{"_e":"metro:bundling:progress","_t":1792348145283,"id":"5","progress":0.7792306984608067,"total":759,"current":670}
+{"_e":"metro:bundling:progress","_t":1792348145408,"id":"5","progress":0.7797748657016409,"total":761,"current":672}
+{"_e":"metro:bundling:progress","_t":1792348145509,"id":"5","progress":0.7805861270250266,"total":764,"current":675}
+{"_e":"metro:bundling:progress","_t":1792348145748,"id":"5","progress":0.7829006880293852,"total":764,"current":676}
+{"_e":"metro:bundling:progress","_t":1792348145868,"id":"5","progress":0.7875400893615854,"total":764,"current":678}
+{"_e":"metro:bundling:progress","_t":1792348146078,"id":"5","progress":0.7898649296894273,"total":764,"current":679}
+{"_e":"metro:bundling:progress","_t":1792348146181,"id":"5","progress":0.7921931964584306,"total":764,"current":680}
+{"_e":"metro:bundling:progress","_t":1792348146388,"id":"5","progress":0.7945248896685946,"total":764,"current":681}
+{"_e":"metro:bundling:progress","_t":1792348146549,"id":"5","progress":0.79686000931992,"total":764,"current":682}
+{"_e":"metro:bundling:progress","_t":1792348146681,"id":"5","progress":0.7991985554124064,"total":764,"current":683}
+{"_e":"metro:bundling:progress","_t":1792348146866,"id":"5","progress":0.8015405279460541,"total":764,"current":684}
+{"_e":"metro:bundling:progress","_t":1792348147067,"id":"5","progress":0.8015405279460541,"total":765,"current":684}
+{"_e":"metro:bundling:progress","_t":1792348147113,"id":"5","progress":0.8017856380024777,"total":765,"current":685}
+{"_e":"metro:bundling:progress","_t":1792348147240,"id":"5","progress":0.8041283267119484,"total":765,"current":686}
+{"_e":"metro:bundling:progress","_t":1792348147346,"id":"5","progress":0.8043701300029313,"total":766,"current":687}
+{"_e":"metro:bundling:progress","_t":1792348147415,"id":"5","progress":0.8067135231680631,"total":766,"current":688}
+{"_e":"metro:bundling:progress","_t":1792348147528,"id":"5","progress":0.811410535213956,"total":766,"current":690}
+{"_e":"metro:bundling:progress","_t":1792348147655,"id":"5","progress":0.811410535213956,"total":771,"current":694}
+{"_e":"metro:bundling:progress","_t":1792348147758,"id":"5","progress":0.811410535213956,"total":775,"current":697}
+{"_e":"metro:bundling:progress","_t":1792348147865,"id":"5","progress":0.8183720374109895,"total":776,"current":702}
+{"_e":"metro:bundling:progress","_t":1792348147967,"id":"5","progress":0.8183720374109895,"total":782,"current":706}
+{"_e":"metro:bundling:progress","_t":1792348148072,"id":"5","progress":0.8183720374109895,"total":783,"current":708}
+{"_e":"metro:bundling:progress","_t":1792348148178,"id":"5","progress":0.8245474963667592,"total":783,"current":711}
+{"_e":"metro:bundling:progress","_t":1792348148277,"id":"5","progress":0.8245474963667592,"total":789,"current":715}
+{"_e":"metro:bundling:progress","_t":1792348148652,"id":"5","progress":0.8245474963667592,"total":789,"current":716}
+{"_e":"metro:bundling:progress","_t":1792348148761,"id":"5","progress":0.8245474963667592,"total":792,"current":719}
+{"_e":"metro:bundling:progress","_t":1792348148874,"id":"5","progress":0.8310440261197838,"total":792,"current":722}
+{"_e":"metro:bundling:progress","_t":1792348148974,"id":"5","progress":0.8310440261197838,"total":796,"current":723}
+{"_e":"metro:bundling:progress","_t":1792348149078,"id":"5","progress":0.8310440261197838,"total":798,"current":727}
+{"_e":"metro:bundling:progress","_t":1792348149183,"id":"5","progress":0.8416167894473849,"total":799,"current":733}
+{"_e":"metro:bundling:progress","_t":1792348149348,"id":"5","progress":0.8439147181786997,"total":799,"current":734}
+{"_e":"metro:bundling:progress","_t":1792348149454,"id":"5","progress":0.8439147181786997,"total":807,"current":740}
+{"_e":"metro:bundling:progress","_t":1792348149557,"id":"5","progress":0.8525977071908887,"total":809,"current":747}
+{"_e":"metro:bundling:progress","_t":1792348149668,"id":"5","progress":0.8620813384398552,"total":811,"current":753}
+{"_e":"metro:bundling:progress","_t":1792348149772,"id":"5","progress":0.8643725835118539,"total":811,"current":754}
+{"_e":"metro:bundling:progress","_t":1792348149949,"id":"5","progress":0.8666668693868677,"total":811,"current":755}
+{"_e":"metro:bundling:progress","_t":1792348150056,"id":"5","progress":0.8714176514838992,"total":812,"current":758}
+{"_e":"metro:bundling:progress","_t":1792348150156,"id":"5","progress":0.8724791691824659,"total":819,"current":765}
+{"_e":"metro:bundling:progress","_t":1792348150406,"id":"5","progress":0.8817668054729326,"total":820,"current":770}
+{"_e":"metro:bundling:progress","_t":1792348150508,"id":"5","progress":0.9007735537190082,"total":825,"current":783}
+{"_e":"metro:bundling:progress","_t":1792348150611,"id":"5","progress":0.9007735537190082,"total":834,"current":786}
+{"_e":"metro:bundling:progress","_t":1792348150719,"id":"5","progress":0.9007735537190082,"total":836,"current":790}
+{"_e":"metro:bundling:progress","_t":1792348150820,"id":"5","progress":0.9067044074173992,"total":837,"current":797}
+{"_e":"metro:bundling:progress","_t":1792348150920,"id":"5","progress":0.9229719387755103,"total":840,"current":807}
+{"_e":"metro:bundling:progress","_t":1792348151024,"id":"5","progress":0.9484261542193962,"total":842,"current":820}
+{"_e":"metro:bundling:progress","_t":1792348151147,"id":"5","progress":0.9624005662429693,"total":843,"current":827}
+{"_e":"metro:bundling:progress","_t":1792348151253,"id":"5","progress":0.9741035129489455,"total":844,"current":833}
+{"_e":"metro:bundling:progress","_t":1792348151356,"id":"5","progress":0.9741035129489455,"total":853,"current":840}
+{"_e":"metro:bundling:progress","_t":1792348151463,"id":"5","progress":0.9768793942671714,"total":860,"current":850}
+{"_e":"metro:bundling:progress","_t":1792348151564,"id":"5","progress":0.9976811602004727,"total":862,"current":861}
+{"_e":"metro:bundling:progress","_t":1792348151671,"id":"5","progress":0.999,"total":862,"current":862}
+{"_e":"metro:bundling:done","_t":1792348152103,"id":"5","total":862,"ms":28039.4309}
+{"_e":"metro:client_log","_t":1792348156127,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792348186079,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348186171,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348216235,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348216306,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348246036,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348246097,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348276033,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348276085,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348306034,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348306084,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348336144,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348336216,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348366057,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348366108,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348396061,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348396119,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348426058,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348426156,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348456173,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348456237,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792348486177,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792348486248,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"root:init","_t":1792546436410,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792546436461,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792546436527,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792546451083,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792546463481,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792546469113,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792546478400,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"root:init","_t":1792546687306,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792546687307,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792546687313,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792546687926,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792546688894,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792546689572,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792546693339,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792546713233,"id":"2","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792546713234,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546713241,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546713355,"id":"2","progress":0.03515625,"total":64,"current":12}
+{"_e":"metro:bundling:progress","_t":1792546713464,"id":"2","progress":0.03515625,"total":196,"current":26}
+{"_e":"metro:bundling:progress","_t":1792546713563,"id":"2","progress":0.1102447509765625,"total":256,"current":85}
+{"_e":"metro:bundling:progress","_t":1792546713663,"id":"2","progress":0.22731934553192307,"total":323,"current":154}
+{"_e":"metro:bundling:progress","_t":1792546713764,"id":"2","progress":0.301577443081506,"total":417,"current":229}
+{"_e":"metro:bundling:progress","_t":1792546713864,"id":"2","progress":0.3515956204211841,"total":511,"current":303}
+{"_e":"metro:bundling:progress","_t":1792546713964,"id":"2","progress":0.4771736606836294,"total":553,"current":382}
+{"_e":"metro:bundling:progress","_t":1792546714064,"id":"2","progress":0.5456680386858918,"total":597,"current":441}
+{"_e":"metro:bundling:progress","_t":1792546714164,"id":"2","progress":0.7516537234185848,"total":639,"current":554}
+{"_e":"metro:bundling:progress","_t":1792546714294,"id":"2","progress":0.8094916052219988,"total":708,"current":637}
+{"_e":"metro:bundling:progress","_t":1792546714394,"id":"2","progress":0.8102304901460913,"total":781,"current":703}
+{"_e":"metro:bundling:progress","_t":1792546714510,"id":"2","progress":0.901471412373418,"total":831,"current":789}
+{"_e":"metro:bundling:progress","_t":1792546714626,"id":"2","progress":0.999,"total":862,"current":862}
+{"_e":"metro:bundling:done","_t":1792546714775,"id":"2","total":862,"ms":1542.0182}
+{"_e":"metro:bundling:started","_t":1792546719124,"id":"6","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792546719125,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719130,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719242,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719463,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719564,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719664,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792546719764,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792546719909,"id":"6","total":1,"ms":784.7196}
+{"_e":"metro:client_log","_t":1792546722592,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792546737584,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792546738598,"level":"warn","data":["API Fetch Failed, loading local fallback:","undefined is not a function"]}
+{"_e":"metro:client_log","_t":1792546752703,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546752793,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546782703,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546782749,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546812704,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546812751,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546842707,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546842750,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546872708,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546872756,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546902709,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546902755,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546932709,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546932767,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546962711,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546962767,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792546992711,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792546992755,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547022731,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547022782,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547052734,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547052781,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547082743,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547082824,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547112743,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547112790,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547142746,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547142803,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547172749,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547172792,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547197567,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792547198759,"level":"warn","data":["API Fetch Failed, loading local fallback:","undefined is not a function"]}
+{"_e":"metro:client_log","_t":1792547202074,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792547202132,"level":"warn","data":["API Fetch Failed, loading local fallback:","undefined is not a function"]}
+{"_e":"metro:client_log","_t":1792547202752,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547202809,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547232769,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547232821,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547262784,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547262830,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547292786,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547292830,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547322804,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547322853,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547352805,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547352846,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547382806,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547382854,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547412805,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547412864,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547442808,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547442864,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547472808,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547472864,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547502810,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547502855,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547532810,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547532857,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547562825,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547562873,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547592830,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547592881,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547622831,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547622877,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547652832,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547652881,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547682833,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547682886,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547712853,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547712911,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547742852,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547742906,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547772854,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547772900,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547802857,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547802913,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547832861,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547832906,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547862862,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547862908,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547892863,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547892914,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547922867,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547922920,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547952866,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547952915,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792547982871,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792547982871,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548012885,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548012932,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548042886,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548042948,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548072889,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548072936,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548102890,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548102940,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548132906,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548132960,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548162918,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548162981,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548192926,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548192973,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548222944,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548222988,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548252945,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548252999,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548282946,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548282998,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548312948,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548312996,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548342949,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548342997,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548372951,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548373008,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548402952,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548402999,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548432968,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548433014,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548462968,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548463017,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548492975,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548493018,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548522989,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548523038,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548536156,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792548552994,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792548553038,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792548567895,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792549201516,"id":"r","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792549201516,"id":"r","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792549201570,"id":"r","total":1,"ms":53.9832}
+{"_e":"metro:client_log","_t":1792549204436,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792549209011,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792549234540,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549234600,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792549241160,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792549462212,"id":"w","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792549462212,"id":"w","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792549462296,"id":"w","total":1,"ms":83.4117}
+{"_e":"metro:client_log","_t":1792549465918,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792549469528,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792549475670,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792549490622,"id":"10","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792549490622,"id":"10","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792549490699,"id":"10","total":1,"ms":76.8253}
+{"_e":"metro:client_log","_t":1792549493140,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792549499869,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792549523264,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549523358,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792549553251,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549553302,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792549583236,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549583291,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792549605741,"id":"17","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792549605741,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549605744,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549605978,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606135,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606455,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606555,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606655,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606755,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606855,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549606955,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549607058,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549607194,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549607340,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549607539,"id":"17","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549607639,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549607808,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549607908,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608008,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608108,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608208,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608309,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608409,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608549,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608655,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549608874,"id":"17","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549609819,"id":"17","progress":0.09,"total":9,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549609935,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549609959,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610059,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610159,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610280,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610380,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610480,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610583,"id":"17","progress":0.09,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792549610684,"id":"17","progress":0.140625,"total":16,"current":6}
+{"_e":"metro:bundling:progress","_t":1792549610824,"id":"17","progress":0.140625,"total":35,"current":7}
+{"_e":"metro:bundling:progress","_t":1792549611013,"id":"17","progress":0.140625,"total":35,"current":7}
+{"_e":"metro:bundling:progress","_t":1792549611439,"id":"17","progress":0.140625,"total":59,"current":9}
+{"_e":"metro:bundling:progress","_t":1792549611550,"id":"17","progress":0.140625,"total":64,"current":12}
+{"_e":"metro:bundling:progress","_t":1792549611681,"id":"17","progress":0.140625,"total":70,"current":16}
+{"_e":"metro:bundling:progress","_t":1792549611809,"id":"17","progress":0.140625,"total":70,"current":17}
+{"_e":"metro:bundling:progress","_t":1792549611910,"id":"17","progress":0.140625,"total":72,"current":18}
+{"_e":"metro:bundling:progress","_t":1792549612022,"id":"17","progress":0.140625,"total":77,"current":19}
+{"_e":"metro:bundling:progress","_t":1792549612123,"id":"17","progress":0.140625,"total":77,"current":20}
+{"_e":"metro:bundling:progress","_t":1792549612225,"id":"17","progress":0.140625,"total":96,"current":20}
+{"_e":"metro:bundling:progress","_t":1792549612310,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549612688,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549612788,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549612888,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549612988,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613088,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613188,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613308,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613435,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613535,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613635,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613735,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613839,"id":"17","progress":0.140625,"total":96,"current":21}
+{"_e":"metro:bundling:progress","_t":1792549613941,"id":"17","progress":0.140625,"total":96,"current":22}
+{"_e":"metro:bundling:progress","_t":1792549614056,"id":"17","progress":0.140625,"total":196,"current":24}
+{"_e":"metro:bundling:progress","_t":1792549614258,"id":"17","progress":0.140625,"total":196,"current":24}
+{"_e":"metro:bundling:progress","_t":1792549614368,"id":"17","progress":0.140625,"total":197,"current":26}
+{"_e":"metro:bundling:progress","_t":1792549614825,"id":"17","progress":0.140625,"total":197,"current":27}
+{"_e":"metro:bundling:progress","_t":1792549614925,"id":"17","progress":0.140625,"total":198,"current":28}
+{"_e":"metro:bundling:progress","_t":1792549615026,"id":"17","progress":0.140625,"total":232,"current":32}
+{"_e":"metro:bundling:progress","_t":1792549615125,"id":"17","progress":0.140625,"total":233,"current":35}
+{"_e":"metro:bundling:progress","_t":1792549615245,"id":"17","progress":0.140625,"total":234,"current":39}
+{"_e":"metro:bundling:progress","_t":1792549615396,"id":"17","progress":0.140625,"total":236,"current":41}
+{"_e":"metro:bundling:progress","_t":1792549615505,"id":"17","progress":0.140625,"total":246,"current":45}
+{"_e":"metro:bundling:progress","_t":1792549615559,"id":"17","progress":0.140625,"total":246,"current":46}
+{"_e":"metro:bundling:progress","_t":1792549615658,"id":"17","progress":0.140625,"total":246,"current":46}
+{"_e":"metro:bundling:progress","_t":1792549615758,"id":"17","progress":0.140625,"total":246,"current":46}
+{"_e":"metro:bundling:progress","_t":1792549615858,"id":"17","progress":0.140625,"total":246,"current":46}
+{"_e":"metro:bundling:progress","_t":1792549615961,"id":"17","progress":0.140625,"total":246,"current":46}
+{"_e":"metro:bundling:progress","_t":1792549616098,"id":"17","progress":0.140625,"total":247,"current":50}
+{"_e":"metro:bundling:progress","_t":1792549616199,"id":"17","progress":0.140625,"total":247,"current":50}
+{"_e":"metro:bundling:progress","_t":1792549616299,"id":"17","progress":0.140625,"total":247,"current":50}
+{"_e":"metro:bundling:progress","_t":1792549616401,"id":"17","progress":0.140625,"total":250,"current":59}
+{"_e":"metro:bundling:progress","_t":1792549616503,"id":"17","progress":0.140625,"total":265,"current":63}
+{"_e":"metro:bundling:progress","_t":1792549616603,"id":"17","progress":0.140625,"total":265,"current":63}
+{"_e":"metro:bundling:progress","_t":1792549616704,"id":"17","progress":0.140625,"total":273,"current":71}
+{"_e":"metro:bundling:progress","_t":1792549616805,"id":"17","progress":0.140625,"total":277,"current":74}
+{"_e":"metro:bundling:progress","_t":1792549616905,"id":"17","progress":0.140625,"total":281,"current":76}
+{"_e":"metro:bundling:progress","_t":1792549617013,"id":"17","progress":0.140625,"total":297,"current":80}
+{"_e":"metro:bundling:progress","_t":1792549617117,"id":"17","progress":0.140625,"total":303,"current":83}
+{"_e":"metro:bundling:progress","_t":1792549617218,"id":"17","progress":0.140625,"total":309,"current":87}
+{"_e":"metro:bundling:progress","_t":1792549617342,"id":"17","progress":0.140625,"total":309,"current":87}
+{"_e":"metro:bundling:progress","_t":1792549617448,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617552,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617651,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617684,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617826,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617827,"id":"17","progress":0.140625,"total":320,"current":95}
+{"_e":"metro:bundling:progress","_t":1792549617939,"id":"17","progress":0.140625,"total":322,"current":98}
+{"_e":"metro:bundling:progress","_t":1792549618039,"id":"17","progress":0.140625,"total":326,"current":99}
+{"_e":"metro:bundling:progress","_t":1792549618152,"id":"17","progress":0.140625,"total":326,"current":99}
+{"_e":"metro:client_log","_t":1792549618258,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:bundling:progress","_t":1792549618259,"id":"17","progress":0.140625,"total":326,"current":99}
+{"_e":"metro:bundling:progress","_t":1792549618272,"id":"17","progress":0.140625,"total":328,"current":102}
+{"_e":"metro:bundling:progress","_t":1792549618337,"id":"17","progress":0.140625,"total":328,"current":103}
+{"_e":"metro:client_log","_t":1792549618412,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:progress","_t":1792549618412,"id":"17","progress":0.140625,"total":328,"current":103}
+{"_e":"metro:bundling:progress","_t":1792549618485,"id":"17","progress":0.140625,"total":336,"current":105}
+{"_e":"metro:bundling:progress","_t":1792549618598,"id":"17","progress":0.140625,"total":336,"current":105}
+{"_e":"metro:bundling:progress","_t":1792549618715,"id":"17","progress":0.140625,"total":342,"current":108}
+{"_e":"metro:bundling:progress","_t":1792549618818,"id":"17","progress":0.140625,"total":342,"current":108}
+{"_e":"metro:bundling:progress","_t":1792549618925,"id":"17","progress":0.140625,"total":346,"current":111}
+{"_e":"metro:bundling:progress","_t":1792549619032,"id":"17","progress":0.140625,"total":351,"current":113}
+{"_e":"metro:bundling:progress","_t":1792549619133,"id":"17","progress":0.140625,"total":351,"current":113}
+{"_e":"metro:bundling:progress","_t":1792549619236,"id":"17","progress":0.140625,"total":351,"current":113}
+{"_e":"metro:bundling:progress","_t":1792549619342,"id":"17","progress":0.140625,"total":351,"current":113}
+{"_e":"metro:bundling:progress","_t":1792549619452,"id":"17","progress":0.140625,"total":351,"current":113}
+{"_e":"metro:bundling:progress","_t":1792549619559,"id":"17","progress":0.140625,"total":358,"current":120}
+{"_e":"metro:bundling:progress","_t":1792549619665,"id":"17","progress":0.140625,"total":358,"current":120}
+{"_e":"metro:bundling:progress","_t":1792549619814,"id":"17","progress":0.140625,"total":371,"current":123}
+{"_e":"metro:bundling:progress","_t":1792549619915,"id":"17","progress":0.140625,"total":371,"current":123}
+{"_e":"metro:bundling:progress","_t":1792549620023,"id":"17","progress":0.140625,"total":375,"current":130}
+{"_e":"metro:bundling:progress","_t":1792549620124,"id":"17","progress":0.140625,"total":375,"current":132}
+{"_e":"metro:bundling:progress","_t":1792549620229,"id":"17","progress":0.140625,"total":381,"current":136}
+{"_e":"metro:bundling:progress","_t":1792549620336,"id":"17","progress":0.140625,"total":383,"current":139}
+{"_e":"metro:bundling:progress","_t":1792549620440,"id":"17","progress":0.140625,"total":383,"current":139}
+{"_e":"metro:bundling:progress","_t":1792549620549,"id":"17","progress":0.140625,"total":398,"current":148}
+{"_e":"metro:bundling:progress","_t":1792549620649,"id":"17","progress":0.1448540877701047,"total":402,"current":153}
+{"_e":"metro:bundling:progress","_t":1792549620756,"id":"17","progress":0.15102073326144497,"total":404,"current":157}
+{"_e":"metro:bundling:progress","_t":1792549620860,"id":"17","progress":0.15571534986543636,"total":408,"current":161}
+{"_e":"metro:bundling:progress","_t":1792549620962,"id":"17","progress":0.15922235838054477,"total":411,"current":164}
+{"_e":"metro:bundling:progress","_t":1792549621082,"id":"17","progress":0.15962197296134223,"total":423,"current":169}
+{"_e":"metro:bundling:progress","_t":1792549621184,"id":"17","progress":0.1656968858131488,"total":425,"current":173}
+{"_e":"metro:bundling:progress","_t":1792549621292,"id":"17","progress":0.1656968858131488,"total":425,"current":173}
+{"_e":"metro:bundling:progress","_t":1792549621393,"id":"17","progress":0.17800924793931786,"total":429,"current":181}
+{"_e":"metro:bundling:progress","_t":1792549621493,"id":"17","progress":0.18537808641975312,"total":432,"current":186}
+{"_e":"metro:bundling:progress","_t":1792549621594,"id":"17","progress":0.18537808641975312,"total":432,"current":186}
+{"_e":"metro:bundling:progress","_t":1792549621702,"id":"17","progress":0.20229457267363066,"total":438,"current":197}
+{"_e":"metro:bundling:progress","_t":1792549621808,"id":"17","progress":0.20755392510416612,"total":439,"current":200}
+{"_e":"metro:bundling:progress","_t":1792549621908,"id":"17","progress":0.2244903253926661,"total":439,"current":208}
+{"_e":"metro:bundling:progress","_t":1792549622023,"id":"17","progress":0.239854504698502,"total":439,"current":215}
+{"_e":"metro:bundling:progress","_t":1792549622231,"id":"17","progress":0.239854504698502,"total":443,"current":215}
+{"_e":"metro:bundling:progress","_t":1792549622563,"id":"17","progress":0.239854504698502,"total":443,"current":216}
+{"_e":"metro:bundling:progress","_t":1792549622876,"id":"17","progress":0.239854504698502,"total":444,"current":217}
+{"_e":"metro:bundling:progress","_t":1792549623049,"id":"17","progress":0.24107215323431538,"total":444,"current":218}
+{"_e":"metro:bundling:progress","_t":1792549623167,"id":"17","progress":0.24328889700511325,"total":444,"current":219}
+{"_e":"metro:bundling:progress","_t":1792549623269,"id":"17","progress":0.24328889700511325,"total":444,"current":219}
+{"_e":"metro:bundling:progress","_t":1792549623368,"id":"17","progress":0.26363389571477414,"total":446,"current":229}
+{"_e":"metro:bundling:progress","_t":1792549623468,"id":"17","progress":0.2656562324128161,"total":454,"current":234}
+{"_e":"metro:bundling:progress","_t":1792549623568,"id":"17","progress":0.2700368032646212,"total":458,"current":238}
+{"_e":"metro:bundling:progress","_t":1792549623673,"id":"17","progress":0.28136105860113425,"total":460,"current":244}
+{"_e":"metro:bundling:progress","_t":1792549623783,"id":"17","progress":0.28599243856332707,"total":460,"current":246}
+{"_e":"metro:bundling:progress","_t":1792549623888,"id":"17","progress":0.2906616257088847,"total":460,"current":248}
+{"_e":"metro:bundling:progress","_t":1792549624005,"id":"17","progress":0.2906616257088847,"total":461,"current":248}
+{"_e":"metro:bundling:progress","_t":1792549624114,"id":"17","progress":0.2917405809308256,"total":461,"current":249}
+{"_e":"metro:bundling:progress","_t":1792549624217,"id":"17","progress":0.2960295987975488,"total":465,"current":253}
+{"_e":"metro:bundling:progress","_t":1792549624330,"id":"17","progress":0.3041546169573947,"total":466,"current":257}
+{"_e":"metro:bundling:progress","_t":1792549624430,"id":"17","progress":0.312354130653082,"total":467,"current":261}
+{"_e":"metro:bundling:progress","_t":1792549624531,"id":"17","progress":0.32792753305573813,"total":468,"current":268}
+{"_e":"metro:bundling:progress","_t":1792549624768,"id":"17","progress":0.33037931916137037,"total":468,"current":269}
+{"_e":"metro:bundling:progress","_t":1792549624874,"id":"17","progress":0.35032233910439037,"total":468,"current":277}
+{"_e":"metro:bundling:progress","_t":1792549624983,"id":"17","progress":0.36308349769888226,"total":468,"current":282}
+{"_e":"metro:bundling:progress","_t":1792549625088,"id":"17","progress":0.39464168310322156,"total":468,"current":294}
+{"_e":"metro:bundling:progress","_t":1792549625188,"id":"17","progress":0.40817901234567894,"total":468,"current":299}
+{"_e":"metro:bundling:progress","_t":1792549625291,"id":"17","progress":0.40817901234567894,"total":468,"current":299}
+{"_e":"metro:bundling:progress","_t":1792549625400,"id":"17","progress":0.4435053122304216,"total":473,"current":315}
+{"_e":"metro:bundling:progress","_t":1792549625500,"id":"17","progress":0.4463256886679867,"total":473,"current":316}
+{"_e":"metro:bundling:progress","_t":1792549625612,"id":"17","progress":0.46422653815557574,"total":477,"current":325}
+{"_e":"metro:bundling:progress","_t":1792549625757,"id":"17","progress":0.4708601039897761,"total":478,"current":328}
+{"_e":"metro:bundling:progress","_t":1792549625789,"id":"17","progress":0.47373557885891354,"total":478,"current":329}
+{"_e":"metro:bundling:progress","_t":1792549625895,"id":"17","progress":0.48241452355525993,"total":478,"current":332}
+{"_e":"metro:bundling:progress","_t":1792549625995,"id":"17","progress":0.4830538386047072,"total":482,"current":335}
+{"_e":"metro:bundling:progress","_t":1792549626105,"id":"17","progress":0.4885577638431289,"total":485,"current":339}
+{"_e":"metro:bundling:progress","_t":1792549626210,"id":"17","progress":0.4943394622170262,"total":485,"current":341}
+{"_e":"metro:bundling:progress","_t":1792549626314,"id":"17","progress":0.4943394622170262,"total":485,"current":341}
+{"_e":"metro:bundling:progress","_t":1792549626424,"id":"17","progress":0.4943394622170262,"total":499,"current":348}
+{"_e":"metro:bundling:progress","_t":1792549626509,"id":"17","progress":0.4943394622170262,"total":499,"current":349}
+{"_e":"metro:bundling:progress","_t":1792549626609,"id":"17","progress":0.4943394622170262,"total":504,"current":354}
+{"_e":"metro:bundling:progress","_t":1792549626723,"id":"17","progress":0.49859754365899117,"total":507,"current":358}
+{"_e":"metro:bundling:progress","_t":1792549626823,"id":"17","progress":0.49859754365899117,"total":507,"current":358}
+{"_e":"metro:bundling:progress","_t":1792549626924,"id":"17","progress":0.49859754365899117,"total":513,"current":362}
+{"_e":"metro:bundling:progress","_t":1792549627027,"id":"17","progress":0.49859754365899117,"total":513,"current":362}
+{"_e":"metro:bundling:progress","_t":1792549627136,"id":"17","progress":0.49859754365899117,"total":531,"current":369}
+{"_e":"metro:bundling:progress","_t":1792549627236,"id":"17","progress":0.49859754365899117,"total":532,"current":371}
+{"_e":"metro:bundling:progress","_t":1792549627338,"id":"17","progress":0.49859754365899117,"total":533,"current":373}
+{"_e":"metro:bundling:progress","_t":1792549627446,"id":"17","progress":0.49859754365899117,"total":533,"current":373}
+{"_e":"metro:bundling:progress","_t":1792549627597,"id":"17","progress":0.49859754365899117,"total":533,"current":373}
+{"_e":"metro:bundling:progress","_t":1792549627599,"id":"17","progress":0.49859754365899117,"total":533,"current":373}
+{"_e":"metro:bundling:progress","_t":1792549627720,"id":"17","progress":0.49859754365899117,"total":533,"current":373}
+{"_e":"metro:bundling:progress","_t":1792549627865,"id":"17","progress":0.49997563488527513,"total":536,"current":379}
+{"_e":"metro:bundling:progress","_t":1792549627984,"id":"17","progress":0.5113448394244874,"total":537,"current":384}
+{"_e":"metro:bundling:progress","_t":1792549628088,"id":"17","progress":0.5113448394244874,"total":537,"current":384}
+{"_e":"metro:bundling:progress","_t":1792549628189,"id":"17","progress":0.5113448394244874,"total":537,"current":384}
+{"_e":"metro:bundling:progress","_t":1792549628295,"id":"17","progress":0.5113448394244874,"total":564,"current":397}
+{"_e":"metro:bundling:progress","_t":1792549628406,"id":"17","progress":0.5113448394244874,"total":568,"current":402}
+{"_e":"metro:bundling:progress","_t":1792549628506,"id":"17","progress":0.5113448394244874,"total":572,"current":407}
+{"_e":"metro:bundling:progress","_t":1792549628642,"id":"17","progress":0.5113448394244874,"total":572,"current":407}
+{"_e":"metro:bundling:progress","_t":1792549628775,"id":"17","progress":0.5113448394244874,"total":584,"current":416}
+{"_e":"metro:bundling:progress","_t":1792549628881,"id":"17","progress":0.5113448394244874,"total":585,"current":417}
+{"_e":"metro:bundling:progress","_t":1792549628987,"id":"17","progress":0.5113448394244874,"total":596,"current":422}
+{"_e":"metro:bundling:progress","_t":1792549629087,"id":"17","progress":0.5113448394244874,"total":598,"current":425}
+{"_e":"metro:bundling:progress","_t":1792549629188,"id":"17","progress":0.5119033446751255,"total":601,"current":430}
+{"_e":"metro:bundling:progress","_t":1792549629290,"id":"17","progress":0.5119033446751255,"total":601,"current":430}
+{"_e":"metro:bundling:progress","_t":1792549629396,"id":"17","progress":0.5159357197332602,"total":607,"current":436}
+{"_e":"metro:bundling:progress","_t":1792549629504,"id":"17","progress":0.5179279763504435,"total":610,"current":439}
+{"_e":"metro:bundling:progress","_t":1792549629603,"id":"17","progress":0.5179279763504435,"total":615,"current":441}
+{"_e":"metro:bundling:progress","_t":1792549629703,"id":"17","progress":0.5179279763504435,"total":617,"current":444}
+{"_e":"metro:bundling:progress","_t":1792549629805,"id":"17","progress":0.5250997689561017,"total":621,"current":450}
+{"_e":"metro:bundling:progress","_t":1792549629910,"id":"17","progress":0.5374634257296761,"total":622,"current":456}
+{"_e":"metro:bundling:progress","_t":1792549630027,"id":"17","progress":0.5374634257296761,"total":622,"current":456}
+{"_e":"metro:bundling:progress","_t":1792549630138,"id":"17","progress":0.5374634257296761,"total":622,"current":456}
+{"_e":"metro:bundling:progress","_t":1792549630245,"id":"17","progress":0.5374634257296761,"total":622,"current":456}
+{"_e":"metro:bundling:progress","_t":1792549630347,"id":"17","progress":0.5374634257296761,"total":656,"current":470}
+{"_e":"metro:bundling:progress","_t":1792549630455,"id":"17","progress":0.5374634257296761,"total":656,"current":475}
+{"_e":"metro:bundling:progress","_t":1792549630570,"id":"17","progress":0.5374634257296761,"total":656,"current":476}
+{"_e":"metro:bundling:progress","_t":1792549630671,"id":"17","progress":0.5374634257296761,"total":656,"current":476}
+{"_e":"metro:bundling:progress","_t":1792549630781,"id":"17","progress":0.5374634257296761,"total":657,"current":480}
+{"_e":"metro:bundling:progress","_t":1792549630883,"id":"17","progress":0.5374634257296761,"total":660,"current":483}
+{"_e":"metro:bundling:progress","_t":1792549630989,"id":"17","progress":0.5383696366162303,"total":661,"current":485}
+{"_e":"metro:bundling:progress","_t":1792549631096,"id":"17","progress":0.5405920063352413,"total":661,"current":486}
+{"_e":"metro:bundling:progress","_t":1792549631100,"id":"17","progress":0.5428189535408002,"total":661,"current":487}
+{"_e":"metro:bundling:progress","_t":1792549631200,"id":"17","progress":0.5428189535408002,"total":661,"current":487}
+{"_e":"metro:bundling:progress","_t":1792549631304,"id":"17","progress":0.5456343954509361,"total":662,"current":489}
+{"_e":"metro:bundling:progress","_t":1792549631409,"id":"17","progress":0.5484485939636327,"total":663,"current":491}
+{"_e":"metro:bundling:progress","_t":1792549631525,"id":"17","progress":0.5529257067718607,"total":663,"current":493}
+{"_e":"metro:bundling:progress","_t":1792549631627,"id":"17","progress":0.5529257067718607,"total":663,"current":493}
+{"_e":"metro:bundling:progress","_t":1792549631745,"id":"17","progress":0.5563509778555326,"total":669,"current":499}
+{"_e":"metro:bundling:progress","_t":1792549631855,"id":"17","progress":0.5563509778555326,"total":676,"current":502}
+{"_e":"metro:bundling:progress","_t":1792549631955,"id":"17","progress":0.5563509778555326,"total":676,"current":504}
+{"_e":"metro:bundling:progress","_t":1792549632078,"id":"17","progress":0.5563509778555326,"total":683,"current":509}
+{"_e":"metro:bundling:progress","_t":1792549632179,"id":"17","progress":0.5625,"total":684,"current":513}
+{"_e":"metro:bundling:progress","_t":1792549632279,"id":"17","progress":0.563593825701876,"total":686,"current":515}
+{"_e":"metro:bundling:progress","_t":1792549632379,"id":"17","progress":0.5652246266754578,"total":689,"current":518}
+{"_e":"metro:bundling:progress","_t":1792549632491,"id":"17","progress":0.5679479101029196,"total":690,"current":520}
+{"_e":"metro:bundling:progress","_t":1792549632590,"id":"17","progress":0.5767191766435623,"total":690,"current":524}
+{"_e":"metro:bundling:progress","_t":1792549632692,"id":"17","progress":0.5794492346292314,"total":691,"current":526}
+{"_e":"metro:bundling:progress","_t":1792549632795,"id":"17","progress":0.5838640699839365,"total":691,"current":528}
+{"_e":"metro:bundling:progress","_t":1792549632897,"id":"17","progress":0.5860777706338054,"total":691,"current":529}
+{"_e":"metro:bundling:progress","_t":1792549633098,"id":"17","progress":0.5882956599320182,"total":691,"current":530}
+{"_e":"metro:bundling:progress","_t":1792549633198,"id":"17","progress":0.5932561228240167,"total":692,"current":533}
+{"_e":"metro:bundling:progress","_t":1792549633316,"id":"17","progress":0.5932561228240167,"total":692,"current":533}
+{"_e":"metro:bundling:progress","_t":1792549633438,"id":"17","progress":0.6044388385846503,"total":692,"current":538}
+{"_e":"metro:bundling:progress","_t":1792549633585,"id":"17","progress":0.6044388385846503,"total":692,"current":538}
+{"_e":"metro:bundling:progress","_t":1792549633688,"id":"17","progress":0.609929490320491,"total":694,"current":542}
+{"_e":"metro:bundling:progress","_t":1792549633801,"id":"17","progress":0.6118915279841709,"total":698,"current":546}
+{"_e":"metro:bundling:progress","_t":1792549633901,"id":"17","progress":0.6186340834640109,"total":698,"current":549}
+{"_e":"metro:bundling:progress","_t":1792549634010,"id":"17","progress":0.6281526235107991,"total":699,"current":554}
+{"_e":"metro:bundling:progress","_t":1792549634110,"id":"17","progress":0.6304223691723921,"total":699,"current":555}
+{"_e":"metro:bundling:progress","_t":1792549634210,"id":"17","progress":0.6304223691723921,"total":699,"current":555}
+{"_e":"metro:bundling:progress","_t":1792549634313,"id":"17","progress":0.6377325084251296,"total":705,"current":563}
+{"_e":"metro:bundling:progress","_t":1792549634416,"id":"17","progress":0.647717610718437,"total":707,"current":569}
+{"_e":"metro:bundling:progress","_t":1792549634518,"id":"17","progress":0.6550021545532893,"total":708,"current":573}
+{"_e":"metro:bundling:progress","_t":1792549634630,"id":"17","progress":0.6595825752497686,"total":708,"current":575}
+{"_e":"metro:bundling:progress","_t":1792549634742,"id":"17","progress":0.6664831306457275,"total":708,"current":578}
+{"_e":"metro:bundling:progress","_t":1792549634843,"id":"17","progress":0.6664831306457275,"total":708,"current":578}
+{"_e":"metro:bundling:progress","_t":1792549634944,"id":"17","progress":0.6831290619697185,"total":709,"current":586}
+{"_e":"metro:bundling:progress","_t":1792549635053,"id":"17","progress":0.6843379150359804,"total":712,"current":589}
+{"_e":"metro:bundling:progress","_t":1792549635154,"id":"17","progress":0.6874592974444681,"total":714,"current":592}
+{"_e":"metro:bundling:progress","_t":1792549635255,"id":"17","progress":0.6874592974444681,"total":714,"current":592}
+{"_e":"metro:bundling:progress","_t":1792549635357,"id":"17","progress":0.7022252738678568,"total":716,"current":600}
+{"_e":"metro:bundling:progress","_t":1792549635460,"id":"17","progress":0.7190661539149836,"total":717,"current":608}
+{"_e":"metro:bundling:progress","_t":1792549635561,"id":"17","progress":0.7265306755844539,"total":718,"current":612}
+{"_e":"metro:bundling:progress","_t":1792549635663,"id":"17","progress":0.7289068986118977,"total":718,"current":613}
+{"_e":"metro:bundling:progress","_t":1792549635879,"id":"17","progress":0.7312870011871415,"total":718,"current":614}
+{"_e":"metro:bundling:progress","_t":1792549635993,"id":"17","progress":0.7312870011871415,"total":718,"current":614}
+{"_e":"metro:bundling:progress","_t":1792549636103,"id":"17","progress":0.7360456599286564,"total":725,"current":622}
+{"_e":"metro:bundling:progress","_t":1792549636204,"id":"17","progress":0.7360456599286564,"total":735,"current":625}
+{"_e":"metro:bundling:progress","_t":1792549636305,"id":"17","progress":0.7360456599286564,"total":735,"current":625}
+{"_e":"metro:bundling:progress","_t":1792549636408,"id":"17","progress":0.7360456599286564,"total":759,"current":637}
+{"_e":"metro:bundling:progress","_t":1792549636509,"id":"17","progress":0.7360456599286564,"total":768,"current":643}
+{"_e":"metro:bundling:progress","_t":1792549636616,"id":"17","progress":0.7360456599286564,"total":768,"current":645}
+{"_e":"metro:bundling:progress","_t":1792549636723,"id":"17","progress":0.7360456599286564,"total":776,"current":649}
+{"_e":"metro:bundling:progress","_t":1792549636825,"id":"17","progress":0.7360456599286564,"total":778,"current":652}
+{"_e":"metro:bundling:progress","_t":1792549636925,"id":"17","progress":0.7360456599286564,"total":780,"current":657}
+{"_e":"metro:bundling:progress","_t":1792549637039,"id":"17","progress":0.7360456599286564,"total":780,"current":661}
+{"_e":"metro:bundling:progress","_t":1792549637166,"id":"17","progress":0.7360456599286564,"total":780,"current":663}
+{"_e":"metro:bundling:progress","_t":1792549637237,"id":"17","progress":0.7360456599286564,"total":780,"current":664}
+{"_e":"metro:bundling:progress","_t":1792549637337,"id":"17","progress":0.7360456599286564,"total":780,"current":664}
+{"_e":"metro:bundling:progress","_t":1792549637443,"id":"17","progress":0.7360456599286564,"total":788,"current":673}
+{"_e":"metro:bundling:progress","_t":1792549637543,"id":"17","progress":0.7360456599286564,"total":790,"current":677}
+{"_e":"metro:bundling:progress","_t":1792549637643,"id":"17","progress":0.7409069059445602,"total":790,"current":680}
+{"_e":"metro:bundling:progress","_t":1792549637743,"id":"17","progress":0.7474587405864446,"total":790,"current":683}
+{"_e":"metro:bundling:progress","_t":1792549637843,"id":"17","progress":0.7474587405864446,"total":790,"current":683}
+{"_e":"metro:bundling:progress","_t":1792549637948,"id":"17","progress":0.7530042700607198,"total":794,"current":689}
+{"_e":"metro:bundling:progress","_t":1792549638052,"id":"17","progress":0.7530042700607198,"total":794,"current":689}
+{"_e":"metro:bundling:progress","_t":1792549638153,"id":"17","progress":0.7711310951743644,"total":796,"current":699}
+{"_e":"metro:bundling:progress","_t":1792549638262,"id":"17","progress":0.7711310951743644,"total":800,"current":702}
+{"_e":"metro:bundling:progress","_t":1792549638376,"id":"17","progress":0.7711310951743644,"total":800,"current":702}
+{"_e":"metro:bundling:progress","_t":1792549638476,"id":"17","progress":0.7711310951743644,"total":800,"current":702}
+{"_e":"metro:bundling:progress","_t":1792549638584,"id":"17","progress":0.7803508426257165,"total":806,"current":712}
+{"_e":"metro:bundling:progress","_t":1792549638684,"id":"17","progress":0.783049762278208,"total":808,"current":715}
+{"_e":"metro:bundling:progress","_t":1792549638833,"id":"17","progress":0.783049762278208,"total":808,"current":715}
+{"_e":"metro:bundling:progress","_t":1792549638935,"id":"17","progress":0.783049762278208,"total":817,"current":722}
+{"_e":"metro:bundling:progress","_t":1792549639035,"id":"17","progress":0.7874661604910342,"total":817,"current":725}
+{"_e":"metro:bundling:progress","_t":1792549639175,"id":"17","progress":0.7939966051875013,"total":817,"current":728}
+{"_e":"metro:bundling:progress","_t":1792549639283,"id":"17","progress":0.7939966051875013,"total":817,"current":728}
+{"_e":"metro:bundling:progress","_t":1792549639384,"id":"17","progress":0.7939966051875013,"total":824,"current":734}
+{"_e":"metro:bundling:progress","_t":1792549639504,"id":"17","progress":0.7963458195222018,"total":827,"current":738}
+{"_e":"metro:bundling:progress","_t":1792549639610,"id":"17","progress":0.800667905586691,"total":827,"current":740}
+{"_e":"metro:bundling:progress","_t":1792549639722,"id":"17","progress":0.8052244509790193,"total":828,"current":743}
+{"_e":"metro:bundling:progress","_t":1792549639833,"id":"17","progress":0.8073934047469019,"total":828,"current":744}
+{"_e":"metro:bundling:progress","_t":1792549639948,"id":"17","progress":0.8095652757357231,"total":828,"current":745}
+{"_e":"metro:bundling:progress","_t":1792549640060,"id":"17","progress":0.8119553402663695,"total":829,"current":747}
+{"_e":"metro:bundling:progress","_t":1792549640190,"id":"17","progress":0.8141307052402287,"total":829,"current":748}
+{"_e":"metro:bundling:progress","_t":1792549640337,"id":"17","progress":0.8141307052402287,"total":829,"current":748}
+{"_e":"metro:bundling:progress","_t":1792549640439,"id":"17","progress":0.8141307052402287,"total":829,"current":748}
+{"_e":"metro:bundling:progress","_t":1792549640546,"id":"17","progress":0.8141307052402287,"total":835,"current":750}
+{"_e":"metro:bundling:progress","_t":1792549640656,"id":"17","progress":0.8141307052402287,"total":835,"current":751}
+{"_e":"metro:bundling:progress","_t":1792549640693,"id":"17","progress":0.8141307052402287,"total":835,"current":752}
+{"_e":"metro:bundling:progress","_t":1792549640793,"id":"17","progress":0.8141307052402287,"total":835,"current":752}
+{"_e":"metro:bundling:progress","_t":1792549640869,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549640973,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549641079,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549641188,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549641308,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549641414,"id":"17","progress":0.8141307052402287,"total":836,"current":753}
+{"_e":"metro:bundling:progress","_t":1792549641518,"id":"17","progress":0.8190035037039963,"total":842,"current":762}
+{"_e":"metro:bundling:progress","_t":1792549641557,"id":"17","progress":0.8190035037039963,"total":842,"current":762}
+{"_e":"metro:bundling:progress","_t":1792549641658,"id":"17","progress":0.8194110644414996,"total":844,"current":764}
+{"_e":"metro:bundling:progress","_t":1792549642106,"id":"17","progress":0.8219587098793377,"total":846,"current":767}
+{"_e":"metro:bundling:progress","_t":1792549642206,"id":"17","progress":0.8219587098793377,"total":846,"current":767}
+{"_e":"metro:bundling:progress","_t":1792549642330,"id":"17","progress":0.8219587098793377,"total":846,"current":767}
+{"_e":"metro:bundling:progress","_t":1792549642443,"id":"17","progress":0.8270297577854672,"total":850,"current":773}
+{"_e":"metro:bundling:progress","_t":1792549642550,"id":"17","progress":0.8270297577854672,"total":850,"current":773}
+{"_e":"metro:bundling:progress","_t":1792549642659,"id":"17","progress":0.8357955871367203,"total":851,"current":778}
+{"_e":"metro:bundling:progress","_t":1792549642763,"id":"17","progress":0.8357955871367203,"total":851,"current":778}
+{"_e":"metro:bundling:progress","_t":1792549642863,"id":"17","progress":0.8357955871367203,"total":851,"current":778}
+{"_e":"metro:bundling:progress","_t":1792549642966,"id":"17","progress":0.8357955871367203,"total":857,"current":783}
+{"_e":"metro:bundling:progress","_t":1792549643187,"id":"17","progress":0.8357955871367203,"total":857,"current":783}
+{"_e":"metro:bundling:progress","_t":1792549643297,"id":"17","progress":0.8357955871367203,"total":857,"current":783}
+{"_e":"metro:bundling:progress","_t":1792549643400,"id":"17","progress":0.8434859623670812,"total":858,"current":788}
+{"_e":"metro:bundling:progress","_t":1792549643514,"id":"17","progress":0.8456281480757005,"total":858,"current":789}
+{"_e":"metro:bundling:progress","_t":1792549643618,"id":"17","progress":0.8456281480757005,"total":862,"current":791}
+{"_e":"metro:bundling:progress","_t":1792549643730,"id":"17","progress":0.8456281480757005,"total":864,"current":792}
+{"_e":"metro:bundling:progress","_t":1792549643827,"id":"17","progress":0.8456281480757005,"total":864,"current":792}
+{"_e":"metro:bundling:progress","_t":1792549643944,"id":"17","progress":0.8456281480757005,"total":864,"current":792}
+{"_e":"metro:bundling:progress","_t":1792549644044,"id":"17","progress":0.8456281480757005,"total":864,"current":792}
+{"_e":"metro:bundling:progress","_t":1792549644383,"id":"17","progress":0.8456281480757005,"total":868,"current":798}
+{"_e":"metro:bundling:progress","_t":1792549644483,"id":"17","progress":0.8456281480757005,"total":868,"current":798}
+{"_e":"metro:bundling:progress","_t":1792549644597,"id":"17","progress":0.8585977611312179,"total":872,"current":808}
+{"_e":"metro:bundling:progress","_t":1792549644710,"id":"17","progress":0.8607243182392054,"total":872,"current":809}
+{"_e":"metro:bundling:progress","_t":1792549644812,"id":"17","progress":0.8607243182392054,"total":872,"current":809}
+{"_e":"metro:bundling:progress","_t":1792549644917,"id":"17","progress":0.869401374308024,"total":873,"current":814}
+{"_e":"metro:bundling:progress","_t":1792549645016,"id":"17","progress":0.8715388077346486,"total":873,"current":815}
+{"_e":"metro:bundling:progress","_t":1792549645066,"id":"17","progress":0.8715388077346486,"total":873,"current":815}
+{"_e":"metro:bundling:progress","_t":1792549645179,"id":"17","progress":0.8715388077346486,"total":873,"current":815}
+{"_e":"metro:bundling:progress","_t":1792549645280,"id":"17","progress":0.8715388077346486,"total":873,"current":815}
+{"_e":"metro:bundling:progress","_t":1792549645393,"id":"17","progress":0.8715388077346486,"total":888,"current":823}
+{"_e":"metro:bundling:progress","_t":1792549645501,"id":"17","progress":0.8715388077346486,"total":888,"current":825}
+{"_e":"metro:bundling:progress","_t":1792549645603,"id":"17","progress":0.8715388077346486,"total":889,"current":829}
+{"_e":"metro:bundling:progress","_t":1792549645706,"id":"17","progress":0.8758770170601566,"total":889,"current":832}
+{"_e":"metro:bundling:progress","_t":1792549645807,"id":"17","progress":0.8802234566342633,"total":890,"current":835}
+{"_e":"metro:bundling:progress","_t":1792549645922,"id":"17","progress":0.8802234566342633,"total":890,"current":835}
+{"_e":"metro:bundling:progress","_t":1792549646034,"id":"17","progress":0.8868064911822077,"total":892,"current":840}
+{"_e":"metro:bundling:progress","_t":1792549646139,"id":"17","progress":0.8868064911822077,"total":892,"current":840}
+{"_e":"metro:bundling:progress","_t":1792549646228,"id":"17","progress":0.8868064911822077,"total":892,"current":840}
+{"_e":"metro:bundling:progress","_t":1792549646355,"id":"17","progress":0.8892806092194376,"total":895,"current":844}
+{"_e":"metro:bundling:progress","_t":1792549646457,"id":"17","progress":0.8892806092194376,"total":895,"current":844}
+{"_e":"metro:bundling:progress","_t":1792549646559,"id":"17","progress":0.8939607845078144,"total":899,"current":850}
+{"_e":"metro:bundling:progress","_t":1792549646660,"id":"17","progress":0.8983925863604503,"total":901,"current":854}
+{"_e":"metro:bundling:progress","_t":1792549646766,"id":"17","progress":0.9047155645287454,"total":901,"current":857}
+{"_e":"metro:bundling:progress","_t":1792549646866,"id":"17","progress":0.9047155645287454,"total":901,"current":857}
+{"_e":"metro:bundling:progress","_t":1792549646971,"id":"17","progress":0.9072299380360795,"total":905,"current":862}
+{"_e":"metro:bundling:progress","_t":1792549647081,"id":"17","progress":0.9093361008516223,"total":905,"current":863}
+{"_e":"metro:bundling:progress","_t":1792549647182,"id":"17","progress":0.9093361008516223,"total":905,"current":863}
+{"_e":"metro:bundling:progress","_t":1792549647297,"id":"17","progress":0.9093361008516223,"total":905,"current":863}
+{"_e":"metro:bundling:progress","_t":1792549647396,"id":"17","progress":0.9093361008516223,"total":905,"current":863}
+{"_e":"metro:bundling:progress","_t":1792549647514,"id":"17","progress":0.9394737571407398,"total":911,"current":883}
+{"_e":"metro:bundling:progress","_t":1792549647627,"id":"17","progress":0.9416028754544108,"total":911,"current":884}
+{"_e":"metro:bundling:progress","_t":1792549647739,"id":"17","progress":0.9458683416855339,"total":911,"current":886}
+{"_e":"metro:bundling:progress","_t":1792549647839,"id":"17","progress":0.9458683416855339,"total":911,"current":886}
+{"_e":"metro:bundling:progress","_t":1792549647947,"id":"17","progress":0.9587225772091561,"total":911,"current":892}
+{"_e":"metro:bundling:progress","_t":1792549648048,"id":"17","progress":0.9609582410094424,"total":913,"current":895}
+{"_e":"metro:bundling:progress","_t":1792549648148,"id":"17","progress":0.9652578250870654,"total":913,"current":897}
+{"_e":"metro:client_log","_t":1792549648228,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:bundling:progress","_t":1792549648228,"id":"17","progress":0.9652578250870654,"total":913,"current":897}
+{"_e":"metro:bundling:progress","_t":1792549648257,"id":"17","progress":0.9760487734068805,"total":913,"current":902}
+{"_e":"metro:bundling:progress","_t":1792549648409,"id":"17","progress":0.9760487734068805,"total":913,"current":902}
+{"_e":"metro:client_log","_t":1792549648420,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:progress","_t":1792549648420,"id":"17","progress":0.9760487734068805,"total":913,"current":902}
+{"_e":"metro:bundling:progress","_t":1792549648509,"id":"17","progress":0.9760487734068805,"total":913,"current":902}
+{"_e":"metro:bundling:progress","_t":1792549648616,"id":"17","progress":0.9826655505049369,"total":919,"current":911}
+{"_e":"metro:bundling:progress","_t":1792549648723,"id":"17","progress":0.9826655505049369,"total":919,"current":911}
+{"_e":"metro:bundling:progress","_t":1792549648830,"id":"17","progress":0.9934959522116945,"total":921,"current":918}
+{"_e":"metro:bundling:progress","_t":1792549648934,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549649040,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549649144,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549649568,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549649708,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549650010,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549650110,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549650210,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549650310,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:progress","_t":1792549650417,"id":"17","progress":0.999,"total":921,"current":921}
+{"_e":"metro:bundling:done","_t":1792549650531,"id":"17","total":921,"ms":44789.9805}
+{"_e":"metro:client_log","_t":1792549678229,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549678280,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792549708228,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549708278,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792549833792,"id":"23","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792549833793,"id":"23","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549833800,"id":"23","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792549833903,"id":"23","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792549834089,"id":"23","progress":0.04000000000000001,"total":3,"current":2}
+{"_e":"metro:bundling:progress","_t":1792549834192,"id":"23","progress":0.04000000000000001,"total":35,"current":7}
+{"_e":"metro:bundling:progress","_t":1792549834310,"id":"23","progress":0.04000000000000001,"total":157,"current":10}
+{"_e":"metro:bundling:progress","_t":1792549834395,"id":"23","progress":0.04000000000000001,"total":157,"current":11}
+{"_e":"metro:bundling:progress","_t":1792549834498,"id":"23","progress":0.04000000000000001,"total":158,"current":12}
+{"_e":"metro:bundling:progress","_t":1792549834600,"id":"23","progress":0.04000000000000001,"total":189,"current":18}
+{"_e":"metro:bundling:progress","_t":1792549834715,"id":"23","progress":0.04000000000000001,"total":194,"current":23}
+{"_e":"metro:bundling:progress","_t":1792549834816,"id":"23","progress":0.04000000000000001,"total":209,"current":30}
+{"_e":"metro:bundling:progress","_t":1792549834916,"id":"23","progress":0.04000000000000001,"total":240,"current":38}
+{"_e":"metro:bundling:progress","_t":1792549835018,"id":"23","progress":0.04000000000000001,"total":260,"current":48}
+{"_e":"metro:bundling:progress","_t":1792549835121,"id":"23","progress":0.041523673905304384,"total":265,"current":54}
+{"_e":"metro:bundling:progress","_t":1792549835221,"id":"23","progress":0.04275255808694668,"total":266,"current":55}
+{"_e":"metro:bundling:progress","_t":1792549835330,"id":"23","progress":0.04275255808694668,"total":284,"current":58}
+{"_e":"metro:bundling:progress","_t":1792549835434,"id":"23","progress":0.04455166963997078,"total":289,"current":61}
+{"_e":"metro:bundling:progress","_t":1792549835534,"id":"23","progress":0.05242095477785714,"total":297,"current":68}
+{"_e":"metro:bundling:progress","_t":1792549835638,"id":"23","progress":0.0625,"total":300,"current":75}
+{"_e":"metro:bundling:progress","_t":1792549835748,"id":"23","progress":0.07898671451151267,"total":306,"current":86}
+{"_e":"metro:bundling:progress","_t":1792549835848,"id":"23","progress":0.08848742188751801,"total":316,"current":94}
+{"_e":"metro:bundling:progress","_t":1792549835955,"id":"23","progress":0.09861131766805473,"total":328,"current":103}
+{"_e":"metro:bundling:progress","_t":1792549836062,"id":"23","progress":0.11772344579079985,"total":341,"current":117}
+{"_e":"metro:bundling:progress","_t":1792549836163,"id":"23","progress":0.12813145661157027,"total":352,"current":126}
+{"_e":"metro:bundling:progress","_t":1792549836266,"id":"23","progress":0.1401017446396804,"total":358,"current":134}
+{"_e":"metro:bundling:progress","_t":1792549836369,"id":"23","progress":0.16623029695907232,"total":363,"current":148}
+{"_e":"metro:bundling:progress","_t":1792549836471,"id":"23","progress":0.1873822480765622,"total":365,"current":158}
+{"_e":"metro:bundling:progress","_t":1792549836571,"id":"23","progress":0.20975903525972928,"total":369,"current":169}
+{"_e":"metro:bundling:progress","_t":1792549836674,"id":"23","progress":0.2513568496118565,"total":369,"current":185}
+{"_e":"metro:bundling:progress","_t":1792549836781,"id":"23","progress":0.2673514235917361,"total":381,"current":197}
+{"_e":"metro:bundling:progress","_t":1792549836889,"id":"23","progress":0.2970109898824353,"total":389,"current":212}
+{"_e":"metro:bundling:progress","_t":1792549836996,"id":"23","progress":0.32283057851239677,"total":396,"current":225}
+{"_e":"metro:bundling:progress","_t":1792549837101,"id":"23","progress":0.35585359278502104,"total":404,"current":241}
+{"_e":"metro:bundling:progress","_t":1792549837201,"id":"23","progress":0.3752674870580234,"total":413,"current":253}
+{"_e":"metro:bundling:progress","_t":1792549837302,"id":"23","progress":0.425466820787974,"total":417,"current":272}
+{"_e":"metro:bundling:progress","_t":1792549837402,"id":"23","progress":0.4486772247956173,"total":421,"current":282}
+{"_e":"metro:bundling:progress","_t":1792549837503,"id":"23","progress":0.45696339402633107,"total":429,"current":290}
+{"_e":"metro:bundling:progress","_t":1792549837603,"id":"23","progress":0.47519294943979107,"total":441,"current":304}
+{"_e":"metro:bundling:progress","_t":1792549837705,"id":"23","progress":0.47790170132325144,"total":460,"current":318}
+{"_e":"metro:bundling:progress","_t":1792549837813,"id":"23","progress":0.4933031927332419,"total":467,"current":328}
+{"_e":"metro:bundling:progress","_t":1792549837914,"id":"23","progress":0.5209336321142837,"total":478,"current":345}
+{"_e":"metro:bundling:progress","_t":1792549838014,"id":"23","progress":0.5209336321142837,"total":502,"current":356}
+{"_e":"metro:bundling:progress","_t":1792549838121,"id":"23","progress":0.5209336321142837,"total":516,"current":371}
+{"_e":"metro:bundling:progress","_t":1792549838221,"id":"23","progress":0.5209336321142837,"total":522,"current":376}
+{"_e":"metro:bundling:progress","_t":1792549838325,"id":"23","progress":0.5322049886621316,"total":525,"current":383}
+{"_e":"metro:bundling:progress","_t":1792549838425,"id":"23","progress":0.536324815853844,"total":538,"current":394}
+{"_e":"metro:bundling:progress","_t":1792549838531,"id":"23","progress":0.5368892561983472,"total":550,"current":403}
+{"_e":"metro:bundling:progress","_t":1792549838634,"id":"23","progress":0.540199028580704,"total":566,"current":416}
+{"_e":"metro:bundling:progress","_t":1792549838735,"id":"23","progress":0.5553240804193355,"total":573,"current":427}
+{"_e":"metro:bundling:progress","_t":1792549838850,"id":"23","progress":0.5908930056710774,"total":575,"current":442}
+{"_e":"metro:bundling:progress","_t":1792549838956,"id":"23","progress":0.6002283078428403,"total":586,"current":454}
+{"_e":"metro:bundling:progress","_t":1792549839065,"id":"23","progress":0.6046492768537265,"total":598,"current":465}
+{"_e":"metro:bundling:progress","_t":1792549839165,"id":"23","progress":0.6242305853425313,"total":605,"current":478}
+{"_e":"metro:bundling:progress","_t":1792549839266,"id":"23","progress":0.64737746069494,"total":609,"current":490}
+{"_e":"metro:bundling:progress","_t":1792549839379,"id":"23","progress":0.654700095005176,"total":613,"current":496}
+{"_e":"metro:bundling:progress","_t":1792549839480,"id":"23","progress":0.6596672755707509,"total":623,"current":506}
+{"_e":"metro:bundling:progress","_t":1792549839580,"id":"23","progress":0.6799015081563559,"total":627,"current":517}
+{"_e":"metro:bundling:progress","_t":1792549839692,"id":"23","progress":0.7011057439161192,"total":627,"current":525}
+{"_e":"metro:bundling:progress","_t":1792549839817,"id":"23","progress":0.7180474217788348,"total":629,"current":533}
+{"_e":"metro:bundling:progress","_t":1792549839920,"id":"23","progress":0.7297122669785084,"total":638,"current":545}
+{"_e":"metro:bundling:progress","_t":1792549840021,"id":"23","progress":0.7496696123695181,"total":641,"current":555}
+{"_e":"metro:bundling:progress","_t":1792549840121,"id":"23","progress":0.7605774915064304,"total":649,"current":566}
+{"_e":"metro:bundling:progress","_t":1792549840247,"id":"23","progress":0.7739714443911603,"total":657,"current":578}
+{"_e":"metro:bundling:progress","_t":1792549840350,"id":"23","progress":0.7739714443911603,"total":666,"current":584}
+{"_e":"metro:bundling:progress","_t":1792549840461,"id":"23","progress":0.7751367969952698,"total":669,"current":589}
+{"_e":"metro:bundling:progress","_t":1792549840565,"id":"23","progress":0.7866000566893423,"total":672,"current":596}
+{"_e":"metro:bundling:progress","_t":1792549840674,"id":"23","progress":0.7974781919461992,"total":673,"current":601}
+{"_e":"metro:bundling:progress","_t":1792549840776,"id":"23","progress":0.8001342373749529,"total":673,"current":602}
+{"_e":"metro:bundling:progress","_t":1792549840858,"id":"23","progress":0.80279469850683,"total":673,"current":603}
+{"_e":"metro:bundling:progress","_t":1792549840963,"id":"23","progress":0.8198673878371214,"total":677,"current":613}
+{"_e":"metro:bundling:progress","_t":1792549841064,"id":"23","progress":0.8232893598615917,"total":680,"current":617}
+{"_e":"metro:bundling:progress","_t":1792549841178,"id":"23","progress":0.8400541063133321,"total":683,"current":626}
+{"_e":"metro:bundling:progress","_t":1792549841287,"id":"23","progress":0.8440515587050078,"total":689,"current":633}
+{"_e":"metro:bundling:progress","_t":1792549841396,"id":"23","progress":0.8498118249731403,"total":691,"current":637}
+{"_e":"metro:bundling:progress","_t":1792549841499,"id":"23","progress":0.8498118249731403,"total":713,"current":647}
+{"_e":"metro:bundling:progress","_t":1792549841611,"id":"23","progress":0.8498118249731403,"total":744,"current":657}
+{"_e":"metro:bundling:progress","_t":1792549841719,"id":"23","progress":0.8498118249731403,"total":750,"current":663}
+{"_e":"metro:bundling:progress","_t":1792549841821,"id":"23","progress":0.8498118249731403,"total":764,"current":667}
+{"_e":"metro:bundling:progress","_t":1792549841919,"id":"23","progress":0.8498118249731403,"total":780,"current":677}
+{"_e":"metro:bundling:progress","_t":1792549842027,"id":"23","progress":0.8498118249731403,"total":783,"current":686}
+{"_e":"metro:bundling:progress","_t":1792549842143,"id":"23","progress":0.8498118249731403,"total":786,"current":692}
+{"_e":"metro:bundling:progress","_t":1792549842243,"id":"23","progress":0.8498118249731403,"total":797,"current":702}
+{"_e":"metro:bundling:progress","_t":1792549842343,"id":"23","progress":0.8498118249731403,"total":801,"current":713}
+{"_e":"metro:bundling:progress","_t":1792549842450,"id":"23","progress":0.8498118249731403,"total":805,"current":715}
+{"_e":"metro:bundling:progress","_t":1792549842551,"id":"23","progress":0.8498118249731403,"total":808,"current":719}
+{"_e":"metro:bundling:progress","_t":1792549842663,"id":"23","progress":0.8498118249731403,"total":811,"current":725}
+{"_e":"metro:bundling:progress","_t":1792549842892,"id":"23","progress":0.8498118249731403,"total":815,"current":731}
+{"_e":"metro:bundling:progress","_t":1792549842999,"id":"23","progress":0.8498118249731403,"total":819,"current":739}
+{"_e":"metro:bundling:progress","_t":1792549843102,"id":"23","progress":0.8498118249731403,"total":820,"current":748}
+{"_e":"metro:bundling:progress","_t":1792549843201,"id":"23","progress":0.8498118249731403,"total":821,"current":751}
+{"_e":"metro:bundling:progress","_t":1792549843305,"id":"23","progress":0.8503442437589168,"total":822,"current":758}
+{"_e":"metro:bundling:progress","_t":1792549843408,"id":"23","progress":0.860323461457677,"total":828,"current":768}
+{"_e":"metro:bundling:progress","_t":1792549843510,"id":"23","progress":0.876654088849852,"total":832,"current":779}
+{"_e":"metro:bundling:progress","_t":1792549843610,"id":"23","progress":0.8866051730236775,"total":839,"current":790}
+{"_e":"metro:bundling:progress","_t":1792549843710,"id":"23","progress":0.8942094350273014,"total":846,"current":800}
+{"_e":"metro:bundling:progress","_t":1792549843812,"id":"23","progress":0.8954111712813346,"total":856,"current":810}
+{"_e":"metro:bundling:progress","_t":1792549843919,"id":"23","progress":0.9022785683624844,"total":858,"current":815}
+{"_e":"metro:bundling:progress","_t":1792549844022,"id":"23","progress":0.9179379872906336,"total":859,"current":823}
+{"_e":"metro:bundling:progress","_t":1792549844132,"id":"23","progress":0.9248994675954587,"total":862,"current":829}
+{"_e":"metro:bundling:progress","_t":1792549844234,"id":"23","progress":0.9318386848875673,"total":865,"current":835}
+{"_e":"metro:bundling:progress","_t":1792549844335,"id":"23","progress":0.9430966616708181,"total":866,"current":841}
+{"_e":"metro:bundling:progress","_t":1792549844436,"id":"23","progress":0.9566509553818134,"total":867,"current":848}
+{"_e":"metro:bundling:progress","_t":1792549844541,"id":"23","progress":0.9611687812379853,"total":867,"current":850}
+{"_e":"metro:bundling:progress","_t":1792549844653,"id":"23","progress":0.9680386036884849,"total":869,"current":855}
+{"_e":"metro:bundling:progress","_t":1792549844767,"id":"23","progress":0.9749867779587262,"total":874,"current":863}
+{"_e":"metro:bundling:progress","_t":1792549844869,"id":"23","progress":0.9795807985396467,"total":877,"current":868}
+{"_e":"metro:bundling:progress","_t":1792549844975,"id":"23","progress":0.9841001964559911,"total":877,"current":870}
+{"_e":"metro:bundling:progress","_t":1792549845750,"id":"23","progress":0.9863637959302016,"total":877,"current":871}
+{"_e":"metro:bundling:progress","_t":1792549845852,"id":"23","progress":0.9863637959302016,"total":890,"current":883}
+{"_e":"metro:bundling:progress","_t":1792549845968,"id":"23","progress":0.999,"total":890,"current":890}
+{"_e":"metro:bundling:done","_t":1792549846417,"id":"23","total":890,"ms":12624.7196}
+{"_e":"metro:client_log","_t":1792549848151,"level":"log","data":["PrinterService: Native module load failed."]}
+{"_e":"metro:client_log","_t":1792549865775,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792549865835,"level":"warn","data":["PrinterService: Using Mock Printer (Native module not loaded)"]}
+{"_e":"metro:client_log","_t":1792549865835,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549865835,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792549865836,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792549865836,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792549895812,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549895861,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792549895862,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792549925813,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549925868,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792549925868,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792549955812,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549955863,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792549955863,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792549985813,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792549985858,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792549985859,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550015813,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550016024,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550016024,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550045808,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550045863,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550045864,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550075814,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550075865,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550075865,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550105813,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550105859,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550105859,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550135816,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550135878,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550135879,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:bundling:started","_t":1792550148966,"id":"2d","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792550148966,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550148969,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149069,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149148,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149279,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149380,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149481,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149593,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149693,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149793,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149901,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550149980,"id":"2d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792550150105,"id":"2d","total":1,"ms":1138.451}
+{"_e":"metro:bundling:started","_t":1792550150359,"id":"2e","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792550150359,"id":"2e","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792550150430,"id":"2e","total":1,"ms":71.078}
+{"_e":"metro:client_log","_t":1792550153074,"level":"log","data":["PrinterService: Native module load failed."]}
+{"_e":"metro:client_log","_t":1792550153195,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792550153270,"level":"warn","data":["PrinterService: Using Mock Printer (Native module not loaded)"]}
+{"_e":"metro:client_log","_t":1792550153271,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550153271,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550153271,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550153271,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792550153450,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792550161468,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792550183230,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550183288,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550183289,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550183560,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550183612,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792550197007,"level":"warn","data":["PrinterService: Using Mock Printer (Native module not loaded)"]}
+{"_e":"metro:client_log","_t":1792550197069,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550197069,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550197069,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550197070,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792550204152,"id":"2m","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792550204152,"id":"2m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550204153,"id":"2m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550204253,"id":"2m","progress":0.03515625,"total":16,"current":3}
+{"_e":"metro:bundling:progress","_t":1792550204374,"id":"2m","progress":0.038279773156899816,"total":46,"current":9}
+{"_e":"metro:bundling:progress","_t":1792550204491,"id":"2m","progress":0.08009967960128159,"total":53,"current":15}
+{"_e":"metro:bundling:progress","_t":1792550204595,"id":"2m","progress":0.11490950876185003,"total":59,"current":20}
+{"_e":"metro:bundling:progress","_t":1792550204704,"id":"2m","progress":0.12098298676748581,"total":69,"current":24}
+{"_e":"metro:bundling:progress","_t":1792550204811,"id":"2m","progress":0.16683197778218609,"total":71,"current":29}
+{"_e":"metro:bundling:progress","_t":1792550204990,"id":"2m","progress":0.20313429875024797,"total":71,"current":32}
+{"_e":"metro:bundling:progress","_t":1792550205209,"id":"2m","progress":0.21602856576076174,"total":71,"current":33}
+{"_e":"metro:bundling:progress","_t":1792550205317,"id":"2m","progress":0.25689622818540064,"total":73,"current":37}
+{"_e":"metro:bundling:progress","_t":1792550205419,"id":"2m","progress":0.2988444444444444,"total":75,"current":41}
+{"_e":"metro:bundling:progress","_t":1792550205527,"id":"2m","progress":0.2988444444444444,"total":91,"current":48}
+{"_e":"metro:bundling:progress","_t":1792550205636,"id":"2m","progress":0.3126372991097236,"total":93,"current":52}
+{"_e":"metro:bundling:progress","_t":1792550205738,"id":"2m","progress":0.3126372991097236,"total":99,"current":55}
+{"_e":"metro:bundling:progress","_t":1792550205839,"id":"2m","progress":0.3126372991097236,"total":217,"current":60}
+{"_e":"metro:bundling:progress","_t":1792550205939,"id":"2m","progress":0.3126372991097236,"total":241,"current":64}
+{"_e":"metro:bundling:progress","_t":1792550206040,"id":"2m","progress":0.3126372991097236,"total":241,"current":66}
+{"_e":"metro:bundling:progress","_t":1792550206141,"id":"2m","progress":0.3126372991097236,"total":242,"current":70}
+{"_e":"metro:bundling:progress","_t":1792550206241,"id":"2m","progress":0.3126372991097236,"total":244,"current":71}
+{"_e":"metro:bundling:progress","_t":1792550206344,"id":"2m","progress":0.3126372991097236,"total":246,"current":74}
+{"_e":"metro:bundling:progress","_t":1792550206452,"id":"2m","progress":0.3126372991097236,"total":247,"current":76}
+{"_e":"metro:bundling:progress","_t":1792550206554,"id":"2m","progress":0.3126372991097236,"total":248,"current":79}
+{"_e":"metro:bundling:progress","_t":1792550206659,"id":"2m","progress":0.3126372991097236,"total":250,"current":81}
+{"_e":"metro:bundling:progress","_t":1792550206761,"id":"2m","progress":0.3126372991097236,"total":250,"current":81}
+{"_e":"metro:bundling:progress","_t":1792550206868,"id":"2m","progress":0.3126372991097236,"total":279,"current":86}
+{"_e":"metro:bundling:progress","_t":1792550206973,"id":"2m","progress":0.3126372991097236,"total":282,"current":89}
+{"_e":"metro:bundling:progress","_t":1792550207075,"id":"2m","progress":0.3126372991097236,"total":287,"current":97}
+{"_e":"metro:bundling:progress","_t":1792550207184,"id":"2m","progress":0.3126372991097236,"total":290,"current":100}
+{"_e":"metro:bundling:progress","_t":1792550207306,"id":"2m","progress":0.3126372991097236,"total":297,"current":104}
+{"_e":"metro:bundling:progress","_t":1792550207406,"id":"2m","progress":0.3126372991097236,"total":303,"current":108}
+{"_e":"metro:bundling:progress","_t":1792550207520,"id":"2m","progress":0.3126372991097236,"total":306,"current":110}
+{"_e":"metro:bundling:progress","_t":1792550207635,"id":"2m","progress":0.3126372991097236,"total":308,"current":111}
+{"_e":"metro:bundling:progress","_t":1792550207707,"id":"2m","progress":0.3126372991097236,"total":308,"current":112}
+{"_e":"metro:bundling:progress","_t":1792550207818,"id":"2m","progress":0.3126372991097236,"total":309,"current":113}
+{"_e":"metro:bundling:progress","_t":1792550207907,"id":"2m","progress":0.3126372991097236,"total":309,"current":114}
+{"_e":"metro:bundling:progress","_t":1792550208060,"id":"2m","progress":0.3126372991097236,"total":323,"current":116}
+{"_e":"metro:bundling:progress","_t":1792550208160,"id":"2m","progress":0.3126372991097236,"total":331,"current":122}
+{"_e":"metro:bundling:progress","_t":1792550208260,"id":"2m","progress":0.3126372991097236,"total":335,"current":129}
+{"_e":"metro:bundling:progress","_t":1792550208360,"id":"2m","progress":0.3126372991097236,"total":341,"current":136}
+{"_e":"metro:bundling:progress","_t":1792550208468,"id":"2m","progress":0.3126372991097236,"total":347,"current":144}
+{"_e":"metro:bundling:progress","_t":1792550208568,"id":"2m","progress":0.3126372991097236,"total":351,"current":149}
+{"_e":"metro:bundling:progress","_t":1792550208672,"id":"2m","progress":0.3126372991097236,"total":357,"current":153}
+{"_e":"metro:bundling:progress","_t":1792550208778,"id":"2m","progress":0.3126372991097236,"total":367,"current":159}
+{"_e":"metro:bundling:progress","_t":1792550208906,"id":"2m","progress":0.3126372991097236,"total":372,"current":163}
+{"_e":"metro:bundling:progress","_t":1792550209012,"id":"2m","progress":0.3126372991097236,"total":374,"current":169}
+{"_e":"metro:bundling:progress","_t":1792550209121,"id":"2m","progress":0.3126372991097236,"total":376,"current":175}
+{"_e":"metro:bundling:progress","_t":1792550209242,"id":"2m","progress":0.3126372991097236,"total":379,"current":178}
+{"_e":"metro:bundling:progress","_t":1792550209342,"id":"2m","progress":0.3126372991097236,"total":382,"current":182}
+{"_e":"metro:bundling:progress","_t":1792550209456,"id":"2m","progress":0.3126372991097236,"total":385,"current":186}
+{"_e":"metro:bundling:progress","_t":1792550209573,"id":"2m","progress":0.3126372991097236,"total":391,"current":190}
+{"_e":"metro:bundling:progress","_t":1792550209674,"id":"2m","progress":0.3126372991097236,"total":400,"current":199}
+{"_e":"metro:bundling:progress","_t":1792550209774,"id":"2m","progress":0.3126372991097236,"total":420,"current":205}
+{"_e":"metro:bundling:progress","_t":1792550209876,"id":"2m","progress":0.3126372991097236,"total":429,"current":212}
+{"_e":"metro:bundling:progress","_t":1792550209976,"id":"2m","progress":0.3126372991097236,"total":434,"current":222}
+{"_e":"metro:bundling:progress","_t":1792550210083,"id":"2m","progress":0.3126372991097236,"total":443,"current":233}
+{"_e":"metro:bundling:progress","_t":1792550210186,"id":"2m","progress":0.3126372991097236,"total":450,"current":243}
+{"_e":"metro:bundling:progress","_t":1792550210289,"id":"2m","progress":0.3126372991097236,"total":453,"current":248}
+{"_e":"metro:bundling:progress","_t":1792550210391,"id":"2m","progress":0.32011772853185594,"total":456,"current":258}
+{"_e":"metro:bundling:progress","_t":1792550210490,"id":"2m","progress":0.33225911023817245,"total":458,"current":264}
+{"_e":"metro:bundling:progress","_t":1792550210592,"id":"2m","progress":0.3451245282666804,"total":463,"current":272}
+{"_e":"metro:bundling:progress","_t":1792550210703,"id":"2m","progress":0.36414982164090365,"total":464,"current":280}
+{"_e":"metro:bundling:progress","_t":1792550210816,"id":"2m","progress":0.3756503642039542,"total":465,"current":285}
+{"_e":"metro:bundling:progress","_t":1792550210922,"id":"2m","progress":0.3980364346368509,"total":466,"current":294}
+{"_e":"metro:bundling:progress","_t":1792550211025,"id":"2m","progress":0.4138504604649275,"total":471,"current":303}
+{"_e":"metro:bundling:progress","_t":1792550211133,"id":"2m","progress":0.41821340755412884,"total":484,"current":313}
+{"_e":"metro:bundling:progress","_t":1792550211233,"id":"2m","progress":0.42038882279066686,"total":492,"current":319}
+{"_e":"metro:bundling:progress","_t":1792550211343,"id":"2m","progress":0.4222368830828238,"total":494,"current":321}
+{"_e":"metro:bundling:progress","_t":1792550211532,"id":"2m","progress":0.42487174023504737,"total":494,"current":322}
+{"_e":"metro:bundling:progress","_t":1792550211640,"id":"2m","progress":0.431988163371488,"total":496,"current":326}
+{"_e":"metro:bundling:progress","_t":1792550211752,"id":"2m","progress":0.4391058208738569,"total":498,"current":330}
+{"_e":"metro:bundling:progress","_t":1792550211860,"id":"2m","progress":0.44620287772032063,"total":506,"current":338}
+{"_e":"metro:bundling:progress","_t":1792550211968,"id":"2m","progress":0.44620287772032063,"total":515,"current":342}
+{"_e":"metro:bundling:progress","_t":1792550212067,"id":"2m","progress":0.44620287772032063,"total":532,"current":351}
+{"_e":"metro:bundling:progress","_t":1792550212168,"id":"2m","progress":0.44942417527542833,"total":537,"current":360}
+{"_e":"metro:bundling:progress","_t":1792550212268,"id":"2m","progress":0.4644170096021948,"total":540,"current":368}
+{"_e":"metro:bundling:progress","_t":1792550212368,"id":"2m","progress":0.46827548084607595,"total":548,"current":375}
+{"_e":"metro:bundling:progress","_t":1792550212472,"id":"2m","progress":0.46827548084607595,"total":567,"current":380}
+{"_e":"metro:bundling:progress","_t":1792550212585,"id":"2m","progress":0.46827548084607595,"total":567,"current":385}
+{"_e":"metro:bundling:progress","_t":1792550212686,"id":"2m","progress":0.4731110551216371,"total":567,"current":390}
+{"_e":"metro:bundling:progress","_t":1792550212791,"id":"2m","progress":0.47504641685956794,"total":576,"current":397}
+{"_e":"metro:bundling:progress","_t":1792550212891,"id":"2m","progress":0.47504641685956794,"total":588,"current":403}
+{"_e":"metro:bundling:progress","_t":1792550212998,"id":"2m","progress":0.4782074116633151,"total":590,"current":408}
+{"_e":"metro:bundling:progress","_t":1792550213098,"id":"2m","progress":0.48251204900680156,"total":596,"current":414}
+{"_e":"metro:bundling:progress","_t":1792550213208,"id":"2m","progress":0.48251204900680156,"total":617,"current":419}
+{"_e":"metro:bundling:progress","_t":1792550213309,"id":"2m","progress":0.48251204900680156,"total":621,"current":427}
+{"_e":"metro:bundling:progress","_t":1792550213411,"id":"2m","progress":0.49202455884512625,"total":623,"current":437}
+{"_e":"metro:bundling:progress","_t":1792550213511,"id":"2m","progress":0.5062869822485208,"total":624,"current":444}
+{"_e":"metro:bundling:progress","_t":1792550213612,"id":"2m","progress":0.5180331859304637,"total":628,"current":452}
+{"_e":"metro:bundling:progress","_t":1792550213714,"id":"2m","progress":0.5268321106286151,"total":631,"current":458}
+{"_e":"metro:bundling:progress","_t":1792550213834,"id":"2m","progress":0.5379320124590751,"total":634,"current":465}
+{"_e":"metro:bundling:progress","_t":1792550213940,"id":"2m","progress":0.54390625,"total":640,"current":472}
+{"_e":"metro:bundling:progress","_t":1792550214043,"id":"2m","progress":0.5561228291569016,"total":645,"current":481}
+{"_e":"metro:bundling:progress","_t":1792550214152,"id":"2m","progress":0.5688542499899718,"total":651,"current":491}
+{"_e":"metro:bundling:progress","_t":1792550214255,"id":"2m","progress":0.5868403333052773,"total":654,"current":501}
+{"_e":"metro:bundling:progress","_t":1792550214357,"id":"2m","progress":0.5986121632111027,"total":654,"current":506}
+{"_e":"metro:bundling:progress","_t":1792550214458,"id":"2m","progress":0.6182040673620418,"total":655,"current":515}
+{"_e":"metro:bundling:progress","_t":1792550214566,"id":"2m","progress":0.6341774373850945,"total":658,"current":524}
+{"_e":"metro:bundling:progress","_t":1792550214669,"id":"2m","progress":0.6497337006427915,"total":660,"current":532}
+{"_e":"metro:bundling:progress","_t":1792550214788,"id":"2m","progress":0.6618373000169597,"total":665,"current":541}
+{"_e":"metro:bundling:progress","_t":1792550214887,"id":"2m","progress":0.6656410233425364,"total":668,"current":545}
+{"_e":"metro:bundling:progress","_t":1792550214987,"id":"2m","progress":0.6656410233425364,"total":678,"current":549}
+{"_e":"metro:bundling:progress","_t":1792550215090,"id":"2m","progress":0.6656410233425364,"total":684,"current":557}
+{"_e":"metro:bundling:progress","_t":1792550215201,"id":"2m","progress":0.6663890045814245,"total":686,"current":560}
+{"_e":"metro:bundling:progress","_t":1792550215233,"id":"2m","progress":0.6687710902770103,"total":686,"current":561}
+{"_e":"metro:bundling:progress","_t":1792550215339,"id":"2m","progress":0.6807452677030829,"total":686,"current":566}
+{"_e":"metro:bundling:progress","_t":1792550215443,"id":"2m","progress":0.6883926698575543,"total":687,"current":570}
+{"_e":"metro:bundling:progress","_t":1792550215550,"id":"2m","progress":0.6932319707438412,"total":687,"current":572}
+{"_e":"metro:bundling:progress","_t":1792550215664,"id":"2m","progress":0.6956579775366601,"total":687,"current":573}
+{"_e":"metro:bundling:progress","_t":1792550215773,"id":"2m","progress":0.6996801966989262,"total":691,"current":578}
+{"_e":"metro:bundling:progress","_t":1792550215875,"id":"2m","progress":0.7122189181061847,"total":692,"current":584}
+{"_e":"metro:bundling:progress","_t":1792550215995,"id":"2m","progress":0.7122189181061847,"total":697,"current":587}
+{"_e":"metro:bundling:progress","_t":1792550216106,"id":"2m","progress":0.7122189181061847,"total":697,"current":588}
+{"_e":"metro:bundling:progress","_t":1792550216209,"id":"2m","progress":0.7189677424666896,"total":697,"current":591}
+{"_e":"metro:bundling:progress","_t":1792550216309,"id":"2m","progress":0.7189677424666896,"total":702,"current":595}
+{"_e":"metro:bundling:progress","_t":1792550216426,"id":"2m","progress":0.7246687638934587,"total":706,"current":601}
+{"_e":"metro:bundling:progress","_t":1792550216533,"id":"2m","progress":0.7246687638934587,"total":720,"current":604}
+{"_e":"metro:bundling:progress","_t":1792550216634,"id":"2m","progress":0.7246687638934587,"total":724,"current":608}
+{"_e":"metro:bundling:progress","_t":1792550216734,"id":"2m","progress":0.7246687638934587,"total":734,"current":614}
+{"_e":"metro:bundling:progress","_t":1792550216840,"id":"2m","progress":0.7246687638934587,"total":734,"current":615}
+{"_e":"metro:bundling:progress","_t":1792550216951,"id":"2m","progress":0.7246687638934587,"total":736,"current":619}
+{"_e":"metro:bundling:progress","_t":1792550217059,"id":"2m","progress":0.7246687638934587,"total":741,"current":625}
+{"_e":"metro:bundling:progress","_t":1792550217165,"id":"2m","progress":0.7246687638934587,"total":742,"current":628}
+{"_e":"metro:bundling:progress","_t":1792550217266,"id":"2m","progress":0.7246687638934587,"total":753,"current":632}
+{"_e":"metro:bundling:progress","_t":1792550217366,"id":"2m","progress":0.7246687638934587,"total":756,"current":639}
+{"_e":"metro:bundling:progress","_t":1792550217466,"id":"2m","progress":0.7246687638934587,"total":758,"current":644}
+{"_e":"metro:bundling:progress","_t":1792550217568,"id":"2m","progress":0.7246687638934587,"total":765,"current":649}
+{"_e":"metro:bundling:progress","_t":1792550217671,"id":"2m","progress":0.7246687638934587,"total":769,"current":651}
+{"_e":"metro:bundling:progress","_t":1792550217772,"id":"2m","progress":0.7246687638934587,"total":774,"current":654}
+{"_e":"metro:bundling:progress","_t":1792550217872,"id":"2m","progress":0.7246687638934587,"total":783,"current":659}
+{"_e":"metro:bundling:progress","_t":1792550217985,"id":"2m","progress":0.7246687638934587,"total":783,"current":662}
+{"_e":"metro:bundling:progress","_t":1792550218080,"id":"2m","progress":0.7246687638934587,"total":783,"current":663}
+{"_e":"metro:bundling:progress","_t":1792550218264,"id":"2m","progress":0.7246687638934587,"total":783,"current":664}
+{"_e":"metro:bundling:progress","_t":1792550218366,"id":"2m","progress":0.7246687638934587,"total":783,"current":666}
+{"_e":"metro:bundling:progress","_t":1792550218466,"id":"2m","progress":0.7325089155560184,"total":784,"current":671}
+{"_e":"metro:bundling:progress","_t":1792550218586,"id":"2m","progress":0.7368820933985839,"total":784,"current":673}
+{"_e":"metro:bundling:progress","_t":1792550218700,"id":"2m","progress":0.739073563098709,"total":784,"current":674}
+{"_e":"metro:bundling:progress","_t":1792550218724,"id":"2m","progress":0.7412682866513952,"total":784,"current":675}
+{"_e":"metro:bundling:progress","_t":1792550218836,"id":"2m","progress":0.7412682866513952,"total":788,"current":676}
+{"_e":"metro:bundling:progress","_t":1792550218939,"id":"2m","progress":0.7412682866513952,"total":788,"current":677}
+{"_e":"metro:bundling:progress","_t":1792550219038,"id":"2m","progress":0.7412682866513952,"total":792,"current":681}
+{"_e":"metro:bundling:progress","_t":1792550219192,"id":"2m","progress":0.7415123456790125,"total":792,"current":682}
+{"_e":"metro:bundling:progress","_t":1792550219294,"id":"2m","progress":0.7439878253762032,"total":793,"current":684}
+{"_e":"metro:bundling:progress","_t":1792550219402,"id":"2m","progress":0.7467568529725882,"total":795,"current":687}
+{"_e":"metro:bundling:progress","_t":1792550219519,"id":"2m","progress":0.7489323998259563,"total":795,"current":688}
+{"_e":"metro:bundling:progress","_t":1792550219530,"id":"2m","progress":0.7511111111111112,"total":795,"current":689}
+{"_e":"metro:bundling:progress","_t":1792550219646,"id":"2m","progress":0.7511111111111112,"total":799,"current":692}
+{"_e":"metro:bundling:progress","_t":1792550219764,"id":"2m","progress":0.7569,"total":800,"current":696}
+{"_e":"metro:bundling:progress","_t":1792550220018,"id":"2m","progress":0.7590765625,"total":800,"current":697}
+{"_e":"metro:bundling:progress","_t":1792550220118,"id":"2m","progress":0.7596361341036435,"total":802,"current":699}
+{"_e":"metro:bundling:progress","_t":1792550220250,"id":"2m","progress":0.7618111827662764,"total":802,"current":700}
+{"_e":"metro:bundling:progress","_t":1792550220366,"id":"2m","progress":0.7618111827662764,"total":804,"current":701}
+{"_e":"metro:bundling:progress","_t":1792550220471,"id":"2m","progress":0.7626387870838317,"total":805,"current":703}
+{"_e":"metro:bundling:progress","_t":1792550220564,"id":"2m","progress":0.7648099996142124,"total":805,"current":704}
+{"_e":"metro:bundling:progress","_t":1792550220675,"id":"2m","progress":0.7694293419699647,"total":806,"current":707}
+{"_e":"metro:bundling:progress","_t":1792550220782,"id":"2m","progress":0.7737887062909076,"total":806,"current":709}
+{"_e":"metro:bundling:progress","_t":1792550220888,"id":"2m","progress":0.7745740518059347,"total":809,"current":712}
+{"_e":"metro:bundling:progress","_t":1792550220993,"id":"2m","progress":0.7835528120713305,"total":810,"current":717}
+{"_e":"metro:bundling:progress","_t":1792550221095,"id":"2m","progress":0.7857399786617894,"total":810,"current":718}
+{"_e":"metro:bundling:progress","_t":1792550221217,"id":"2m","progress":0.7901234567901234,"total":810,"current":720}
+{"_e":"metro:bundling:progress","_t":1792550221513,"id":"2m","progress":0.7923197683279989,"total":810,"current":721}
+{"_e":"metro:bundling:progress","_t":1792550221617,"id":"2m","progress":0.793041731155319,"total":813,"current":724}
+{"_e":"metro:bundling:progress","_t":1792550221725,"id":"2m","progress":0.801828830096419,"total":813,"current":728}
+{"_e":"metro:bundling:progress","_t":1792550221830,"id":"2m","progress":0.8044879370695172,"total":815,"current":731}
+{"_e":"metro:bundling:progress","_t":1792550221936,"id":"2m","progress":0.8091178873510189,"total":816,"current":734}
+{"_e":"metro:bundling:progress","_t":1792550222039,"id":"2m","progress":0.813749739696085,"total":817,"current":737}
+{"_e":"metro:bundling:progress","_t":1792550222140,"id":"2m","progress":0.8181722844870852,"total":817,"current":739}
+{"_e":"metro:bundling:progress","_t":1792550222241,"id":"2m","progress":0.8181722844870852,"total":822,"current":741}
+{"_e":"metro:bundling:progress","_t":1792550222341,"id":"2m","progress":0.8181722844870852,"total":828,"current":744}
+{"_e":"metro:bundling:progress","_t":1792550222505,"id":"2m","progress":0.8181722844870852,"total":828,"current":745}
+{"_e":"metro:bundling:progress","_t":1792550222611,"id":"2m","progress":0.8181722844870852,"total":828,"current":745}
+{"_e":"metro:bundling:progress","_t":1792550222716,"id":"2m","progress":0.8181722844870852,"total":847,"current":756}
+{"_e":"metro:bundling:progress","_t":1792550222828,"id":"2m","progress":0.8181722844870852,"total":849,"current":761}
+{"_e":"metro:bundling:progress","_t":1792550222930,"id":"2m","progress":0.8181722844870852,"total":851,"current":766}
+{"_e":"metro:bundling:progress","_t":1792550223041,"id":"2m","progress":0.8272233813540716,"total":851,"current":774}
+{"_e":"metro:bundling:progress","_t":1792550223141,"id":"2m","progress":0.8299338009861295,"total":854,"current":778}
+{"_e":"metro:bundling:progress","_t":1792550223248,"id":"2m","progress":0.836711994497336,"total":856,"current":783}
+{"_e":"metro:bundling:progress","_t":1792550223349,"id":"2m","progress":0.8413464934443955,"total":858,"current":787}
+{"_e":"metro:bundling:progress","_t":1792550223453,"id":"2m","progress":0.8413464934443955,"total":864,"current":790}
+{"_e":"metro:bundling:progress","_t":1792550223555,"id":"2m","progress":0.8453839644790979,"total":869,"current":799}
+{"_e":"metro:bundling:progress","_t":1792550223666,"id":"2m","progress":0.8561566917690581,"total":870,"current":805}
+{"_e":"metro:bundling:progress","_t":1792550223801,"id":"2m","progress":0.858285110318404,"total":870,"current":806}
+{"_e":"metro:bundling:progress","_t":1792550223909,"id":"2m","progress":0.858285110318404,"total":873,"current":807}
+{"_e":"metro:bundling:progress","_t":1792550224040,"id":"2m","progress":0.8651343801377458,"total":873,"current":812}
+{"_e":"metro:bundling:progress","_t":1792550224174,"id":"2m","progress":0.8696894693877552,"total":875,"current":816}
+{"_e":"metro:bundling:progress","_t":1792550224280,"id":"2m","progress":0.8762327724609579,"total":876,"current":820}
+{"_e":"metro:bundling:progress","_t":1792550224391,"id":"2m","progress":0.8785054262678953,"total":877,"current":822}
+{"_e":"metro:bundling:progress","_t":1792550224469,"id":"2m","progress":0.880644209228881,"total":877,"current":823}
+{"_e":"metro:bundling:progress","_t":1792550224574,"id":"2m","progress":0.880644209228881,"total":883,"current":825}
+{"_e":"metro:bundling:progress","_t":1792550224729,"id":"2m","progress":0.8815595503777564,"total":884,"current":830}
+{"_e":"metro:bundling:progress","_t":1792550224854,"id":"2m","progress":0.8859382680583484,"total":885,"current":833}
+{"_e":"metro:bundling:progress","_t":1792550224961,"id":"2m","progress":0.8880666475150819,"total":885,"current":834}
+{"_e":"metro:bundling:progress","_t":1792550225074,"id":"2m","progress":0.8901975805164544,"total":885,"current":835}
+{"_e":"metro:bundling:progress","_t":1792550225188,"id":"2m","progress":0.8901975805164544,"total":896,"current":838}
+{"_e":"metro:bundling:progress","_t":1792550225288,"id":"2m","progress":0.8901975805164544,"total":897,"current":845}
+{"_e":"metro:bundling:progress","_t":1792550225388,"id":"2m","progress":0.8940753086419754,"total":900,"current":851}
+{"_e":"metro:bundling:progress","_t":1792550225502,"id":"2m","progress":0.8983925863604503,"total":901,"current":854}
+{"_e":"metro:bundling:progress","_t":1792550225608,"id":"2m","progress":0.9131806932979881,"total":901,"current":861}
+{"_e":"metro:bundling:progress","_t":1792550225709,"id":"2m","progress":0.9155780111989975,"total":904,"current":865}
+{"_e":"metro:bundling:progress","_t":1792550225815,"id":"2m","progress":0.9325918728952932,"total":904,"current":873}
+{"_e":"metro:bundling:progress","_t":1792550225918,"id":"2m","progress":0.9497623639282637,"total":904,"current":881}
+{"_e":"metro:bundling:progress","_t":1792550226018,"id":"2m","progress":0.9627837978083698,"total":905,"current":888}
+{"_e":"metro:bundling:progress","_t":1792550226136,"id":"2m","progress":0.9758912975035525,"total":907,"current":896}
+{"_e":"metro:client_log","_t":1792550226216,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:bundling:progress","_t":1792550226216,"id":"2m","progress":0.9758912975035525,"total":907,"current":896}
+{"_e":"metro:bundling:progress","_t":1792550226237,"id":"2m","progress":0.9781427363844947,"total":910,"current":900}
+{"_e":"metro:client_log","_t":1792550226352,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:progress","_t":1792550226352,"id":"2m","progress":0.9781427363844947,"total":910,"current":900}
+{"_e":"metro:bundling:progress","_t":1792550226353,"id":"2m","progress":0.9781427363844947,"total":916,"current":905}
+{"_e":"metro:bundling:progress","_t":1792550226456,"id":"2m","progress":0.9847910960899714,"total":917,"current":910}
+{"_e":"metro:bundling:progress","_t":1792550226558,"id":"2m","progress":0.9891364195157608,"total":918,"current":913}
+{"_e":"metro:bundling:progress","_t":1792550226661,"id":"2m","progress":0.9913232514177694,"total":920,"current":916}
+{"_e":"metro:bundling:progress","_t":1792550226781,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:bundling:progress","_t":1792550226899,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:bundling:progress","_t":1792550227002,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:client_log","_t":1792550227016,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:bundling:progress","_t":1792550227016,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:client_log","_t":1792550227171,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:bundling:progress","_t":1792550227172,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:client_log","_t":1792550227172,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:bundling:progress","_t":1792550227172,"id":"2m","progress":0.999,"total":920,"current":920}
+{"_e":"metro:bundling:done","_t":1792550227598,"id":"2m","total":920,"ms":23446.462}
+{"_e":"metro:bundling:started","_t":1792550240088,"id":"2o","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792550240088,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550240091,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550240196,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550240916,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241016,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241119,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241219,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241326,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241429,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241531,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241630,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241730,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241832,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550241932,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550242032,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792550242148,"id":"2o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792550242234,"id":"2o","total":1,"ms":2145.8049}
+{"_e":"metro:client_log","_t":1792550243867,"level":"warn","data":["PrinterService: Using Mock Printer (Native module not loaded)"]}
+{"_e":"metro:client_log","_t":1792550243925,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550243926,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550243926,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550243926,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792550273870,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550273935,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550273935,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550303871,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550303916,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550303917,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550333893,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550333950,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550333951,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550363890,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550363950,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550363950,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550393899,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550393956,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550393956,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792550423906,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792550423957,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792550423957,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:server_log","_t":1792550785327,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.Exponent","iPhone","60"]}
+{"_e":"metro:bundling:started","_t":1792551219657,"id":"2s","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792551219658,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551219665,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551219805,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220125,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220224,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220326,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220426,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220526,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551220632,"id":"2s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792551220717,"id":"2s","total":1,"ms":1059.8401}
+{"_e":"metro:client_log","_t":1792551223640,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792551227491,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792551240953,"id":"2v","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792551240953,"id":"2v","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792551241024,"id":"2v","total":1,"ms":70.9503}
+{"_e":"metro:client_log","_t":1792551243668,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792551248638,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792551597984,"id":"2x","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792551597985,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551597986,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598126,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598281,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598519,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598619,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598719,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598819,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551598919,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551599019,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551599164,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551599274,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551599621,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551599730,"id":"2x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792551599803,"id":"2x","total":1,"ms":1818.6183}
+{"_e":"metro:bundling:started","_t":1792551623037,"id":"2z","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792551623037,"id":"2z","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551623038,"id":"2z","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792551623243,"id":"2z","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792551623389,"id":"2z","total":1,"ms":352.1341}
+{"_e":"metro:client_log","_t":1792551627122,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792551628834,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792551657261,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792551657308,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792552252244,"id":"34","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792552252244,"id":"34","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552252246,"id":"34","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552252349,"id":"34","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552252487,"id":"34","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552252567,"id":"34","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792552252619,"id":"34","total":1,"ms":374.5821}
+{"_e":"metro:client_log","_t":1792552255742,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792552257093,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792552292824,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552292877,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792552293610,"id":"38","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792552293610,"id":"38","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552293611,"id":"38","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552293713,"id":"38","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552293823,"id":"38","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552294190,"id":"38","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792552294284,"id":"38","total":1,"ms":673.602}
+{"_e":"metro:bundling:started","_t":1792552308312,"id":"39","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792552308312,"id":"39","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792552308355,"id":"39","total":1,"ms":42.7504}
+{"_e":"metro:client_log","_t":1792552310940,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792552313159,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792552341038,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552341111,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792552370385,"id":"3c","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792552370385,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552370388,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552370490,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552370589,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552370984,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552371083,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552371183,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552371283,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552371383,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:client_log","_t":1792552371434,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:bundling:progress","_t":1792552371434,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:client_log","_t":1792552371434,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:progress","_t":1792552371434,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792552371526,"id":"3c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792552371638,"id":"3c","total":1,"ms":1253.1735}
+{"_e":"metro:client_log","_t":1792552375575,"level":"log","data":["PrinterService: Native module load failed."]}
+{"_e":"metro:client_log","_t":1792552375720,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792552375776,"level":"warn","data":["PrinterService: Using Mock Printer (Native module not loaded)"]}
+{"_e":"metro:client_log","_t":1792552375776,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552375777,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792552375777,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792552375777,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792552401050,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552401111,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792552405748,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552405808,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792552405808,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:client_log","_t":1792552447784,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792552447784,"level":"log","data":["PrinterService: Found devices:","[]"]}
+{"_e":"metro:client_log","_t":1792552447785,"level":"log","data":["PrinterService: Target not found in list."]}
+{"_e":"metro:bundling:started","_t":1792553155205,"id":"3t","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553155205,"id":"3t","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553155207,"id":"3t","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553155321,"id":"3t","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553155716,"id":"3t","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553155838,"id":"3t","total":1,"ms":632.5703}
+{"_e":"metro:bundling:started","_t":1792553194007,"id":"3v","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553194007,"id":"3v","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553194009,"id":"3v","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553194117,"id":"3v","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553194253,"id":"3v","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553194313,"id":"3v","total":1,"ms":305.9308}
+{"_e":"metro:client_log","_t":1792553197031,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792553227142,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553227207,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553234933,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553257148,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553257203,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553287156,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553287208,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553317166,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553317217,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553347169,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553347215,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553377168,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553377214,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553407172,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553407228,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553411943,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553414068,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553431791,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553433402,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553453236,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553472556,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553502569,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553502622,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553504797,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553518374,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792553526460,"id":"40","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553526460,"id":"40","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553526461,"id":"40","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553526566,"id":"40","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792553527118,"id":"40","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553527219,"id":"40","total":1,"ms":758.7453}
+{"_e":"metro:client_log","_t":1792553548386,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553548464,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553578385,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553578450,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553608411,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553608461,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553638417,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553638471,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553663022,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553678407,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553680409,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553681865,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792553690358,"id":"44","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553690358,"id":"44","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553690401,"id":"44","total":1,"ms":42.9506}
+{"_e":"metro:client_log","_t":1792553693143,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792553693265,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792553703972,"id":"46","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553703972,"id":"46","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553704037,"id":"46","total":1,"ms":64.3083}
+{"_e":"metro:client_log","_t":1792553706840,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792553706949,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553718347,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553748372,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553748456,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553778378,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553778426,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553808378,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553808422,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553838379,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553838427,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553868411,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553868459,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553898383,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553898428,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553914151,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792553928383,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553928428,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553958403,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553958461,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792553959034,"id":"4h","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792553959035,"id":"4h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792553959114,"id":"4h","total":1,"ms":79.6134}
+{"_e":"metro:client_log","_t":1792553988402,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792553988449,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792553993265,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792553993812,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792554023453,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554023508,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554053451,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554053496,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554083459,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554083519,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554113466,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554113513,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554143482,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554143521,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554173480,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554173541,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554203493,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554203551,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554233500,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554233554,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554263493,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554263543,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554293499,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554293554,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554323502,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554323552,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554353508,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554353565,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554383513,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554383564,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554413539,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554413646,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554443539,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554443613,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554473533,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554473581,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554503548,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554503654,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792554755276,"id":"50","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792554755276,"id":"50","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554755277,"id":"50","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554755379,"id":"50","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554755532,"id":"50","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792554755583,"id":"50","total":1,"ms":307.4373}
+{"_e":"metro:client_log","_t":1792554761602,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792554761872,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792554769502,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:bundling:started","_t":1792554777987,"id":"53","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792554777987,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554777988,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778101,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778102,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778202,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778336,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778530,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778629,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778729,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778829,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554778932,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554779033,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554779133,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792554779233,"id":"53","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792554779377,"id":"53","total":1,"ms":1390.5398}
+{"_e":"metro:client_log","_t":1792554799487,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554799535,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792554805615,"id":"55","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792554805615,"id":"55","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792554805680,"id":"55","total":1,"ms":64.8611}
+{"_e":"metro:client_log","_t":1792554809932,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1792554810142,"level":"log","data":["Fetching rides from:","https://swampland-situated-barbell.ngrok-free.dev/api/products"]}
+{"_e":"metro:client_log","_t":1792554840138,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554840187,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:client_log","_t":1792554870119,"level":"log","data":["PrinterService: Searching for devices..."]}
+{"_e":"metro:client_log","_t":1792554870175,"level":"error","data":["PrinterService: Connection failed:","[TypeError: Cannot read property 'closeConn' of null]"]}
+{"_e":"metro:bundling:started","_t":1792555323128,"id":"59","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792555323128,"id":"59","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792555323130,"id":"59","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792555323195,"id":"59","total":1,"ms":66.5157}
+{"_e":"root:init","_t":1793399678036,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1793399678083,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1793399678119,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1793399687413,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1793399696546,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1793399701727,"plugins":[]}
+{"_e":"metro:instantiate","_t":1793399713301,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:client_log","_t":1793399816095,"level":"error","data":["Project is incompatible with this version of Expo Go\n\n• The installed version of Expo Go is for SDK 58.\n• The project you opened uses SDK 57.\n\nHow to fix this error:\nEither upgrade this project to SDK 58 or install an older version of Expo Go that is compatible with your project.\n\n<a href='https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/'>Learn how to upgrade to SDK 58.</a>\n\n<a href='https://expo.dev/go?sdkVersion=57&platform=android&device=true'>Learn how to install Expo Go for SDK 57</a>."]}
+{"_e":"metro:client_log","_t":1793400266819,"level":"error","data":["Project is incompatible with this version of Expo Go\n\n• The installed version of Expo Go is for SDK 58.0.0.\n• The project you opened uses SDK 57.\n\nHow to fix this error:\n\nEither upgrade this project to SDK 58.0.0, or launch it in an iOS simulator. It is not possible to install an older version of Expo Go for iOS devices, only the latest version is supported.\n\n[Learn how to upgrade to SDK 58.](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/)\n\n[https://expo.dev/go?sdkVersion=57&platform=ios&device=false](Learn how to install Expo Go for SDK 57 in an iOS Simulator.)"]}
+{"_e":"metro:client_log","_t":1793400266857,"level":"error","data":["Project is incompatible with this version of Expo Go\n\n• The installed version of Expo Go is for SDK 58.0.0.\n• The project you opened uses SDK 57.\n\nHow to fix this error:\n\nEither upgrade this project to SDK 58.0.0, or launch it in an iOS simulator. It is not possible to install an older version of Expo Go for iOS devices, only the latest version is supported.\n\n[Learn how to upgrade to SDK 58.](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/)\n\n[https://expo.dev/go?sdkVersion=57&platform=ios&device=false](Learn how to install Expo Go for SDK 57 in an iOS Simulator.)"]}

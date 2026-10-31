@@ -1,20 +1,451 @@
 [
   {
-    "id": 1,
+    "id": "2",
+    "_id": "69a56a3b5d36a9095a17bdc4",
     "name": "TL TRAIN",
-    "price": 50,
-    "desc": "A classic train ride perfect for families and children. Enjoy a scenic tour around the park in our comfortable and safe trackless train."
+    "category": "play",
+    "price": 150,
+    "image": "TL train.jpg",
+    "description": "A classic train ride perfect for families and children. Enjoy a scenic tour around the park in our comfortable and safe trackless train.",
+    "desc": "A classic train ride perfect for families and children. Enjoy a scenic tour around the park in our comfortable and safe trackless train.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
   },
   {
-    "id": 2,
-    "name": "ETHREE BUS",
-    "price": 100,
-    "desc": "Hop on the ETHREE Shuttle Bus for a fun and easy way to navigate the park. A favorite for kids who love big vehicles!"
+    "id": "10",
+    "_id": "69a56a3b5d36a9095a17bdcc",
+    "name": "ROPE COURSE",
+    "category": "play",
+    "price": 150,
+    "image": "ROPE COURSE.jpg",
+    "description": "Test your balance and agility on our premium adventure rope course. Features multiple levels of obstacles for the ultimate physical challenge.",
+    "desc": "Test your balance and agility on our premium adventure rope course. Features multiple levels of obstacles for the ultimate physical challenge.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
   },
   {
-    "id": 3,
+    "id": "15",
+    "_id": "69a56a3b5d36a9095a17bdcf",
+    "name": "2D THEATRE",
+    "category": "play",
+    "price": 200,
+    "image": "2D THEATRE.webp",
+    "description": "Enjoy immersive cinematic experiences in our premium 2D theatre. Features high-quality sound and visuals for a relaxing break.",
+    "desc": "Enjoy immersive cinematic experiences in our premium 2D theatre. Features high-quality sound and visuals for a relaxing break.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "8",
+    "_id": "69a56a3b5d36a9095a17bdca",
     "name": "SUN @ MOON",
+    "category": "play",
     "price": 100,
-    "desc": "A gentle and charming rotary ride that takes you on a celestial journey. Beautifully designed for our younger guests."
+    "image": "SUN @ MOON ride.webp",
+    "description": "A gentle and charming rotary ride that takes you on a celestial journey. Beautifully designed for our younger guests.",
+    "desc": "A gentle and charming rotary ride that takes you on a celestial journey. Beautifully designed for our younger guests.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-1",
+    "_id": "69a56a3b5d36a9095a17bdda",
+    "name": "Cricket (3 Overs)",
+    "category": "play",
+    "price": 150,
+    "image": "cricket.png",
+    "description": "High-tech cricket simulator with professional bowling machine. Play 3 overs of realistic cricket in a safe indoor net.",
+    "desc": "High-tech cricket simulator with professional bowling machine. Play 3 overs of realistic cricket in a safe indoor net.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-5",
+    "_id": "69a56a3b5d36a9095a17bdde",
+    "name": "Air Hockey (Best of 3)",
+    "category": "play",
+    "price": 200,
+    "image": "air-hockey.png",
+    "description": "The ultimate air hockey showdown. Play a full tournament series with your friends to see who is the true champion.",
+    "desc": "The ultimate air hockey showdown. Play a full tournament series with your friends to see who is the true champion.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "19",
+    "_id": "69a56a3b5d36a9095a17bdd3",
+    "name": "BATTERY CAR",
+    "category": "play",
+    "price": 100,
+    "image": "battery car ride.jpg",
+    "description": "Miniature luxury cars for the little ones! Safe, slow-speed electric vehicles that give kids their first taste of driving.",
+    "desc": "Miniature luxury cars for the little ones! Safe, slow-speed electric vehicles that give kids their first taste of driving.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "22",
+    "_id": "69a56a3b5d36a9095a17bdd6",
+    "name": "REDEM LIONGAMES",
+    "category": "play",
+    "price": 100,
+    "image": "redem-liongames.png",
+    "description": "Premium arcade redemption machine. Play games, win tickets, and claim amazing prizes at our redemption center.",
+    "desc": "Premium arcade redemption machine. Play games, win tickets, and claim amazing prizes at our redemption center.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "21",
+    "_id": "69a56a3b5d36a9095a17bdd5",
+    "name": "360 RIDE",
+    "category": "play",
+    "price": 100,
+    "image": "360 ride.avif",
+    "description": "Defy gravity! This intense ride rotates you a full 360 degrees for an exhilarating and disorienting thrill experience.",
+    "desc": "Defy gravity! This intense ride rotates you a full 360 degrees for an exhilarating and disorienting thrill experience.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "13",
+    "_id": "69a56a3b5d36a9095a17bdce",
+    "name": "BASKET BALL",
+    "category": "play",
+    "price": 100,
+    "image": "BASKET BALL.webp",
+    "description": "Show off your hoops skills! Our arcade-style basketball challenge is perfect for quick games and high-score competitions.",
+    "desc": "Show off your hoops skills! Our arcade-style basketball challenge is perfect for quick games and high-score competitions.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "17",
+    "_id": "69a56a3b5d36a9095a17bdd1",
+    "name": "SURFER RIDE",
+    "category": "play",
+    "price": 150,
+    "image": "SURFER RIDE.jpg",
+    "description": "Catch the wave on this high-speed spinning platform. Simulates the sensation of surfing with dynamic movements and music.",
+    "desc": "Catch the wave on this high-speed spinning platform. Simulates the sensation of surfing with dynamic movements and music.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "1b",
+    "_id": "69a56a3b5d36a9095a17bdc3",
+    "name": "COMBO CHILD",
+    "category": "play",
+    "price": 500,
+    "image": "logo.jpeg",
+    "description": "Standard Combo Pack for a complete ETHREE experience.",
+    "desc": "Standard Combo Pack for a complete ETHREE experience.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-7",
+    "_id": "69a56a3b5d36a9095a17bde0",
+    "name": "Softplay (20 Mins)",
+    "category": "play",
+    "price": 100,
+    "image": "softplay.png",
+    "description": "A safe and vibrant indoor play area for young children. Features soft foam structures, slides, and ball pits.",
+    "desc": "A safe and vibrant indoor play area for young children. Features soft foam structures, slides, and ball pits.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "6",
+    "_id": "69a56a3b5d36a9095a17bdc8",
+    "name": "M. COLUMBUS",
+    "category": "play",
+    "price": 100,
+    "image": "M. COLUMBUS.png",
+    "description": "Experience the thrill of the high seas on this swinging pirate ship. A classic adventure that provides a stomach-flipping sensation for all ages.",
+    "desc": "Experience the thrill of the high seas on this swinging pirate ship. A classic adventure that provides a stomach-flipping sensation for all ages.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "23",
+    "_id": "69a56a3b5d36a9095a17bdd7",
+    "name": "BULL RIDE",
+    "category": "play",
+    "price": 100,
+    "image": "bull ride.webp",
+    "description": "Hold on tight! Test your strength against our mechanical bull with computer-controlled movements for a wild ride.",
+    "desc": "Hold on tight! Test your strength against our mechanical bull with computer-controlled movements for a wild ride.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "3",
+    "_id": "69a56a3b5d36a9095a17bdc5",
+    "name": "ETHREE BUS",
+    "category": "play",
+    "price": 100,
+    "image": "e three bus ride.webp",
+    "description": "Hop on the ETHREE Shuttle Bus for a fun and easy way to navigate the park. A favorite for kids who love big vehicles!",
+    "desc": "Hop on the ETHREE Shuttle Bus for a fun and easy way to navigate the park. A favorite for kids who love big vehicles!",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "4",
+    "_id": "69a56a3b5d36a9095a17bdc6",
+    "name": "BOUNCY",
+    "category": "play",
+    "price": 100,
+    "image": "BOUNCY.webp",
+    "description": "High-energy inflatable fun! Our giant bouncy castle provides a safe and exciting environment for children to jump and play.",
+    "desc": "High-energy inflatable fun! Our giant bouncy castle provides a safe and exciting environment for children to jump and play.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "12",
+    "_id": "69a56a3b5d36a9095a17bdcd",
+    "name": "GUN SHOOT",
+    "category": "play",
+    "price": 100,
+    "image": "GUN SHOOT.webp",
+    "description": "Test your aim and steady hand in our professional shooting gallery. High-quality air rifles and various targets for a competitive experience.",
+    "desc": "Test your aim and steady hand in our professional shooting gallery. High-quality air rifles and various targets for a competitive experience.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "16",
+    "_id": "69a56a3b5d36a9095a17bdd0",
+    "name": "ROCKET EJECTOR",
+    "category": "play",
+    "price": 100,
+    "image": "ROCKET EJECTOR.jpg",
+    "description": "Blast off! Experience intense G-forces as you are launched skyward in this adrenaline-pumping catapult ride.",
+    "desc": "Blast off! Experience intense G-forces as you are launched skyward in this adrenaline-pumping catapult ride.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "20",
+    "_id": "69a56a3b5d36a9095a17bdd4",
+    "name": "MELT DOWN",
+    "category": "play",
+    "price": 100,
+    "image": "melt down.webp",
+    "description": "Duck and jump! A competitive mechanical sweeper game where you must avoid the rotating arms to be the last one standing.",
+    "desc": "Duck and jump! A competitive mechanical sweeper game where you must avoid the rotating arms to be the last one standing.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "0",
+    "_id": "69a56a3b5d36a9095a17bdc1",
+    "name": "FREE RIDE TICKET",
+    "category": "play",
+    "price": 0,
+    "image": "free-ride-ticket.png",
+    "description": "Zero Cost Promotional Ticket.",
+    "desc": "Zero Cost Promotional Ticket.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com",
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "7",
+    "_id": "69a56a3b5d36a9095a17bdc9",
+    "name": "BUMPING CARS",
+    "category": "play",
+    "price": 150,
+    "image": "bUMPING CARS single.webp",
+    "description": "Classic dabbing and driving fun! Safe, electric-powered cars for children and teens to enjoy some friendly competition.",
+    "desc": "Classic dabbing and driving fun! Safe, electric-powered cars for children and teens to enjoy some friendly competition.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "18",
+    "_id": "69a56a3b5d36a9095a17bdd2",
+    "name": "TRAMPOLINE",
+    "category": "play",
+    "price": 100,
+    "image": "TRAMPOLINE.avif",
+    "description": "Premium jumping area for all skill levels. Our high-performance trampolines are built for maximum bounce and safety.",
+    "desc": "Premium jumping area for all skill levels. Our high-performance trampolines are built for maximum bounce and safety.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "5",
+    "_id": "69a56a3b5d36a9095a17bdc7",
+    "name": "SAMBA BALLOON",
+    "category": "play",
+    "price": 150,
+    "image": "SAMBA BALLOON.jpg",
+    "description": "Soar high in colorful hot air balloons that spin and tilt. A vibrant and rhythmic ride that brings the carnival atmosphere to life.",
+    "desc": "Soar high in colorful hot air balloons that spin and tilt. A vibrant and rhythmic ride that brings the carnival atmosphere to life.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "24",
+    "_id": "69a56a3b5d36a9095a17bdd8",
+    "name": "BREAK DANCE",
+    "category": "play",
+    "price": 100,
+    "image": "break-dance-ride-.webp",
+    "description": "High-speed spinning and tilting action with vibrant lights and modern music. A must-try for thrill-seekers.",
+    "desc": "High-speed spinning and tilting action with vibrant lights and modern music. A must-try for thrill-seekers.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "25",
+    "_id": "69a56a3b5d36a9095a17bdd9",
+    "name": "BUMPING CARS (HIGH)",
+    "category": "play",
+    "price": 200,
+    "image": "bUMPING CARS double.webp",
+    "description": "Adult-sized bumping car action! Faster cars and more space for those looking for a higher-intensity driving experience.",
+    "desc": "Adult-sized bumping car action! Faster cars and more space for those looking for a higher-intensity driving experience.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-3",
+    "_id": "69a56a3b5d36a9095a17bddc",
+    "name": "VR Game",
+    "category": "play",
+    "price": 150,
+    "image": "vr-game.png",
+    "description": "Enter new worlds with our premium VR gaming setup. Features high-end headsets and motion-tracking for ultimate immersion.",
+    "desc": "Enter new worlds with our premium VR gaming setup. Features high-end headsets and motion-tracking for ultimate immersion.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-4",
+    "_id": "69a56a3b5d36a9095a17bddd",
+    "name": "Air Hockey (1 Game)",
+    "category": "play",
+    "price": 100,
+    "image": "air-hockey.png",
+    "description": "Classic fast-paced arcade fun! Challenge a friend to a high-speed game of air hockey on our professional tables.",
+    "desc": "Classic fast-paced arcade fun! Challenge a friend to a high-speed game of air hockey on our professional tables.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "1a",
+    "_id": "69a56a3b5d36a9095a17bdc2",
+    "name": "COMBO ADULT",
+    "category": "play",
+    "price": 500,
+    "image": "logo.jpeg",
+    "description": "Standard Combo Pack for a complete ETHREE experience.",
+    "desc": "Standard Combo Pack for a complete ETHREE experience.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-6",
+    "_id": "69a56a3b5d36a9095a17bddf",
+    "name": "Massage Chair",
+    "category": "play",
+    "price": 100,
+    "image": "massage-chair.png",
+    "description": "Relax and rejuvenate in our luxury zero-gravity massage chairs. Features advanced massage techniques for full body relief.",
+    "desc": "Relax and rejuvenate in our luxury zero-gravity massage chairs. Features advanced massage techniques for full body relief.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
+  },
+  {
+    "id": "9",
+    "_id": "69a56a3b5d36a9095a17bdcb",
+    "name": "ZIP BIKE",
+    "category": "play",
+    "price": 150,
+    "image": "ZIP BIKE.jpg",
+    "description": "Cycle through the air! This unique aerial ride lets you pedal your way along a high-wire track for an amazing view of the park.",
+    "desc": "Cycle through the air! This unique aerial ride lets you pedal your way along a high-wire track for an amazing view of the park.",
+    "status": "on",
+    "allowedPos": [
+      "pos1@ethree.com"
+    ]
+  },
+  {
+    "id": "p2-2",
+    "_id": "69a56a3b5d36a9095a17bddb",
+    "name": "Cricket (5 Overs)",
+    "category": "play",
+    "price": 200,
+    "image": "cricket.png",
+    "description": "The full cricket experience! 5 overs of intense batting practice against our high-speed bowling machine.",
+    "desc": "The full cricket experience! 5 overs of intense batting practice against our high-speed bowling machine.",
+    "status": "on",
+    "allowedPos": [
+      "pos2@ethree.com"
+    ]
   }
 ]

@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/Untitled design (3).png",
+    "scheme": "yourrideapp",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -21,6 +22,21 @@
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "yourrideapp"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ],
       "permissions": [
         "BLUETOOTH",
         "BLUETOOTH_ADMIN",
@@ -36,6 +52,8 @@
     "web": {
       "favicon": "./assets/Untitled design (3).png"
     },
-    "plugins": []
+    "plugins": [
+      "expo-status-bar"
+    ]
   }
 }

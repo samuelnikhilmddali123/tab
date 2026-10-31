@@ -24,8 +24,12 @@ export default function AdminDashboard({ onBack, btStatus }) {
     const [showDebug, setShowDebug] = useState(false);
     const [lostRecords, setLostRecords] = useState([]);
     const [localArchive, setLocalArchive] = useState([]);
-    const [startDate, setStartDate] = useState('2026-05-24');
-    const [endDate, setEndDate] = useState('2026-05-29');
+    const [startDate, setStartDate] = useState(() => {
+        const d = new Date();
+        d.setDate(d.getDate() - 30);
+        return d.toISOString().split('T')[0];
+    });
+    const [endDate, setEndDate] = useState(() => new Date().toISOString().split('T')[0]);
     const [viewMode, setViewMode] = useState('server'); // server, local, sync
     const [isSyncing, setIsSyncing] = useState(false);
 
@@ -425,14 +429,14 @@ export default function AdminDashboard({ onBack, btStatus }) {
                 )}
                 renderItem={({ item }) => {
                     const status = item.status || (viewMode === 'server' ? 'success' : 'unknown');
-                    const statusColor = status === 'success' ? '#10b981' : status === 'failed' ? '#ef4444' : status === 'cancelled' ? '#f59e0b' : '#3b82f6';
+                    const statusColor = (status === 'success' || status === 'paid') ? '#10b981' : status === 'failed' ? '#ef4444' : status === 'cancelled' ? '#f59e0b' : '#3b82f6';
                     
                     return (
                     <View style={[styles.ticketCard, { borderLeftColor: statusColor }]}>
                         <View style={styles.ticketMain}>
                             <View style={[styles.ticketBadge, { backgroundColor: `${statusColor}15` }]}>
                                 <Ionicons 
-                                    name={status === 'success' ? "cloud-done" : status === 'failed' ? "close-circle" : "time-outline"} 
+                                    name={(status === 'success' || status === 'paid') ? "cloud-done" : status === 'failed' ? "close-circle" : "time-outline"} 
                                     size={14} 
                                     color={statusColor} 
                                 />

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image, Text, Animated, ScrollView, TouchableOpacity, Modal, FlatList, Platform, PermissionsAndroid, Alert, ActivityIndicator, useWindowDimensions, TextInput, RefreshControl } from 'react-native';
+import { StyleSheet, View, Image, Text, Animated, ScrollView, TouchableOpacity, Modal, FlatList, Platform, PermissionsAndroid, Alert, ActivityIndicator, useWindowDimensions, TextInput, RefreshControl, Linking, AppState } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,12 +10,23 @@ import Login from './src/pages/Login';
 import AdminDashboard from './src/pages/AdminDashboard';
 import PaymentWebView from './src/components/PaymentWebView';
 import PaymentStatus from './src/components/PaymentStatus';
+import RideReceiptModal from './src/components/RideReceiptModal';
+import {
+  initiateRidePayment,
+  launchEasebuzzPortal,
+  dismissEasebuzzPortal,
+  parseDeepLinkUrl,
+  verifyPaymentStatus,
+  pollPaymentStatus,
+} from './src/api/paymentService';
+import { generateGatewayHtml } from './src/utils/paymentGatewayHtml';
 import { generateTicketsForCart } from './src/utils/TicketFormatter';
 import PrinterService, { isNativePrinter, safePrint } from './src/utils/PrinterService';
+import { RideCardImage, getRideDescription, FALLBACK_IMAGE } from './src/utils/rideImages';
+import PRELOADED_RIDES from './assets/data/rides.json';
 
-const FEATURED_NAMES = ['ETHREE BUS', 'SUN @ MOON', 'TL TRAIN', 'BALLOON SHOOTING'];
+const FEATURED_NAMES = ['TL TRAIN', 'ETHREE BUS', 'SUN @ MOON'];
 const TARGET_PRINTER_NAME = 'Printer001-08D0';
-const FALLBACK_IMAGE = require('./assets/public/train_files/stackvil_logo.jpeg');
 
 function MainApp({ user, onLogout }) {
   const insets = useSafeAreaInsets();
@@ -32,14 +43,15 @@ function MainApp({ user, onLogout }) {
   const [showAllRides, setShowAllRides] = useState(false);
   
   const [btStatus, setBtStatus] = useState('disconnected');
-  const [rides, setRides] = useState([]);
-  const [loadingRides, setLoadingRides] = useState(true);
+  const [rides, setRides] = useState(PRELOADED_RIDES || []);
+  const [loadingRides, setLoadingRides] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
 
   const [cart, setCart] = useState([]);
   const [mobile, setMobile] = useState('');
   
   const [paymentUrl, setPaymentUrl] = useState(null);
+  const [paymentHtml, setPaymentHtml] = useState(null);
   const [paymentVisible, setPaymentVisible] = useState(false);
   const [paymentModalVisible, setPaymentModalVisible] = useState(false);
   const [statusVisible, setStatusVisible] = useState(false);
@@ -47,6 +59,20 @@ function MainApp({ user, onLogout }) {
   const [isPrintingState, setIsPrintingState] = useState(false);
   const [currentTxnId, setCurrentTxnId] = useState(null);
   const [pendingSyncCount, setPendingSyncCount] = useState(0);
+  const [confirmedReceipt, setConfirmedReceipt] = useState(null);
+  const [receiptModalVisible, setReceiptModalVisible] = useState(false);
+  const [isVerifyingPayment, setIsVerifyingPayment] = useState(false);
+
+  // Active payment state reference for deep links and app resume tracking
+  const activePaymentRef = useRef({
+    inProgress: false,
+    txnid: null,
+    cart: [],
+    amount: 0,
+    mobile: '',
+    startTime: 0,
+  });
+  const appStateRef = useRef(AppState.currentState);
 
 
 
@@ -104,6 +130,7 @@ function MainApp({ user, onLogout }) {
   };
 
   useEffect(() => {
+    fetchRides();
     const init = async () => {
         if (Platform.OS === 'android') {
             try {
@@ -118,7 +145,6 @@ function MainApp({ user, onLogout }) {
           console.warn('PrinterService: Using Mock Printer (Native module not loaded)');
         }
         await PrinterService.init();
-        fetchRides();
         autoConnect();
     };
     init();
@@ -165,28 +191,27 @@ function MainApp({ user, onLogout }) {
 
   const fetchRides = async () => {
     try {
-      setLoadingRides(true);
       const token = await storage.getToken();
       console.log('Fetching rides from:', `${API_URL}/api/products`);
+      const headers = { 'ngrok-skip-browser-warning': 'true' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
       const response = await axios.get(`${API_URL}/api/products?t=${Date.now()}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        timeout: 5000
+        headers,
+        timeout: 4000
       });
       
       if (response.data && response.data.length > 0) {
-        setRides(response.data.filter(r => r.name !== 'Free Ride' && r.name !== 'Ticket Summary' && r.status !== 'off'));
-      } else {
-        throw new Error('Empty response from server');
+        const enriched = response.data
+          .filter(r => r.name !== 'Free Ride' && r.name !== 'Ticket Summary' && r.status !== 'off')
+          .map(r => ({
+            ...r,
+            description: r.description || getRideDescription(r),
+          }));
+        setRides(enriched);
       }
     } catch (err) { 
-      console.warn('API Fetch Failed, loading local fallback:', err.message);
-      // Fallback to local JSON
-      try {
-        const localRides = require('./assets/data/rides.json');
-        setRides(localRides);
-      } catch (localErr) {
-        console.error('Local fallback failed:', localErr);
-      }
+      console.warn('API Fetch Failed, keeping preloaded rides:', err.message);
     } finally { 
       setLoadingRides(false); 
       setRefreshing(false); 
@@ -207,57 +232,311 @@ function MainApp({ user, onLogout }) {
     setCart(cart.map(item => (item.cartId === cartId ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item)).filter(i => i.quantity > 0));
   };
 
-  const initiatePayment = async () => {
-    if (cart.length === 0) return;
+  const updateArchiveStatus = async (txnId, status) => {
+    if (!txnId) return;
     try {
-      const token = await storage.getToken();
-      const txnId = `ETH-${Date.now().toString().slice(-8)}`;
-      setCurrentTxnId(txnId);
-      
-      const res = await axios.post(`${API_URL}/api/payments/initiate`, {
-        amount: cart.reduce((s,i)=>s+(i.price*i.quantity),0).toFixed(2), txnid: txnId, phone: mobile || '0000000000',
-        productinfo: 'Tickets', firstname: user.name, email: user.email,
-        surl: `${API_URL}/api/payments/response?status=success`, furl: `${API_URL}/api/payments/response?status=failure`
-      }, { headers: { Authorization: `Bearer ${token}` } });
-      
-      if (res.data?.url) { 
-        setPaymentUrl(res.data.url); 
-        setPaymentVisible(true); 
-
-        // 1. Log Attempt to Local Archive
-        try {
-            const archiveStr = await storage.getItem('local_archive');
-            const archive = archiveStr ? JSON.parse(archiveStr) : [];
-            const newRecord = {
-                id: txnId,
-                amount: cart.reduce((s,i)=>s+(i.price*i.quantity),0),
-                items: [...cart],
-                mobile: mobile,
-                paymentMode: 'UPI',
-                posId: 'pos1',
-                createdAt: new Date().toISOString(),
-                status: 'initiated', // initiated, success, failed
-                synced: false,
-                createdBy: user.name
-            };
-            archive.unshift(newRecord);
-            await storage.setItem('local_archive', JSON.stringify(archive));
-        } catch (e) { console.error('Archive Init Error:', e); }
+      const archiveStr = await storage.getItem('local_archive');
+      const archive = archiveStr ? JSON.parse(archiveStr) : [];
+      const idx = archive.findIndex(a => a.id === txnId);
+      if (idx !== -1) {
+        archive[idx].status = status;
+        await storage.setItem('local_archive', JSON.stringify(archive));
       }
-
-    } catch (err) { 
-        setStatusMode('error');
-        setStatusVisible(true);
+    } catch (e) {
+      console.error('Update archive status error:', e);
     }
   };
 
-  const executePrintAndSync = async (ticketId, paymentModeToUse) => {
+  /**
+   * 1. Initiate Payment Request
+   * Calls backend payment initiate endpoint passing ride identifier and required parameters.
+   * Extracts payment_url and txnid from the response.
+   * 2. Launches Live Easebuzz Portal in In-App Browser / Custom Tab / Safari View.
+   */
+  const initiatePayment = async () => {
+    if (cart.length === 0) {
+      Alert.alert('Empty Cart', 'Please select at least one ride to pay fare.');
+      return;
+    }
+    setPaymentModalVisible(false);
+
+    const txnId = `ETH-${Date.now().toString().slice(-8)}`;
+    setCurrentTxnId(txnId);
+    const totalAmount = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+    const cartSnapshot = [...cart];
+    const mobileSnapshot = mobile;
+
+    // 1. Log Attempt to Local Archive with 'initiated' status
+    try {
+      const archiveStr = await storage.getItem('local_archive');
+      const archive = archiveStr ? JSON.parse(archiveStr) : [];
+      const newRecord = {
+        id: txnId,
+        amount: totalAmount,
+        items: cartSnapshot,
+        mobile: mobileSnapshot,
+        paymentMode: 'Easebuzz Live (UPI)',
+        posId: 'pos1',
+        createdAt: new Date().toISOString(),
+        status: 'initiated',
+        synced: false,
+        createdBy: user?.name || 'Staff',
+      };
+      archive.unshift(newRecord);
+      await storage.setItem('local_archive', JSON.stringify(archive));
+    } catch (e) {
+      console.error('Archive Init Error:', e);
+    }
+
+    // Set tracking ref for deep link & app resume fallback
+    activePaymentRef.current = {
+      inProgress: true,
+      txnid: txnId,
+      cart: cartSnapshot,
+      amount: totalAmount,
+      mobile: mobileSnapshot,
+      startTime: Date.now(),
+    };
+
+    // 2. Call backend payment initiation endpoint
+    let livePortalLaunched = false;
+    try {
+      setStatusMode('awaiting');
+      setStatusVisible(true);
+
+      const initiateRes = await initiateRidePayment({
+        rides: cartSnapshot,
+        amount: totalAmount,
+        customerPhone: mobileSnapshot,
+        customerName: user?.name || 'Passenger',
+        customerEmail: user?.email || 'passenger@ethree.com',
+        txnId: txnId,
+      });
+
+      // Extract payment_url and txnid from response
+      const paymentUrlToLaunch = initiateRes.payment_url;
+      const returnedTxnId = initiateRes.txnid || txnId;
+      setCurrentTxnId(returnedTxnId);
+      activePaymentRef.current.txnid = returnedTxnId;
+
+      console.log('[Easebuzz Live] Opening portal URL:', paymentUrlToLaunch);
+
+      // Launch Live Gateway in In-App Browser / Chrome Custom Tab / Safari View
+      await launchEasebuzzPortal(paymentUrlToLaunch);
+      livePortalLaunched = true;
+    } catch (apiErr) {
+      console.warn('[Easebuzz Live] Initiation endpoint failed, falling back to built-in webview:', apiErr.message);
+    }
+
+    if (!livePortalLaunched) {
+      // Fallback: Built-in Online Payment Gateway Webview
+      try {
+        const merchantUpi = (await storage.getItem('merchant_upi_id')) || '7036923456@ybl';
+        const html = generateGatewayHtml({
+          amount: totalAmount,
+          txnId: txnId,
+          mobile: mobileSnapshot,
+          merchantUpi: merchantUpi,
+          apiBaseUrl: API_URL,
+        });
+        setStatusVisible(false);
+        setPaymentUrl(null);
+        setPaymentHtml(html);
+        setPaymentVisible(true);
+      } catch (err) {
+        activePaymentRef.current.inProgress = false;
+        setStatusMode('error');
+        setStatusVisible(true);
+      }
+    }
+  };
+
+  /**
+   * UI Transition & Receipt Confirmation Screen
+   * Updates local ride state to paid and shows confirmed receipt.
+   */
+  const handlePaymentConfirmed = async (ticketId, paymentModeToUse = 'Easebuzz Live (UPI)', items = null, custMobile = null) => {
+    const itemsToConfirm = items && items.length > 0 ? items : (activePaymentRef.current.cart?.length > 0 ? activePaymentRef.current.cart : [...cart]);
+    const mobileToConfirm = custMobile !== null && custMobile !== undefined ? custMobile : (activePaymentRef.current.mobile || mobile);
+    const totalAmount = itemsToConfirm.reduce((s, i) => s + (i.price * i.quantity), 0);
+
+    // Update local ride state to paid
+    await updateArchiveStatus(ticketId, 'paid');
+
+    // Populate Receipt and navigate to Ride Receipt / Confirmation screen
+    setConfirmedReceipt({
+      id: ticketId,
+      amount: totalAmount,
+      items: itemsToConfirm,
+      mobile: mobileToConfirm,
+      paymentMode: paymentModeToUse,
+      createdAt: new Date().toISOString(),
+      status: 'paid',
+    });
+    setReceiptModalVisible(true);
+    setStatusVisible(false);
+
+    // Print ticket and sync to backend database
+    await executePrintAndSync(ticketId, paymentModeToUse, itemsToConfirm, mobileToConfirm);
+  };
+
+  /**
+   * 3. Deep Link & Verification Handling
+   * If status === "success":
+   * Call backend status verification endpoint for txnid to confirm backend database sync.
+   * Update local ride state to paid.
+   * Navigate to Ride Receipt / Confirmed screen.
+   */
+  const processSuccessfulPayment = async (txnid) => {
+    try {
+      setIsVerifyingPayment(true);
+      setStatusMode('awaiting');
+      setStatusVisible(true);
+
+      console.log('[Verification] Confirming txnid with backend:', txnid);
+      const verifyResult = await verifyPaymentStatus(txnid);
+      console.log('[Verification] Backend response:', verifyResult);
+
+      if (verifyResult.verified || verifyResult.status === 'success' || verifyResult.status === 'paid') {
+        const savedCart = [...(activePaymentRef.current.cart || [])];
+        const savedMobile = activePaymentRef.current.mobile;
+        activePaymentRef.current.inProgress = false;
+
+        await handlePaymentConfirmed(txnid, 'Easebuzz Live (UPI)', savedCart, savedMobile);
+      } else {
+        activePaymentRef.current.inProgress = false;
+        await updateArchiveStatus(txnid, 'failed');
+        setStatusMode('error');
+        setStatusVisible(true);
+        Alert.alert(
+          'Verification Notice',
+          'Payment callback received, but transaction confirmation with backend is pending. Please check with staff or retry.',
+          [{ text: 'OK' }]
+        );
+      }
+    } catch (err) {
+      console.error('[Verification Error]:', err);
+      setStatusMode('error');
+      setStatusVisible(true);
+      Alert.alert('Verification Error', err.message || 'Error communicating with verification service.');
+    } finally {
+      setIsVerifyingPayment(false);
+    }
+  };
+
+  /**
+   * Deep Link Failure Handling
+   * If status !== "success":
+   * Display payment failure alert / toast and allow passenger to retry.
+   */
+  const processFailedPayment = async (txnid, message = 'Payment could not be completed.') => {
+    activePaymentRef.current.inProgress = false;
+    await updateArchiveStatus(txnid, 'failed');
+    setStatusMode('error');
+    setStatusVisible(true);
+    Alert.alert(
+      'Payment Failed',
+      message || 'Your payment was not completed on Easebuzz. Please retry your payment.',
+      [
+        { text: 'Cancel', style: 'cancel', onPress: () => setStatusVisible(false) },
+        { text: 'Retry Payment', onPress: () => initiatePayment() },
+      ]
+    );
+  };
+
+  /**
+   * Callback handler for deep links (e.g. yourrideapp://payment/callback)
+   */
+  const handleDeepLinkCallback = async (incomingUrl) => {
+    if (!incomingUrl) return;
+    console.log('[DeepLink] Callback URL received:', incomingUrl);
+
+    const parsed = parseDeepLinkUrl(incomingUrl);
+    if (!parsed.isPaymentCallback && !parsed.status && !activePaymentRef.current.inProgress) {
+      return;
+    }
+
+    const txnid = parsed.txnid || activePaymentRef.current.txnid || currentTxnId;
+
+    // Dismiss the in-app browser / custom tab immediately
+    await dismissEasebuzzPortal();
+
+    if (parsed.status === 'success') {
+      await processSuccessfulPayment(txnid);
+    } else {
+      await processFailedPayment(
+        txnid,
+        parsed.params?.error_Message || 'Payment was cancelled or unsuccessful.'
+      );
+    }
+  };
+
+  /**
+   * 4. App Lifecycle Resume (Fallback Verification)
+   * Add a check on app resume (AppState.active):
+   * If a ride payment was in-progress and passenger switches back to the app without triggering the deep link,
+   * poll backend status API for txnid to sync and confirm the payment state.
+   */
+  useEffect(() => {
+    const appStateSub = AppState.addEventListener('change', async (nextState) => {
+      const prev = appStateRef.current;
+      appStateRef.current = nextState;
+
+      if (prev.match(/inactive|background/) && nextState === 'active') {
+        console.log('[AppState] App resumed to ACTIVE state.');
+
+        if (activePaymentRef.current.inProgress && activePaymentRef.current.txnid) {
+          const txnid = activePaymentRef.current.txnid;
+          console.log('[AppState Resume] Payment in-progress detected, polling backend status API for txnid:', txnid);
+
+          // Brief delay before query
+          await new Promise(r => setTimeout(r, 1200));
+
+          const pollResult = await pollPaymentStatus(txnid, { maxAttempts: 3, delayMs: 1500 });
+          if (pollResult.verified) {
+            console.log('[AppState Resume] Payment verified via fallback polling!');
+            await dismissEasebuzzPortal();
+            await processSuccessfulPayment(txnid);
+          } else if (pollResult.failed) {
+            console.log('[AppState Resume] Payment marked as failed by gateway.');
+            await dismissEasebuzzPortal();
+            await processFailedPayment(txnid, 'Payment was marked as failed.');
+          } else {
+            console.log('[AppState Resume] Payment still in progress or waiting.');
+          }
+        }
+      }
+    });
+
+    // Handle deep link from cold start
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        console.log('[DeepLink] Cold start URL:', url);
+        handleDeepLinkCallback(url);
+      }
+    });
+
+    // Handle deep link when app is running/backgrounded
+    const linkSub = Linking.addEventListener('url', ({ url }) => {
+      console.log('[DeepLink] Linking event URL:', url);
+      handleDeepLinkCallback(url);
+    });
+
+    return () => {
+      appStateSub.remove();
+      linkSub.remove();
+    };
+  }, []);
+
+  const executePrintAndSync = async (ticketId, paymentModeToUse, itemsToUse = null, customerMobile = null) => {
     // 1. Triple-Lock and Instant Wipe
     const now = Date.now();
-    if (isPrinting.current || isPrintingState || (now - lastPrintTime.current < 5000)) return;
+    if (isPrinting.current || isPrintingState || (now - lastPrintTime.current < 4000)) return;
     
-    const cartToPrint = [...cart];
+    const cartToPrint = itemsToUse && itemsToUse.length > 0 ? itemsToUse : [...cart];
     if (cartToPrint.length === 0) return;
+
+    const mobileToUse = customerMobile !== null && customerMobile !== undefined ? customerMobile : mobile;
 
     isPrinting.current = true;
     setIsPrintingState(true);
@@ -267,24 +546,22 @@ function MainApp({ user, onLogout }) {
     setMobile('');
     setCartModalVisible(false);
     setPaymentVisible(false);
-    setStatusMode('success');
-    setStatusVisible(true);
     
-    const allRecords = generateTicketsForCart(cartToPrint, ticketId, mobile, user, paymentModeToUse);
+    const allRecords = generateTicketsForCart(cartToPrint, ticketId, mobileToUse, user, paymentModeToUse);
     const ticketsToPrint = allRecords.filter(r => !r.isMaster);
     
-    // 2. INSTANTLY save to Local Archive before anything else
+    // 2. INSTANTLY save to Local Archive with 'paid' status before anything else
     try {
         const archiveStr = await storage.getItem('local_archive');
         const archive = archiveStr ? JSON.parse(archiveStr) : [];
         const idx = archive.findIndex(a => a.id === ticketId);
         if (idx !== -1) {
-            archive[idx].status = 'success';
+            archive[idx].status = 'paid';
             archive[idx].paymentMode = paymentModeToUse;
             archive[idx].synced = false;
         } else {
             // Fallback: If not found, add it
-            archive.unshift({ ...allRecords[0], status: 'success', synced: false });
+            archive.unshift({ ...allRecords[0], status: 'paid', synced: false });
         }
         await storage.setItem('local_archive', JSON.stringify(archive));
     } catch (e) { console.error('Archive Instant Save Error:', e); }
@@ -313,7 +590,6 @@ function MainApp({ user, onLogout }) {
 
     // Sync all records (Master + Sub-tickets) to server
     const syncToServer = async () => {
-        // Attempt Server Sync
         try {
             const token = await storage.getToken();
             await axios.post(`${API_URL}/api/tickets`, allRecords, { 
@@ -346,14 +622,22 @@ function MainApp({ user, onLogout }) {
   };
 
   const handlePaymentSuccess = () => {
+      setPaymentVisible(false);
       const ticketId = currentTxnId || `TXN-${Date.now().toString().slice(-8)}`;
-      executePrintAndSync(ticketId, 'UPI');
+      processSuccessfulPayment(ticketId);
+  };
+
+  const handleUpdateMerchantUpi = async (newUpi) => {
+    if (newUpi && newUpi.includes('@')) {
+      await storage.setItem('merchant_upi_id', newUpi.trim());
+      console.log('Saved new merchant UPI ID:', newUpi.trim());
+    }
   };
 
   const processCashPayment = () => {
       const txnId = `ETH-${Date.now().toString().slice(-8)}`;
       setCurrentTxnId(txnId);
-      executePrintAndSync(txnId, 'CASH');
+      handlePaymentConfirmed(txnId, 'CASH');
   };
 
   const handleCheckout = () => {
@@ -361,24 +645,9 @@ function MainApp({ user, onLogout }) {
     setPaymentModalVisible(true);
   };
 
-  const updateArchiveStatus = async (txnId, status) => {
-    if (!txnId) return;
-    try {
-        const archiveStr = await storage.getItem('local_archive');
-        const archive = archiveStr ? JSON.parse(archiveStr) : [];
-        const idx = archive.findIndex(a => a.id === txnId);
-        if (idx !== -1) {
-            archive[idx].status = status;
-            await storage.setItem('local_archive', JSON.stringify(archive));
-        }
-    } catch (e) {}
-  };
-
   const handlePaymentFailure = () => {
     setPaymentVisible(false);
-    updateArchiveStatus(currentTxnId, 'failed');
-    setStatusMode('error');
-    setStatusVisible(true);
+    processFailedPayment(currentTxnId, 'Payment was cancelled or failed in gateway.');
   };
 
   const handleTestPrint = async () => {
@@ -395,11 +664,11 @@ function MainApp({ user, onLogout }) {
   const cardHeight = isLandscape ? (height - 200) / 2 : 280;
 
   const renderRideCard = ({ item }) => {
-    const imageUri = item.image ? `${API_URL}/images/${encodeURIComponent(item.image)}?ngrok-skip-browser-warning=1` : null;
+    const desc = item.description || getRideDescription(item);
     return (
       <View style={[styles.rideCard, { width: moreCardWidth, height: cardHeight }]}>
         <View style={styles.imageContainer}>
-            <Image source={imageUri ? { uri: imageUri } : FALLBACK_IMAGE} style={styles.rideImage} defaultSource={FALLBACK_IMAGE} />
+            <RideCardImage item={item} style={styles.rideImage} />
             <View style={styles.imageOverlay} />
             <View style={styles.imageTextRow}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{item.name.toUpperCase()}</Text>
@@ -407,7 +676,7 @@ function MainApp({ user, onLogout }) {
             </View>
         </View>
         <View style={styles.cardFooter}>
-            <Text style={styles.cardDesc} numberOfLines={isLandscape ? 1 : 2}>{item.description || 'No description available.'}</Text>
+            <Text style={styles.cardDesc} numberOfLines={isLandscape ? 1 : 2}>{desc}</Text>
             <TouchableOpacity style={styles.addBtnExact} onPress={() => addToCart(item)}>
                 <View style={styles.plusCircle}><Ionicons name="add" size={12} color="#475569" /></View>
                 <Text style={styles.addBtnTextExact}>Add to Order</Text>
@@ -417,19 +686,26 @@ function MainApp({ user, onLogout }) {
     );
   };
 
+  const remainingCount = Math.max(0, rides.length - 3);
+
   const renderMoreCard = () => (
     <TouchableOpacity activeOpacity={0.8} onPress={() => setShowAllRides(!showAllRides)} style={[styles.rideCard, styles.moreCardExact, { width: moreCardWidth, height: cardHeight }]}>
       <View style={styles.moreIconBox}><Ionicons name={showAllRides ? "close" : "add-circle"} size={32} color="#94a3b8" /></View>
       <Text style={styles.moreTitle}>{showAllRides ? 'SHOW LESS' : 'SHOW MORE RIDES'}</Text>
+      {!showAllRides && remainingCount > 0 && (
+        <Text style={styles.moreSubtitle}>{remainingCount} MORE AVAILABLE</Text>
+      )}
     </TouchableOpacity>
   );
 
   const renderItem = ({ item }) => (item.id === 'more-button' ? renderMoreCard() : renderRideCard({ item }));
 
-  const featured = rides.filter(r => FEATURED_NAMES.includes(r.name.toUpperCase()));
+  const featured = FEATURED_NAMES.map(name => 
+    rides.find(r => (r.name || '').toUpperCase() === name)
+  ).filter(Boolean);
   const finalDisplay = showAllRides ? rides : featured;
   const listData = [...finalDisplay];
-  if (rides.length > 4) listData.push({ id: 'more-button' });
+  if (rides.length > 3) listData.push({ id: 'more-button' });
 
   const renderCart = () => (
     <View style={styles.cartContainer}>
@@ -461,7 +737,7 @@ function MainApp({ user, onLogout }) {
             <View style={styles.printerCircle}>
                 {isPrintingState ? <ActivityIndicator size="small" color="#0f172a" /> : <Ionicons name="print" size={14} color="#0f172a" />}
             </View>
-            <Text style={styles.payBtnTextFull}>{isPrintingState ? 'PRINTING...' : 'PRINT FINAL TICKET'}</Text>
+            <Text style={styles.payBtnTextFull}>{isPrintingState ? 'PROCESSING...' : 'PAY FARE (EASEBUZZ LIVE)'}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -523,7 +799,7 @@ function MainApp({ user, onLogout }) {
         <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={() => setPaymentModalVisible(false)}>
             <View style={styles.paymentModalBox}>
                 <View style={styles.paymentMethodRow}>
-                    <TouchableOpacity style={[styles.paymentMethodBtn, { backgroundColor: '#ef4444' }]} onPress={() => { setPaymentModalVisible(false); initiatePayment(); }}>
+                    <TouchableOpacity style={[styles.paymentMethodBtn, { backgroundColor: '#ef4444' }]} onPress={initiatePayment}>
                         <Text style={styles.paymentMethodBtnText}>U{"\n"}P{"\n"}I</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.paymentMethodBtn, { backgroundColor: '#10b981' }]} onPress={() => { setPaymentModalVisible(false); processCashPayment(); }}>
@@ -537,17 +813,29 @@ function MainApp({ user, onLogout }) {
         </TouchableOpacity>
       </Modal>
 
+      {/* Online Payment Gateway Webview - Hands-Free Automatic Verification */}
       <PaymentWebView 
         visible={paymentVisible} 
         url={paymentUrl} 
+        html={paymentHtml}
         onCancel={() => { 
             setPaymentVisible(false); 
             updateArchiveStatus(currentTxnId, 'cancelled');
         }} 
         onSuccess={handlePaymentSuccess} 
         onFailure={handlePaymentFailure} 
+        onUpdateUpi={handleUpdateMerchantUpi}
       />
-      <PaymentStatus visible={statusVisible} status={statusMode} onRetry={() => { setStatusVisible(false); initiatePayment(); }} onCancel={() => setStatusVisible(false)} onDone={() => setStatusVisible(false)} />
+      <PaymentStatus 
+        visible={statusVisible} 
+        status={statusMode} 
+        onRetry={() => {
+          setStatusVisible(false);
+          initiatePayment();
+        }} 
+        onCancel={() => setStatusVisible(false)} 
+        onDone={() => setStatusVisible(false)} 
+      />
       <StatusBar style="light" />
     </View>
   );
@@ -587,11 +875,11 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 18, fontWeight: 'bold', color: '#1e293b', flex: 1 },
   list: { paddingBottom: 100 },
   rideCard: { backgroundColor: '#fff', borderRadius: 15, margin: 7, elevation: 3, overflow: 'hidden' },
-  imageContainer: { width: '100%', height: 160, position: 'relative' },
+  imageContainer: { width: '100%', height: 160, position: 'relative', backgroundColor: '#1e293b' },
   rideImage: { width: '100%', height: '100%' },
-  imageOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(15,23,42,0.4)' },
+  imageOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(15,23,42,0.45)' },
   imageTextRow: { position: 'absolute', bottom: 10, left: 10, right: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  cardTitle: { fontSize: 14, fontWeight: '900', color: '#fff', flex: 1 },
+  cardTitle: { fontSize: 13, fontWeight: '900', color: '#fff', flex: 1, marginRight: 6, textShadowColor: 'rgba(0, 0, 0, 0.85)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 3 },
   priceTag: { backgroundColor: '#f0c05a', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 6 },
   priceTagText: { fontWeight: '900', fontSize: 10, color: '#0f172a' },
   cardFooter: { padding: 10, flex: 1 },
@@ -602,6 +890,7 @@ const styles = StyleSheet.create({
   moreCardExact: { borderStyle: 'dashed', borderWidth: 2, borderColor: '#cad5e2', backgroundColor: '#f8fafc', justifyContent: 'center', alignItems: 'center' },
   moreIconBox: { backgroundColor: '#fff', width: 60, height: 60, borderRadius: 30, justifyContent: 'center', alignItems: 'center', marginBottom: 15 },
   moreTitle: { fontSize: 14, fontWeight: '900', color: '#64748b' },
+  moreSubtitle: { fontSize: 10, fontWeight: 'bold', color: '#94a3b8', marginTop: 4 },
   rightSide: { flex: 1, backgroundColor: '#fff', borderLeftWidth: 1, borderLeftColor: '#e2e8f0' },
   cartContainer: { flex: 1, backgroundColor: '#fff' },
   cartHeader: { flexDirection: 'row', alignItems: 'center', padding: 20, borderBottomWidth: 1, borderBottomColor: '#f1f5f9' },

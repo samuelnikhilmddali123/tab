@@ -1,6 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
-export const API_URL = 'https://e3-e4-backend.ethree.in';
+export const API_URL = 'https://swampland-situated-barbell.ngrok-free.dev';
+
+// Ensure all axios requests pass through ngrok without browser warning interstitials
+axios.defaults.headers.common['ngrok-skip-browser-warning'] = 'true';
 
 const safeStorage = AsyncStorage || {
   getItem: () => Promise.resolve(null),
