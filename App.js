@@ -75,6 +75,8 @@ function MainApp({ user, onLogout }) {
   });
   const livePollingTimer = useRef(null);
   const appStateRef = useRef(AppState.currentState);
+  // Persistent in-memory deduplication cache: guarantees NO ticketId can ever print twice in the app session
+  const printedTicketsRef = useRef(new Set());
 
   const stopLivePolling = () => {
     if (livePollingTimer.current) {
@@ -104,23 +106,21 @@ function MainApp({ user, onLogout }) {
           console.log('[Live Polling] >>> SUCCESS CONFIRMED BY EASEBUZZ! <<< Dismissing browser and printing ticket.');
           stopLivePolling();
 
+          // Synchronously lock isProcessed BEFORE any async calls to eliminate duplicate trigger race conditions
+          if (activePaymentRef.current.isProcessed) return;
+          activePaymentRef.current.isProcessed = true;
+          activePaymentRef.current.inProgress = false;
+
           // 1. Dismiss In-App Browser (Chrome Custom Tab) to return to POS app
           await dismissEasebuzzPortal();
 
           // 2. Dismiss In-App Webview if open
           setPaymentVisible(false);
 
-          // 3. Try to bring POS MainActivity to front if external browser was active
-          try {
-            await Linking.openURL(`yourrideapp://payment/callback?status=success&txnid=${txnIdToPoll}`);
-          } catch (e) {
-            console.log('[Live Polling] Deep link intent trigger:', e.message);
-          }
-
-          // 4. Dismiss status modal
+          // 3. Dismiss status modal
           setStatusVisible(false);
 
-          // 5. Process successful payment, wipe cart, sync & print ticket
+          // 4. Process successful payment, wipe cart, sync & print ticket
           await processSuccessfulPayment(txnIdToPoll, verifyRes);
         } else if (verifyRes.failed) {
           console.log('[Live Polling] Gateway reported payment failure.');
@@ -170,14 +170,7 @@ function MainApp({ user, onLogout }) {
         setBtStatus('connected');
         if (force) Alert.alert('Printer Linked', `App is now linked to ${target.device_name || target.name}. Note: If the printer is physically off, it may still show as linked if it was previously paired.`);
         
-        // Auto-test print on first connection of the session
-        if (!hasAutoTested.current) {
-          hasAutoTested.current = true;
-          console.log('PrinterService: Triggering automatic initial test print');
-          setTimeout(() => {
-            handleTestPrint();
-          }, 1000);
-        }
+        // Automatic test print removed to prevent unwanted duplicate tickets on connection
       } else {
         console.log('PrinterService: Target not found in list.');
         setBtStatus('disconnected');
@@ -192,6 +185,19 @@ function MainApp({ user, onLogout }) {
 
   useEffect(() => {
     fetchRides();
+    // Pre-populate printed tickets deduplication set from local archive
+    storage.getItem('local_archive').then(archiveStr => {
+      try {
+        if (archiveStr) {
+          const archive = JSON.parse(archiveStr);
+          archive.forEach(item => {
+            if (item && item.id && (item.printed || item.status === 'paid')) {
+              printedTicketsRef.current.add(item.id);
+            }
+          });
+        }
+      } catch (e) {}
+    });
     const init = async () => {
         if (Platform.OS === 'android') {
             try {
@@ -319,6 +325,10 @@ function MainApp({ user, onLogout }) {
       Alert.alert('Empty Cart', 'Please select at least one ride to pay fare.');
       return;
     }
+    if (isPrinting.current || isPrintingState || activePaymentRef.current.inProgress) {
+      console.log('Payment or printing already in progress. Ignoring duplicate initiate.');
+      return;
+    }
     setPaymentModalVisible(false);
 
     const txnId = `ETH-${Date.now().toString().slice(-8)}`;
@@ -394,8 +404,10 @@ function MainApp({ user, onLogout }) {
           // Safety check: if user manually closed browser, verify immediately
           if (activePaymentRef.current.inProgress && !activePaymentRef.current.isProcessed) {
             verifyPaymentStatus(returnedTxnId).then((chk) => {
-              if (chk.verified || chk.data?.isPaid === true) {
+              if ((chk.verified || chk.data?.isPaid === true) && !activePaymentRef.current.isProcessed) {
                 stopLivePolling();
+                activePaymentRef.current.isProcessed = true;
+                activePaymentRef.current.inProgress = false;
                 processSuccessfulPayment(returnedTxnId, chk);
               }
             });
@@ -441,6 +453,12 @@ function MainApp({ user, onLogout }) {
    * Updates local ride state to paid and shows confirmed receipt.
    */
   const handlePaymentConfirmed = async (ticketId, paymentModeToUse = 'Easebuzz Live (UPI)', items = null, custMobile = null) => {
+    // Deduplication check: if this ticketId is already confirmed & printed, prevent re-execution
+    if (printedTicketsRef.current.has(ticketId)) {
+      console.warn(`[CONFIRM_GUARD] Ticket ${ticketId} already printed. Skipping redundant confirmation.`);
+      return;
+    }
+
     const itemsToConfirm = items && items.length > 0 ? items : (activePaymentRef.current.cart?.length > 0 ? activePaymentRef.current.cart : [...cart]);
     const mobileToConfirm = custMobile !== null && custMobile !== undefined ? custMobile : (activePaymentRef.current.mobile || mobile);
     const totalAmount = itemsToConfirm.reduce((s, i) => s + (i.price * i.quantity), 0);
@@ -591,18 +609,23 @@ function MainApp({ user, onLogout }) {
       if (prev.match(/inactive|background/) && nextState === 'active') {
         console.log('[AppState] App resumed to ACTIVE state.');
 
-        if (activePaymentRef.current.inProgress && activePaymentRef.current.txnid) {
+        if (activePaymentRef.current.inProgress && activePaymentRef.current.txnid && !activePaymentRef.current.isProcessed) {
           const txnid = activePaymentRef.current.txnid;
           console.log('[AppState Resume] Payment in-progress detected, polling backend status API for txnid:', txnid);
 
           // Brief delay before query
-          await new Promise(r => setTimeout(r, 1200));
+          await new Promise(r => setTimeout(r, 800));
+
+          // Re-verify that payment was not already processed during the delay
+          if (activePaymentRef.current.isProcessed) return;
 
           const pollResult = await pollPaymentStatus(txnid, { maxAttempts: 3, delayMs: 1500 });
-          if (pollResult.verified) {
+          if (pollResult.verified && !activePaymentRef.current.isProcessed) {
             console.log('[AppState Resume] Payment verified via fallback polling!');
+            activePaymentRef.current.isProcessed = true;
+            activePaymentRef.current.inProgress = false;
             await dismissEasebuzzPortal();
-            await processSuccessfulPayment(txnid);
+            await processSuccessfulPayment(txnid, pollResult);
           } else if (pollResult.failed) {
             console.log('[AppState Resume] Payment marked as failed by gateway.');
             await dismissEasebuzzPortal();
@@ -635,16 +658,28 @@ function MainApp({ user, onLogout }) {
     };
   }, []);
 
-  const executePrintAndSync = async (ticketId, paymentModeToUse, itemsToUse = null, customerMobile = null) => {
-    // 1. Triple-Lock and Instant Wipe
+  const executePrintAndSync = async (ticketId, paymentModeToUse, itemsToUse = null, customerMobile = null, isManualReprint = false) => {
+    if (!ticketId) return;
+
+    // Strict Anti-Reprint Guard: Never print the same ticket ID automatically more than once
+    if (!isManualReprint && printedTicketsRef.current.has(ticketId)) {
+      console.warn(`[PRINT_GUARD] Blocked duplicate print! Ticket ${ticketId} has already been printed.`);
+      return;
+    }
+
     const now = Date.now();
-    if (isPrinting.current || isPrintingState || (now - lastPrintTime.current < 4000)) return;
+    if (isPrinting.current || isPrintingState || (now - lastPrintTime.current < 2500)) {
+      console.warn('[PRINT_GUARD] Printing in progress or cooldown active. Ignoring duplicate call.');
+      return;
+    }
     
     const cartToPrint = itemsToUse && itemsToUse.length > 0 ? itemsToUse : [...cart];
     if (cartToPrint.length === 0) return;
 
     const mobileToUse = customerMobile !== null && customerMobile !== undefined ? customerMobile : mobile;
 
+    // Immediately mark ticketId as printed in memory BEFORE any async operations
+    printedTicketsRef.current.add(ticketId);
     isPrinting.current = true;
     setIsPrintingState(true);
     lastPrintTime.current = now;
@@ -657,7 +692,7 @@ function MainApp({ user, onLogout }) {
     const allRecords = generateTicketsForCart(cartToPrint, ticketId, mobileToUse, user, paymentModeToUse);
     const ticketsToPrint = allRecords.filter(r => !r.isMaster);
     
-    // 2. INSTANTLY save to Local Archive with 'paid' status before anything else
+    // Save to Local Archive marked with printed: true
     try {
         const archiveStr = await storage.getItem('local_archive');
         const archive = archiveStr ? JSON.parse(archiveStr) : [];
@@ -665,10 +700,10 @@ function MainApp({ user, onLogout }) {
         if (idx !== -1) {
             archive[idx].status = 'paid';
             archive[idx].paymentMode = paymentModeToUse;
+            archive[idx].printed = true;
             archive[idx].synced = false;
         } else {
-            // Fallback: If not found, add it
-            archive.unshift({ ...allRecords[0], status: 'paid', synced: false });
+            archive.unshift({ ...allRecords[0], status: 'paid', printed: true, synced: false });
         }
         await storage.setItem('local_archive', JSON.stringify(archive));
     } catch (e) { console.error('Archive Instant Save Error:', e); }
@@ -693,7 +728,8 @@ function MainApp({ user, onLogout }) {
             setIsPrintingState(false);
         }
     };
-    runPrint();
+    // Await printing to ensure isPrinting lock is held for the full duration of paper cut
+    await runPrint();
 
     // Sync all records (Master + Sub-tickets) to server
     const syncToServer = async () => {
@@ -742,6 +778,10 @@ function MainApp({ user, onLogout }) {
   };
 
   const processCashPayment = () => {
+      if (isPrinting.current || isPrintingState || cart.length === 0) {
+        console.log('Cash payment ignored: printer busy or cart empty.');
+        return;
+      }
       const txnId = `ETH-${Date.now().toString().slice(-8)}`;
       setCurrentTxnId(txnId);
       handlePaymentConfirmed(txnId, 'CASH');
@@ -962,7 +1002,8 @@ function MainApp({ user, onLogout }) {
               rec.id,
               rec.paymentMode,
               rec.items,
-              rec.mobile
+              rec.mobile,
+              true // isManualReprint = true (allows intentional manual reprint only)
             );
           }
         }}
